@@ -274,6 +274,32 @@ body{font-family:system-ui,-apple-system,sans-serif;background:radial-gradient(c
 .bn-v3-legacy{margin-top:14px;border-radius:14px;border:1px dashed #d5c4b4;padding:12px}.bn-v3-legacy>summary{font-weight:800;color:#523023;cursor:pointer}
 @media(min-width:850px){.bn-v3-tiles{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:640px){.bn-v3-root{padding:12px}.bn-v3-controls{grid-template-columns:repeat(2,minmax(0,1fr))}.bn-v3-paygrid{grid-template-columns:1fr 1fr}.bn-v3-tile{padding:11px}}
+
+/* BentarNgopi v3.1 - responsive detailed transaction ledger */
+.bn-detail-v31-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,235px),1fr));gap:12px}
+.bn-detail-v31-tile{border:1px solid #eee3d5;border-radius:16px;padding:14px;background:#fff;display:flex;flex-direction:column;gap:5px;min-width:0}
+.bn-detail-v31-tile>span{font-size:.83rem;font-weight:800;color:#72543b}
+.bn-detail-v31-tile>strong{font-size:clamp(1.15rem,4vw,1.65rem);overflow-wrap:anywhere;color:#3d2b22}
+.bn-detail-v31-tile>small{color:#8c7464}
+.bn-detail-v31-payment{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;font-size:.76rem;color:#735842}
+.bn-detail-v31-payment span{background:#f8f2eb;border-radius:8px;padding:5px 8px}
+.bn-detail-v31-group{margin:20px 0;border:1px solid #e9dfd3;border-radius:16px;background:#fbfaf8;padding:12px;min-width:0}
+.bn-detail-v31-grouphead{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;margin-bottom:10px}
+.bn-detail-v31-grouphead h3{font-size:1.05rem;font-weight:900;color:#4a3325}
+.bn-detail-v31-grouphead h3 span{font-weight:600;color:#97816f}
+.bn-detail-v31-grouphead p{font-size:.8rem;color:#8e7763}
+.bn-detail-v31-grouphead>strong{font-size:1.15rem;color:#4a3325}
+.bn-detail-v31-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:10px}
+.bn-detail-v31-card{background:white;border:1px solid #eadfd2;border-radius:14px;padding:12px;min-width:0}
+.bn-detail-v31-top{display:flex;gap:8px;justify-content:space-between;align-items:flex-start}
+.bn-detail-v31-top>div{min-width:0}.bn-detail-v31-top b{display:block;font-size:.91rem;overflow-wrap:anywhere}.bn-detail-v31-top small{display:block;color:#877568;font-size:.72rem;margin-top:2px}
+.bn-detail-v31-pill{font-weight:800;font-size:.72rem;border-radius:999px;padding:5px 9px;white-space:nowrap}
+.bn-detail-v31-wait{background:#fff2ce;color:#8b5500}.bn-detail-v31-done{background:#e0f5e8;color:#236b38}.bn-detail-v31-cancel{background:#fce4e4;color:#a03030}
+.bn-detail-v31-meta{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}.bn-detail-v31-meta span{font-size:.7rem;padding:4px 7px;background:#f8f3ed;border-radius:7px;color:#6a5444}
+.bn-detail-v31-product{display:flex;justify-content:space-between;gap:10px;border-top:1px solid #f0ece7;padding:8px 0;font-size:.79rem}
+.bn-detail-v31-product div{min-width:0}.bn-detail-v31-product div b{display:block;overflow-wrap:anywhere}.bn-detail-v31-product span{display:block;color:#857262;font-size:.73rem;overflow-wrap:anywhere}.bn-detail-v31-product>b{white-space:nowrap}
+.bn-detail-v31-total{display:flex;justify-content:space-between;gap:8px;padding-top:9px;border-top:1px solid #eae4dc;font-size:.9rem;align-items:center}.bn-detail-v31-total strong{font-size:1rem}
+.bn-detail-v31-more{margin-top:10px;border-top:1px dashed #e6dacc;padding-top:8px;font-size:.77rem}.bn-detail-v31-more summary{cursor:pointer;color:#89592b;font-weight:800}.bn-detail-v31-more>div{padding-top:7px;overflow-wrap:anywhere}.bn-detail-v31-empty{padding:10px}
 </style><link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkJlbnRhck5nb3BpIC0gS29waSAmIFJld2FyZHMiLCAic2hvcnRfbmFtZSI6ICJCZW50YXJOZ29waSIsICJzdGFydF91cmwiOiAiLi9CZW50YXItbmdvcGktRGFzaGJvYXJkLUFkbWluLmh0bWwiLCAiaWQiOiAiLi9CZW50YXItbmdvcGktRGFzaGJvYXJkLUFkbWluLmh0bWwiLCAic2NvcGUiOiAiLi8iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiI2ZkZjhmNiIsICJ0aGVtZV9jb2xvciI6ICIjM2UyMjE3IiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBSUFBQURkdnZ0UUFBQUVKRWxFUVZSNG5PM2RQVzdWUUJTR1lZTW82ZWxaQWlVRlBSSkxTc21Ta0xJRFNsYVRCVkJFaWlDWFgzOGV6NW5qNXhGdHJQSDRaZXdyejAxZWZIajdab085WHM0ZUFHc1RFQkVCRVJFUUVRRVJFUkFSQVJFUkVCRUJFUkVRRVFFUkVSQVJBUkVSRUJFQkVSRVFFUUVSRVJBUkFSRVJFQkVCRVJFUUVRRVJFUkFSQVJFUkVCRUJFUkVRRVFFUkVSQVJBUkVSRUJFQkVSRVFFUUVSRVJBUkFSRVJFQkVCL1pQN3U0ZlpReWlxZjBEM2R3L2g1VCtrbm53WU5UVVA2T21hNVJjdk9jS0J3NmltYzBEUHJ0YStpL2ZqVCtWSDJIMlFzam9IeEFuYUJuVDdILzNqNTlmNVFhWU1vN0syQVkzUTdOb2Y0aW9CVFZsK0RobEdjVDBES3ZLZ1dtUVlRL1VNaU5NSWlNZ2xBanJreVNNL1NMOEhvSzFsUUVlOWVaaCtoQ1UwRElnekNZaUlnSWdJaUlpQWlBaUlpSUNJQ0lpSWdJZ0lpSWlBaUFpSWlJQ0lOQXpJNW8wek5Rem9sZzBlNDF3aUlNWVJFSkdlQVJWNS9pZ3lqS0Y2Qm5ScngvUEhpTXZmN3pIb0tnRWRvdC9sejdVTjZIYjltTElJSFRLTXl0b0d4RGs2QnpSaUVUcGtHZXUwQ0hVT2FCdHo4VFQwbytZQmJXV2VZN3ArcE84ZjBQYnp4ZHQzSVovOVZINlFOajI5K1BEMnpld3hzTEJYc3dmdzM3NTgvVFo3Q0VmNjlQN2Q3Q0ZFbGxtQm1uVnphOUdTMW5nR2FsL1B0dXc1TGhEUW9qTzd3NHBuV3YwV3R1S2NodjU2TDNzMkozUHZmYVVEdW1BOWovN2N4TyttWlVwSmRXOWhsNjFuMjN2dVg3NStPMy9TaWdaMDVYb2U3WjZCa3pNcUdoQ2gweG9TVUZ2bkxFVVZBM0wvZW5USVBJeWV6SW9CY2F5aERRbm9Fc1kxSkNBaUFycUtRWXVRZ0M1a1JFUHI3UWZpNlpWRmhZK3JWcUNGZlhyLzd2SGZ2Ly9JNGMwSnFJT0pMK1FGMU1Tc2hnVFVoKzBjbk9IWXh5QUJ0WEwrSWlRZ0lnSWlJaUFpQWlJaUlDSUNhc1czTWhqdTJJLzZBdXBqeXN0NUFUVXhhMnVIZ0RxWXVESElocktGN2VqbThIY2RBbHBQaFkySVQ5ekNMbVRFcTFZQlhjV2dGL1VDSWlLZ1N4aTNUMGhBL1EzZFpTYWc1a2J2VWZReHZxMXp0cmRhZ1hvNmJYTzBGYWliay9mVkM2aVBLZDhMRTlEeTV2NmljUUd0cDlTZlpmRVFUVVJBUkFSRXBHSkFwZTd4RXkweER4VURZaUVDSWxJMG9DVlc3NkZXbVlHaUFXM3J6T0FJQzUxNzNZQzJwZWJ4UUd1ZGRlbUF0dFZtTTdmYytWWVBhRnR3VG5kYjhVd1hDR2hiYzJiLzE2TG5XUHF2TnY5U3FhL1Y1UmJ0NXNsNkFWRktsZTBjOTNjUHM0ZXdubytmWDg4ZVFvMW5JUFhzVTJIZTVnZFVZUmJXTlgzMkpnYzAvZndibUR1SDgxY2dsaVlnSWdJaU1qbWdDaDlFVnpkM0R1ZXZRQnBLVEorOStRRnRCV1poVVJYbXphc01JaVZXSU5ZbElDSUNJaUlnSWdJaUlpQWlBaUlpSUNJQ0lpSWdJZ0lpSWlBaUFpSWlJQ0lDSWlJZ0lnSWlJaUFpQWlJaUlDSUNJaUlnSWdJaUlpQWlBaUlpSUNJQ0lpSWdJZ0lpSWlBaUFpSWlJQ0lDSWlJZ0lnSWlJaUFpQWlJaUlDSUNJaUlnSWdJaThoMFJsZ0c2ZnhWWEl3QUFBQUJKUlU1RXJrSmdnZz09IiwgInNpemVzIjogIjE5MngxOTIiLCAidHlwZSI6ICJpbWFnZS9wbmcifSwgeyJzcmMiOiAiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFnQUFBQUlBQ0FJQUFBQjdHa090QUFBTGYwbEVRVlI0bk8zZFBaSVZSeGFBMFdJQ1U3NThMVUdtRFBsRWFFbVlXaElSN0FDVDFiQUFHVXd3UFUyRDNxdXVlcFdaM3ptbXJHdGszYTkrSHEwM2YvNzI2d1pBejMrdUhnQ0Fhd2dBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FwL2o0L3N2SDkxK3VudUkrWnFaR0FEamV0NVUwMFc0eU0wRUN3TUdlTGFNcGRwT1phUklBVGpmamJqSXpCUUxBa1g2MGcwYmVUV1ltU3dBNHpNKzN6NWk3eWN5VUNRQ1BNK051TWpNTEV3Q09jZVBTR1dvM21aazRBUUNJRWdBT01PUDlwcGxCQUFDaTNsNDlBTk83L2JiMDNkKy9uRHJKN2N3TW15Y0FnQ3dCNEVGbXZDMDFNMnNUQUY1bHhzK1Nab2F2QkFBZ1NnQjRoQm5mUzVpWjVRa0ErODM0WHNMTThJMEFBRVFKQUVDVUFMRFRqUDh1eWN6d2xBQUFSQWtBUUpRQUFFUUpBSHZNK01ORU04TXpBc0M1WnZ3eWFXWWlCQUFnU2dBQW9nUUFJRW9BQUtJRWdMdk4rTk1VTThQM0JBQWdTZ0FBb2dRQUlFb0FBS0lFZ0JQTitNOVR6VXlIQUFCRUNRQkFsQUJ3bnhsL25HNW1lSkVBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FEM2VmZjNMMWVQY0Rjenc0c0VBQ0JLQUFDaUJJQVRmWHovNWVvUjdtWm1PZ1FBSUVvQUFLSUVBQ0JLQUFDaUJJQzd6ZmdUZFRQRDl3UUFJRW9BQUtJRUFDQktBQUNpQklCenpmaVBWTTFNaEFDd3g0dy9VREV6UENNQUFGRUNBQkFsQUFCUkFzQk90NytlSHVmN3BKbmhLUUVBaUJJQWdDZ0JZTDhaZjZSb1p2aEdBSGlFR1Y5UG01bmxDUUJBbEFEd0tqTytuVEF6ZkNVQVBNaU1ieWZNek5vRUFDRHF6WisvL1hyMURFenZycnZPUWQ1bW1CazhBUUJFQ1FBSG1QRm0wOHdnQUFCUkFzQXhadnliWldZbVRnQzR3SXk3eWN5c1J3QTR6RjF2cUFmWlRXYW1UQUE0MG94ZktjMU1sZ0J3bVJsdlRzM01TZ1NBZzgzNGdzTE1OQWtBeDV0eE41bVpJQUhnRkRQdUpqTlRJd0NjNWZiZE5NNG5UVE9UNG8vQmNicWYzSGdPdTVMTVRJRUE4Q0RQMXRNVUs4bk1yRTBBQUtKOEF3Q0lFZ0NBS0FFQWlIcDc5UUNjNjhPbnoxZVB3RUQrK3VQM3EwZGdJRDRDcjhiRzUzWjZFQ2NBNjdENjJVY0dzZ1JnZXZZK1IxR0NHZ0dZbU5YUEdXU2d3NitBWm1YN2N4SkhxOE1Ud0h4Y256eUdSNEhsZVFLWWpPM1B3emhzeXhPQW1iZ2dlVEJIYm0wQ01BMlhJcGR3OEJZbUFITndFWEloeDI5VkFqQUJseCtYY3dpWDVGZEFvM1BoTVk2VGZoZjBvMFB1WjBobkU0Q2gyZjZNNW95bGZQczVsNFJqQ2NDNGJIL0dkUGdXM25IVWxlQVFBakFvMjUrUkhidC9YM25heFdBM0g0R0J1WDM0OU5rTjB6NENNQ0tubWNFTmVFUmxZQWV2Z0liakVET0xvOTY5bkhIbXZSZTZoU2NBWUVGdXBHNGhBR054YXBuSTRNZlZTNkYvSlFEQXltVGdKd1FBV0o4R3ZFZ0FCdUtNTXAySkRxMUhnZThKQUJDaUFVOEp3Q2ljU3lZMTNkR2RidUR6Q0FDUTQzWFFWd0lBUkdtQUFBQmQ4UVlJQUpCV2JvQUFES0Y4QkZuQTdBZDQ5dmwzRXdDQWFBTUVBR0Ria2cwUUFJQW9BUUQ0cjlwRGdBQUEvRStxQVFJQThIODZEUkFBZ09jaURSQUFnQ2dCQUhoQjRTRkFBQUNpQkFEZ1pjcy9CQWdBd0ErdDNRQUJBSWg2ZS9VQVFOMWZmL3orN0w4TWRkLzk0ZFBuN3lkY2d3QUF3M202Y0llS3dXSzhBZ0tHOXRjZnYxOStBNzVxaEFRQW1NQUlHVmlQQUFEVGtJRmpDUUF3bVVzeXNPUmJJQUVBcHVSUjRQVUVBSmlWQnJ5U0FBQVRlMlFEMW5zTEpBREEzRHdIN0NZQXdQUTBZQjhCQUxqVlltK0JCQUJZZ1llQUhRUUFJRW9BZ0VWNENMaVhBQUJFQ1FDd2pnYzhCS3owSFZnQUFLSUVBQ0JLQUlDbCtCUjhPd0VBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUpheTB0L3FPWnNBQUVRSkFFQ1VBQURyZU1EN241WCsxcEFBQUVRSkFMQUluMy92SlFBQVVRSUFyTUR0L3c0Q0FIQ3JsYjRBYndJQUxNRHQvejRDQU16Tjl0OU5BSUNKUFhMN0wvYitaeE1BWUY3dS9WOUpBSUFwMmY2djkvYnFBUUR1YzhucVgrLzl6eVlBd0VUYzlSOUxBSUFKV1AxbkVBQmdhQ09zL2lYZi8yd0NBQXhvaEtWZklBREF4UVpmOTZ2ZS9tOStCZ3FRSlFBQVA3VHc3ZjhtQUFBL3N2YjIzd1FBSUVzQUFGNncvTzMvSmdBQVdRSUE4RnpoOW44VEFJQm5JdHQvRXdDQXB6cmJmeE1BZ0c5UzIzOFRBSUFzQVFEWXR0N3QveVlBQUZ0eSsyOENBTkRjL3BzQUFISFo3YjhKQUZCVzN2NmJBQUJaOGUyLytUK0NBVUZXLzFlZUFJQVcyLzhiQVFCQ2JQK252QUlDRXF6Kzcza0NBTlpuKzcvSUV3Q3dNcXYvSndRQVdKUFYvNis4QWdJV1pQdmZ3aE1Bc0E1Ny95NENBS3pBNnQ5QkFJQzVXZjI3Q1FBd0gwdi9FQUlBVE1QZVA1WUFBSU95N3M4bUFNREZMUHFyK0hjQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJd0JMK0NZR29POEtRRUFDQktBQUNpQkFBZ1NnQUFvZ1JnRkQ2ak1TbEhkMTRDQUJBbEFBTnhKOFYwSE5xcENRQkFsQUFBUkFuQVdEeFFNeEhIZFhZQ0FCQWxBTU54VjhVVUhOUUZDTUNJWEZvTXpoRmRnd0FBUkFuQW9OeGhNU3lIY3hrQ01DNlhHUU55TEZjaUFFTnpzVEVVQjNJeEFqQTZseHlEY0JUWEl3QVRjT0Z4T1lkd1NRSXdCNWNmRjNMOFZpVUEwM0FSY2drSGIyRUNNQk9YSWcvbXlLMU5BQ2JqZ3VSaEhMYmx2Zm56dDErdm5vRTlQbno2ZlBVSUxNdnFqL0FFTUN1WEtDZHh0RG84QVV6UG93QkhzZnByQkdBZFNzQSs5bjZXQUt4R0JyaWQxUjhuQUl2VEE1Nnk4WGxLQUFDaS9Bb0lJRW9BQUtMZVhqMUF5OGYzWDY0ZUFVYjM3dTlmcmg2aHdqZUFSN0QzWVFjbE9KdFhRS2V6L1dFZjE4N1pQQUdjeVBHRlEzZ1VPSWtuZ0xQWS9uQVVWOU5KQkFBZ1NnQk80WVlGanVXYU9vTUFITTlKaFRPNHNnNG5BQUJSQWdBUUpRQUg4NVFLNTNGOUhVc0FBS0lFQUNCS0FBQ2lCQUFnU2dBQW9nVGdZUDVxRlp6SDlYVXNBUUNJRWdDQUtBRTRucWRVT0lNcjYzQUNjQW9uRlk3bG1qcURBQUJFQ2NCWjNMREFVVnhOSi9IL0JENmRQMThGdTFuOXAvSUVjRG9uR1BaeDdaek5FOEJEZVJxQWYyWHZQNHdBQUVSNUJRUVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJEMUQrZkpqdGlQdmwvWEFBQUFBRWxGVGtTdVFtQ0MiLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyJ9XX0="><link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAEJElEQVR4nO3dPW7VQBSGYYMo6elZAiUFPRJLSsmSkLIDSlaTBVBEiiCXX38ez5nj5xFtrPH4Zewrz01efHj7ZoO9Xs4eAGsTEBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEB/ZP7u4fZQyiqf0D3dw/h5T+knnwYNTUP6Oma5RcvOcKBw6imc0DPrta+i/fjT+VH2H2QsjoHxAnaBnT7H/3j59f5QaYMo7K2AY3Q7Nof4ioBTVl+DhlGcT0DKvKgWmQYQ/UMiNMIiMglAjrkySM/SL8HoK1lQEe9eZh+hCU0DIgzCYiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICINAzI5o0zNQzolg0e41wiIMYREJGeARV5/igyjKF6BnRrx/PHiMvf7zHoKgEdot/lz7UN6Hb9mLIIHTKMytoGxDk6BzRiETpkGeu0CHUOaBtz8TT0o+YBbWWeY7p+pO8f0Pbzxdt3IZ/9VH6QNj29+PD2zewxsLBXswfw3758/TZ7CEf69P7d7CFEllmBmnVza9GS1ngGal/Ptuw5LhDQojO7w4pnWv0WtuKchv56L3s2J3PvfaUDumA9j/7cxO+mZUpJdW9hl61n23vuX75+O3/SigZ05Xoe7Z6BkzMqGhCh0xoSUFvnLEUVA3L/enTIPIyezIoBcayhDQnoEsY1JCAiArqKQYuQgC5kREPr7Qfi6ZVFhY+rVqCFfXr/7vHfv//I4c0JqIOJL+QF1MSshgTUh+0cnOHYxyABtXL+IiQgIgIiIiAiAiIiICICasW3Mhju2I/6Aupjyst5ATUxa2uHgDqYuDHIhrKF7ejm8HcdAlpPhY2IT9zCLmTEq1YBXcWgF/UCIiKgSxi3T0hA/Q3dZSag5kbvUfQxvq1ztrdagXo6bXO0Faibk/fVC6iPKd8LE9Dy5v6icQGtp9SfZfEQTURARAREpGJApe7xEy0xDxUDYiECIlI0oCVW76FWmYGiAW3rzOAIC5173YC2pebxQGuddemAttVmM7fc+VYPaFtwTndb8UwXCGhbc2b/16LnWPqvNv9Sqa/V5Rbt5sl6AVFKle0c93cPs4ewno+fX88eQo1nIPXsU2He5gdUYRbWNX32Jgc0/fwbmDuH81cgliYgIgIiMjmgCh9EVzd3DuevQBpKTJ+9+QFtBWZhURXmzasMIiVWINYlICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIi8h0RlgG6fxVXIwAAAABJRU5ErkJggg=="><link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADoklEQVR4nO3dPW7bQBSFUTlImd69l+DShfsAXlLKLMlAduDSq8kCUggwDDnXkMyfefN0DtQSIIefhqRISTePd7cH+J9vo1eAusRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEEkDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOop5x/Pn1d97F62gYhzLW0i2Ot33ztZ00dvFqusXxnilkoVZxnOyPn79/TLR4Qa3iYF1t41j4xh27eBF94nCGsbo+cbA6cRCJg6hJHC5it9AkDrYgDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcRE3iOLkReulzWWMXL6tJHGxBHETiIOoTh+8irK5PHCd8U2G5tnGwXKs4XNCuq1UcHzm4LNEtjo8nhhftobGLV9MtjsPoHdypj4ZxHD7soUuvM8cuXsfN493t6HWgqO+jV+Aszy+vo1dhqaeH+9GrcLHqM0eDLN6bK5G6cTTL4r1ZEil6Qtq4jMM8W1dx5phl7Bb6fP44GYQhk025OK6kjKNPdnkahz0rKXpYIXl+ed3t/VMrjquaNg4LtnefRGrFwUW27qNQHNc2bRwt3OpNB61QHHzNdn2Io4ON+hBHE1v0IY4+Vu9DHETiKOrp4f74umipdSePOZ7nuGZvfex/qW/mmMaZs8iKDYljJjvfmxXHZNyVZZG1jizimM9uk4c4iMRBJA4icRCJg0gc87nSB4xZxVrXuuKYzJ6338Qxk51vzIpjGmeWseLnp57nqG7gNzbEUdTXmlj3tovDCpE4+lj9bq04mtjiPr44OtjoCQ9xTG+7Z3/EMbdNnwoTx8S2fl7Q5xxT2ucxUnFMZs+vJohjDkN+alIcRVX4lWMnpETiICoUR4WJdH+Vt7pQHFRTK47Kb6MtFN/eWnFQSrk4ir+ZVlR/S8vFcZhh1JabYhsrxnGYZOy+bJatK/dnPCea/Vr+LFkcVY/jqEEic2VxNEccDDH4xtu8//O+m4H/dj7yhFQZ5xg4SsPiUMb5Ro3VmDiUcakhI1b0cw4qEAeROIjGxDHw8mxSQ0Zs2Myhj/ONGquRhxV9nGPgKPn4nMgJKZE4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEEkDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYPoH+ct+4NuraQbAAAAAElFTkSuQmCC"><style>.bn-map-modal{position:fixed;inset:0;z-index:999;background:rgba(28,20,14,.75);display:flex;align-items:center;justify-content:center;padding:12px}.bn-map-panel{background:white;border-radius:20px;width:min(96vw,720px);max-height:95vh;overflow:auto;padding:16px;box-shadow:0 25px 80px #0005}.bn-location-note{background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:14px}</style></head><body class="bg-stone-50 text-stone-800 min-h-screen"><header class="sticky top-0 z-30 bg-coffee-900 text-white shadow"><div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3"><button onclick="nav('home')" class="font-black text-xl"><i class="fa-solid fa-mug-hot text-amber-400"></i> Bentar<span class="text-amber-400">Ngopi</span></button><div class="flex items-center gap-2 text-sm"><button onclick="nav('home')" class="px-2 py-2">Menu</button><button id="bnMemberTab" onclick="nav('member')" class="bn-member-tab bg-amber-600 rounded-full px-3 py-2" aria-label="Buka akun Member"><i class="fa-solid fa-user"></i> <span id="bnMemberTabName">Member</span><span id="bnMemberTabBadge" class="bn-member-notif hidden" aria-label="Notifikasi aktivitas">0</span></button><button id="adminReturn" onclick="nav('admin')" class="hidden rounded-full px-3 py-2 bg-stone-700 border border-stone-500"><i class="fa-solid fa-gear"></i> Admin</button></div></div></header><main id="app" class="max-w-5xl mx-auto p-4 pb-20"></main><footer class="text-center text-xs text-stone-400 pb-8">BentarNgopi • Menu, Sampel & Stamp</footer><div id="toast" class="hidden fixed bottom-5 right-4 left-4 sm:left-auto z-50 rounded-xl px-4 py-3 text-white shadow-2xl"></div><script>
 const BASE="https://fqaewybhgsxlkgkvjnjv.supabase.co/rest/v1", KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZxYWV3eWJoZ3N4bGtna3Zqbmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyODc4MzQsImV4cCI6MjEwNjg2MzgzNH0.s4Frl_Mpj77Fc321j7MWykvxaXA7XWkKjWzJKEn-LXE";
 const state={adminSession:null,adminChecked:false,adminTab:sessionStorage.getItem('bnAdminTab')||'settings',view:location.hash.startsWith('#tracking=')?'tracking':location.hash==='#ngopidulu'?'admin':'home',phone:sessionStorage.getItem('bnphone')||'',menu:[],settings:null,member:null,samples:[],purchases:[],rewards:[],camera:null,selectedSample:null,ratings:[0,0,0,0],cart:[],onlineCart:[],lastOrder:null,onlineType:'nonmember',onlineServiceType:'delivery',onlinePaymentMethod:'cash',orderLocation:null,bnMemberNoticeCount:0};
@@ -680,7 +706,7 @@ function bnInvalidateDetailReport(){
  bnDetailDataset=null;bnDetailVisible={online:[],cashier:[]};
  const summary=document.getElementById('bnDetailSummary');if(summary)summary.innerHTML='';
  const content=document.getElementById('bnDetailContent');if(content)content.innerHTML='<p class="muted">Rentang tanggal berubah. Tekan Tampilkan Data untuk memperbarui laporan.</p>';
- for(const id of ['bnExportAll','bnExportOnline','bnExportCashier']){const el=document.getElementById(id);if(el)el.disabled=true}
+ for(const id of ['bnExportAll','bnExportOnline','bnExportCashier','bnExportPending','bnExportCompleted']){const el=document.getElementById(id);if(el)el.disabled=true}
 }
 function bnDetailDateFilter(){
  const from=document.getElementById('bnDetailFrom')?.value;
@@ -695,74 +721,89 @@ async function bnLoadDetailReport(){
  if(days>89){toast('Maksimal 90 hari per laporan',true);return}
  target.innerHTML='<p class="muted">Memuat transaksi dan detail produk...</p>';
  bnDetailDataset=null;
- for(const id of ['bnExportAll','bnExportOnline','bnExportCashier']){const el=document.getElementById(id);if(el)el.disabled=true}
+ for(const id of ['bnExportAll','bnExportOnline','bnExportCashier','bnExportPending','bnExportCompleted']){const el=document.getElementById(id);if(el)el.disabled=true}
  try{
   const response=await staffRPC('bn_admin_detailed_report',{p_token:state.adminSession.token,p_from:from,p_to:to});
   bnDetailDataset={online:Array.isArray(response.online)?response.online:[],cashier:Array.isArray(response.cashier)?response.cashier:[]};
   bnFilterDetailReport();
  }catch(err){target.innerHTML='<p class="text-red-700 font-semibold">Gagal mengambil laporan detail: '+esc(err.message||'Periksa SQL laporan detail')+'</p>';}
 }
+function bnDetailNormalizedRows(){
+ if(!bnDetailDataset)return [];
+ const source=document.getElementById('bnDetailSource')?.value||'all';
+ const phase=document.getElementById('bnDetailPhase')?.value||'all';
+ const status=document.getElementById('bnDetailStatus')?.value||'all';
+ const pay=document.getElementById('bnDetailPayment')?.value||'all';
+ const service=document.getElementById('bnDetailService')?.value||'all';
+ const search=(document.getElementById('bnDetailSearch')?.value||'').trim().toLowerCase();
+ const rows=[];
+ if(source!=='cashier')for(const o of bnDetailDataset.online)rows.push({
+  source:'Online / Web',sourceKey:'online',id:o.order_no||o.id,date:o.created_at,
+  status:String(o.status||'pending').toLowerCase(),payment:String(o.payment_method||'').toLowerCase(),
+  service:o.service_type||'pickup',customer:o.customer_name||'',phone:o.customer_phone||'',
+  address:o.delivery_address||o.address||'',note:o.notes||'',processDate:o.process_date||'',processTime:o.process_time||'',
+  total:bnDetailNum(o.total),items:bnDetailPieces(o),raw:o
+ });
+ if(source!=='online')for(const o of bnDetailDataset.cashier)rows.push({
+  source:'Offline / Kasir',sourceKey:'cashier',id:o.id,date:o.created_at,
+  status:String(o.fulfillment_status||'completed').toLowerCase(),payment:String(o.payment_method||'').toLowerCase(),
+  service:'pickup',customer:o.customer_name||o.phone||'Pelanggan Umum',phone:o.phone||'',
+  address:'',note:o.cashier_note||'',processDate:'',processTime:'',
+  total:bnDetailNum(o.total),items:bnDetailPieces(o),raw:o
+ });
+ const phaseOf=s=>s==='completed'?'completed':s==='cancelled'?'cancelled':'pending';
+ return rows.filter(o=>
+  (phase==='all'||phaseOf(o.status)===phase)&&
+  (status==='all'||o.status===status)&&
+  (pay==='all'||o.payment===pay)&&
+  (service==='all'||o.service===service)&&
+  (!search||[o.id,o.customer,o.phone,...o.items.map(i=>i.name)].join(' ').toLowerCase().includes(search))
+ ).sort((a,b)=>new Date(b.date)-new Date(a.date));
+}
 function bnFilterDetailReport(){
  if(!bnDetailDataset)return;
- const status=document.getElementById('bnDetailStatus')?.value||'all';
- const payment=document.getElementById('bnDetailPayment')?.value||'all';
- const service=document.getElementById('bnDetailService')?.value||'all';
- const q=(document.getElementById('bnDetailSearch')?.value||'').trim().toLowerCase();
- const online=bnDetailDataset.online.filter(o=>
-  (status==='all'||o.status===status)&&
-  (payment==='all'||o.payment_method===payment)&&
-  (service==='all'||o.service_type===service)&&
-  (!q||[o.order_no,o.customer_name,o.customer_phone].join(' ').toLowerCase().includes(q))
- );
- // Filters for payment/status/service apply only to online transactions.
- const cashier=bnDetailDataset.cashier.filter(o=>!q||[o.id,o.phone,o.customer_name].join(' ').toLowerCase().includes(q));
- bnDetailVisible={online,cashier};
- const sum=xs=>xs.reduce((a,o)=>a+bnDetailNum(o.total),0);
- const completed=online.filter(o=>o.status==='completed');
+ const rows=bnDetailNormalizedRows();
+ bnDetailVisible={online:rows.filter(o=>o.sourceKey==='online').map(o=>o.raw),cashier:rows.filter(o=>o.sourceKey==='cashier').map(o=>o.raw)};
+ const pending=rows.filter(o=>['pending','confirmed','processing'].includes(o.status));
+ const completed=rows.filter(o=>o.status==='completed');
+ const cancelled=rows.filter(o=>o.status==='cancelled');
+ const unidentified=rows.filter(o=>!['pending','confirmed','processing','completed','cancelled'].includes(o.status));
+ const sum=xs=>xs.reduce((v,o)=>v+o.total,0);
+ const paymentBreakdown=xs=>['cash','qris','cod'].map(p=>'<span>'+p.toUpperCase()+': <b>'+money(sum(xs.filter(o=>o.payment===p)))+'</b></span>').join('');
  const summary=document.getElementById('bnDetailSummary');
- const mini=(label,value,tip)=>'<div class="bn-detail-stat"><span>'+label+'</span><strong>'+value+'</strong><small>'+tip+'</small></div>';
- if(summary)summary.innerHTML='<div class="bn-detail-stats">'
-  +mini('Pesanan Online',online.length.toLocaleString('id-ID'),'Seluruh status')
-  +mini('Online Selesai',money(sum(completed)),completed.length+' order selesai')
-  +mini('Cash',money(sum(completed.filter(o=>o.payment_method==='cash'))),'Online selesai')
-  +mini('QRIS',money(sum(completed.filter(o=>o.payment_method==='qris'))),'Online selesai')
-  +mini('COD',money(sum(completed.filter(o=>o.payment_method==='cod'))),'Online selesai')
-  +mini('Pengantaran',money(sum(completed.filter(o=>o.service_type==='delivery'))),'Bagian dari total online')
-  +mini('Transaksi Kasir',money(sum(cashier)),cashier.length+' struk; terpisah')
-  +'</div>';
+ if(summary)summary.innerHTML='<div class="bn-detail-v31-summary"><div class="bn-detail-v31-tile"><span>Belum Selesai</span><strong>'+money(sum(pending))+'</strong><small>'+pending.length+' transaksi · menunggu / dikonfirmasi / diproses</small><div class="bn-detail-v31-payment">'+paymentBreakdown(pending)+'</div></div><div class="bn-detail-v31-tile"><span>Sudah Selesai</span><strong>'+money(sum(completed))+'</strong><small>'+completed.length+' transaksi · minuman selesai</small><div class="bn-detail-v31-payment">'+paymentBreakdown(completed)+'</div></div><div class="bn-detail-v31-tile"><span>Dibatalkan</span><strong>'+cancelled.length+' transaksi</strong><small>Nominal '+money(sum(cancelled))+' tidak masuk total aktif</small></div></div>';
  const target=document.getElementById('bnDetailContent');if(!target)return;
- const onlineRows=online.map(o=>{
-  const items=bnDetailPieces(o);
-  return '<tr><td><b>'+esc(o.order_no||o.id)+'</b><div class="text-xs text-stone-500">'+esc(bnDetailWIB(o.created_at))+'</div></td><td>'+esc(o.customer_name||'-')+'<div class="text-xs text-stone-500">'+esc(o.customer_phone||'')+'</div></td><td>'+esc(bnDetailStatusName(o.status))+'</td><td>'+esc(paymentLabel(o.payment_method))+'</td><td>'+esc(serviceLabel(o.service_type))+'</td><td><details><summary class="cursor-pointer font-semibold">'+items.length+' jenis produk</summary>'+items.map(i=>'<div class="border-b py-1">'+esc(i.name)+' × '+i.qty+' = '+money(i.subtotal)+(i.extra?'<div class="text-xs">Topping: '+esc(i.extra)+'</div>':'')+'</div>').join('')+'</details></td><td class="font-bold text-right whitespace-nowrap">'+money(o.total)+'</td></tr>';
- }).join('');
- const cashierRows=cashier.map(o=>'<tr><td><b>'+esc(String(o.id||'').slice(0,12))+'</b><div class="text-xs text-stone-500">'+esc(bnDetailWIB(o.created_at))+'</div></td><td>'+esc(o.customer_name||o.phone||'-')+'</td><td><details><summary class="cursor-pointer font-semibold">'+bnDetailPieces(o).length+' jenis produk</summary>'+bnDetailPieces(o).map(i=>'<div class="border-b py-1">'+esc(i.name)+' × '+i.qty+' = '+money(i.subtotal)+'</div>').join('')+'</details></td><td class="font-bold text-right whitespace-nowrap">'+money(o.total)+'</td></tr>').join('');
- target.innerHTML='<div class="bn-detail-table"><h3 class="font-black text-lg mb-3">Pesanan Online ('+online.length+')</h3><div class="overflow-x-auto"><table><thead><tr><th>Nomor / Tanggal</th><th>Pelanggan</th><th>Status</th><th>Bayar</th><th>Layanan</th><th>Produk</th><th>Total</th></tr></thead><tbody>'+(onlineRows||'<tr><td colspan="7" class="text-center">Belum ada data</td></tr>')+'</tbody></table></div></div>'
- +'<div class="bn-detail-table mt-4"><h3 class="font-black text-lg mb-3">Transaksi Kasir / Member ('+cashier.length+')</h3><div class="overflow-x-auto"><table><thead><tr><th>Nomor / Tanggal</th><th>Member</th><th>Produk</th><th>Total</th></tr></thead><tbody>'+(cashierRows||'<tr><td colspan="4" class="text-center">Belum ada data</td></tr>')+'</tbody></table></div></div>';
- for(const id of ['bnExportAll','bnExportOnline','bnExportCashier']){const el=document.getElementById(id);if(el)el.disabled=false}
+ const card=o=>{
+  const products=o.items.map(i=>'<div class="bn-detail-v31-product"><div><b>'+esc(i.name)+'</b><span>'+esc(' × '+i.qty+(i.sugar?' · Sugar '+i.sugar:'')+(i.ice?' · Ice '+i.ice:'')+(i.extra?' · '+i.extra:''))+'</span></div><b>'+money(i.subtotal)+'</b></div>').join('')||'<span class="muted">Detail produk belum tersedia</span>';
+  const color=o.status==='completed'?'bn-detail-v31-done':o.status==='cancelled'?'bn-detail-v31-cancel':'bn-detail-v31-wait';
+  return '<article class="bn-detail-v31-card"><div class="bn-detail-v31-top"><div><b>'+esc(o.id)+'</b><small>'+esc(bnDetailWIB(o.date))+'</small></div><span class="bn-detail-v31-pill '+color+'">'+esc(bnDetailStatusName(o.status))+'</span></div>'+
+    '<div class="bn-detail-v31-meta"><span>'+esc(o.source)+'</span><span>'+esc(o.payment.toUpperCase()||'Belum diketahui')+'</span><span>'+esc(o.customer)+'</span></div>'+
+    '<div class="bn-detail-v31-products">'+products+'</div><div class="bn-detail-v31-total"><span>Total transaksi</span><strong>'+money(o.total)+'</strong></div>'+
+    '<details class="bn-detail-v31-more"><summary>Detail pelanggan, pembayaran & catatan</summary><div><p><b>WhatsApp:</b> '+esc(o.phone||'-')+'</p><p><b>Layanan:</b> '+esc(o.service||'-')+'</p><p><b>Alamat:</b> '+esc(o.address||'-')+'</p><p><b>Catatan:</b> '+esc(o.note||'-')+'</p><p><b>Jadwal:</b> '+esc([o.processDate,o.processTime].filter(Boolean).join(' ')||'-')+'</p></div></details></article>';
+ };
+ const section=(title,desc,arr,cls)=>'<section class="bn-detail-v31-group '+cls+'"><div class="bn-detail-v31-grouphead"><div><h3>'+title+' <span>('+arr.length+')</span></h3><p>'+desc+'</p></div><strong>'+money(sum(arr))+'</strong></div><div class="bn-detail-v31-list">'+(arr.length?arr.map(card).join(''):'<p class="muted bn-detail-v31-empty">Tidak ada transaksi pada kelompok ini untuk filter yang dipilih.</p>')+'</div></section>';
+ target.innerHTML=section('Transaksi Belum Selesai','Menunggu, Dikonfirmasi, dan Sedang Diproses',pending,'')+
+   section('Transaksi Selesai','Minuman sudah selesai diproses',completed,'')+
+   (cancelled.length?section('Transaksi Dibatalkan','Tidak dihitung sebagai transaksi aktif',cancelled,''): '')+
+   (unidentified.length?section('Status Perlu Dicek','Status tidak dikenal; tidak dimasukkan ke nominal utama',unidentified,''): '');
+ for(const id of ['bnExportAll','bnExportOnline','bnExportCashier','bnExportPending','bnExportCompleted']){const el=document.getElementById(id);if(el)el.disabled=false}
 }
 function bnExportDetailCsv(scope){
  if(!bnDetailDataset){toast('Tampilkan data terlebih dahulu',true);return}
+ const rows=bnDetailNormalizedRows().filter(o=>scope==='all'||(scope==='online'&&o.sourceKey==='online')||(scope==='cashier'&&o.sourceKey==='cashier')||(scope==='pending'&&['pending','confirmed','processing'].includes(o.status))||(scope==='completed'&&o.status==='completed'));
  const {from,to}=bnDetailDateFilter();
- const cols=['Sumber','Nomor Transaksi','Tanggal Dibuat (WIB)','Status','Nama Pelanggan','WhatsApp','Pembayaran','Layanan','Alamat','Nama Produk','Qty','Harga Satuan','Topping','Gula','Es','Subtotal Produk','Total Pesanan','Tanggal Proses','Jam Proses'];
- const lines=[cols];
- if(scope!=='cashier')for(const o of bnDetailVisible.online){
-  const items=bnDetailPieces(o);
-  for(const item of (items.length?items:[{name:'',qty:0,price:0,subtotal:0,extra:'',sugar:'',ice:''}]))lines.push([
-   'Online',o.order_no||o.id,bnDetailWIB(o.created_at),bnDetailStatusName(o.status),o.customer_name,o.customer_phone,o.payment_method,o.service_type,o.delivery_address,item.name,item.qty,item.price,item.extra,item.sugar,item.ice,item.subtotal,o.total,o.process_date||'',o.process_time||''
+ const columns=['Kelompok Proses','Sumber','Nomor Transaksi','Tanggal WIB','Status Proses','Pembayaran','Pelanggan','WhatsApp','Layanan','Alamat','Nama Produk','Qty','Harga Satuan','Topping','Sugar','Ice','Subtotal Item','Total Transaksi','Catatan','Tanggal Proses','Jam Proses'];
+ const lines=[columns];
+ for(const o of rows){
+  const phase=o.status==='completed'?'Selesai':o.status==='cancelled'?'Dibatalkan':['pending','confirmed','processing'].includes(o.status)?'Belum Selesai':'Perlu Dicek';
+  for(const item of (o.items.length?o.items:[{name:'',qty:'',price:'',subtotal:'',extra:'',sugar:'',ice:''}]))lines.push([
+   phase,o.source,o.id,bnDetailWIB(o.date),bnDetailStatusName(o.status),o.payment.toUpperCase(),o.customer,o.phone,o.service,o.address,item.name,item.qty,item.price,item.extra,item.sugar,item.ice,item.subtotal,o.total,o.note,o.processDate,o.processTime
   ]);
  }
- if(scope!=='online')for(const o of bnDetailVisible.cashier){
-  const items=bnDetailPieces(o);
-  for(const item of (items.length?items:[{name:'',qty:0,price:0,subtotal:0}]))lines.push([
-   'Kasir',o.id,bnDetailWIB(o.created_at),'Tercatat',o.customer_name||'',o.phone||'','Tidak tercatat','Kasir','',item.name,item.qty,item.price,'','','',item.subtotal,o.total,'',''
-  ]);
- }
- if(lines.length===1){toast('Tidak ada data untuk diekspor',true);return}
- // UTF-8 BOM + semicolon separator so Excel Indonesia reads columns correctly.
+ if(lines.length===1){toast('Tidak ada data pada pilihan ekspor ini',true);return}
  const data='\ufeffsep=;\r\n'+lines.map(row=>row.map(bnDetailSafeCell).join(';')).join('\r\n');
- const blob=new Blob([data],{type:'text/csv;charset=utf-8;'});
- const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;
- a.download='Bentar-ngopi-Laporan-'+scope+'-'+from+'-sd-'+to+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+ const blob=new Blob([data],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='Bentar-ngopi-Laporan-'+scope+'-'+from+'-sd-'+to+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
 }
 function bnImproveAdmin(){
  const ordersButton=document.querySelector('[data-admin-tab="orders"]');
@@ -804,11 +845,11 @@ function bnImproveAdmin(){
  if(ordersPanel&&!document.querySelector('[data-admin-panel="reports"]')){
   const p=document.createElement('section');p.dataset.adminPanel='reports';p.className='hidden space-y-4';
   p.innerHTML='<div class="card bn-detail-report">'
-   +'<div class="flex flex-wrap justify-between items-start gap-3"><div><div class="section-kicker">Keuangan / Operasional</div><h2 class="text-2xl font-black text-coffee-900">Laporan Detail Transaksi</h2><p class="muted">Transaksi online & kasir dipisahkan. Ekspor CSV kompatibel Excel.</p></div><span class="tag">Waktu WIB</span></div>'
-   +'<div class="bn-detail-filters mt-4"><label>Tanggal awal<input id="bnDetailFrom" class="field mt-1" type="date" onchange="bnInvalidateDetailReport()"></label><label>Tanggal akhir<input id="bnDetailTo" class="field mt-1" type="date" onchange="bnInvalidateDetailReport()"></label><label>Status Online<select id="bnDetailStatus" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Semua status</option><option value="pending">Menunggu</option><option value="confirmed">Dikonfirmasi</option><option value="processing">Diproses</option><option value="completed">Selesai</option><option value="cancelled">Dibatalkan</option></select></label><label>Pembayaran<select id="bnDetailPayment" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Semua pembayaran</option><option value="cash">Cash</option><option value="qris">QRIS</option><option value="cod">COD</option></select></label><label>Layanan<select id="bnDetailService" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Semua layanan</option><option value="delivery">Pengantaran</option><option value="pickup">Ambil ke Tempat</option></select></label><label>Cari nomor/nama/WA<input id="bnDetailSearch" class="field mt-1" type="search" placeholder="Cari transaksi..." oninput="bnFilterDetailReport()"></label></div>'
+   +'<div class="flex flex-wrap justify-between items-start gap-3"><div><div class="section-kicker">Keuangan / Operasional</div><h2 class="text-2xl font-black text-coffee-900">Laporan Detail Transaksi</h2><p class="muted">Online & Kasir digabung menurut tahap proses. Detail produk dan ekspor CSV untuk Excel.</p></div><span class="tag">Waktu WIB</span></div>'
+   +'<div class="bn-detail-filters mt-4"><label>Tanggal awal<input id="bnDetailFrom" class="field mt-1" type="date" onchange="bnInvalidateDetailReport()"></label><label>Tanggal akhir<input id="bnDetailTo" class="field mt-1" type="date" onchange="bnInvalidateDetailReport()"></label><label>Sumber transaksi<select id="bnDetailSource" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Online + Kasir</option><option value="online">Online / Web</option><option value="cashier">Offline / Kasir</option></select></label><label>Kelompok Proses<select id="bnDetailPhase" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Semua kelompok</option><option value="pending">Belum Selesai</option><option value="completed">Selesai</option><option value="cancelled">Dibatalkan</option></select></label><label>Status Detail<select id="bnDetailStatus" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Semua status</option><option value="pending">Menunggu</option><option value="confirmed">Dikonfirmasi</option><option value="processing">Diproses</option><option value="completed">Selesai</option><option value="cancelled">Dibatalkan</option></select></label><label>Pembayaran<select id="bnDetailPayment" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Semua pembayaran</option><option value="cash">Cash</option><option value="qris">QRIS</option><option value="cod">COD</option></select></label><label>Layanan<select id="bnDetailService" class="field mt-1" onchange="bnFilterDetailReport()"><option value="all">Semua layanan</option><option value="delivery">Pengantaran</option><option value="pickup">Ambil ke Tempat</option></select></label><label>Cari nomor/nama/WA<input id="bnDetailSearch" class="field mt-1" type="search" placeholder="Cari transaksi..." oninput="bnFilterDetailReport()"></label></div>'
    +'<div class="flex flex-wrap gap-2 mt-4"><button class="btn" onclick="bnLoadDetailReport()"><i class="fa-solid fa-magnifying-glass"></i> Tampilkan Data</button><button class="btn !bg-green-800" id="bnExportAll" disabled onclick="bnExportDetailCsv(&quot;all&quot;)"><i class="fa-solid fa-file-csv"></i> Ekspor Semua CSV</button><button class="btn !bg-stone-700" id="bnExportOnline" disabled onclick="bnExportDetailCsv(&quot;online&quot;)">Ekspor Online</button><button class="btn !bg-stone-700" id="bnExportCashier" disabled onclick="bnExportDetailCsv(&quot;cashier&quot;)">Ekspor Kasir</button></div>'
-   +'<div id="bnDetailSummary" class="mt-4"></div><div id="bnDetailContent" class="mt-4"></div>'
-   +'<p class="muted mt-3">Rentang maksimal 90 hari. Pesanan Masuk memakai tanggal transaksi dibuat; nilai online dihitung sebagai omzet hanya jika status Selesai. Cash/QRIS/COD adalah metode, bukan bukti lunas. Pengantaran merupakan bagian omzet metode pembayaran, bukan tambahan.</p>'
+   +'<div class="flex flex-wrap gap-2 mt-2"><button class="btn !bg-amber-700" id="bnExportPending" disabled onclick="bnExportDetailCsv(&quot;pending&quot;)">Ekspor Belum Selesai</button><button class="btn !bg-emerald-800" id="bnExportCompleted" disabled onclick="bnExportDetailCsv(&quot;completed&quot;)">Ekspor Selesai</button></div><div id="bnDetailSummary" class="mt-4"></div><div id="bnDetailContent" class="mt-4"></div>'
+   +'<p class="muted mt-3">Rentang maksimal 90 hari. Nominal berdasarkan tanggal transaksi dibuat dan status proses; pesanan selesai bukan bukti pembayaran lunas. Cash/QRIS/COD adalah metode, bukan bukti lunas. Pengantaran merupakan bagian omzet metode pembayaran, bukan tambahan.</p>'
    +'</div>';
   ordersPanel.after(p);
   const now=bnTodayWIB();document.getElementById('bnDetailTo').value=now;
@@ -1957,7 +1998,7 @@ function bnMountManagementDashboard(){
  const overview=document.querySelector('[data-admin-panel="overview"]');
  if(!overview||document.getElementById('bnMgmtDashboard'))return;
  const root=document.createElement('section');root.id='bnMgmtDashboard';root.className='bn-v3-root';
- root.innerHTML=`<div class="bn-v3-head"><div><div class="section-kicker">BENTARNGOPI / ADMIN V3.0</div><h2>Dashboard Operasional</h2><p class="muted">Nominal berdasarkan status pembuatan minuman • Online & Kasir • WIB</p></div><button class="btn" id="bnMgmtRefresh" type="button" onclick="bnLoadManagementReport()">↻ Muat laporan</button></div>
+ root.innerHTML=`<div class="bn-v3-head"><div><div class="section-kicker">BENTARNGOPI / ADMIN V3.1</div><h2>Dashboard Operasional</h2><p class="muted">Nominal berdasarkan status pembuatan minuman • Online & Kasir • WIB</p></div><button class="btn" id="bnMgmtRefresh" type="button" onclick="bnLoadManagementReport()">↻ Muat laporan</button></div>
  <div class="bn-v3-controls"><label>Dari tanggal<input id="bnMgmtFrom" class="field" type="date" onchange="bnMgmtStale()"></label><label>Sampai tanggal<input id="bnMgmtTo" class="field" type="date" onchange="bnMgmtStale()"></label><label>Sumber<select id="bnMgmtSource" class="field" onchange="bnRenderManagementReport()"><option value="all">Online + Kasir</option><option value="online">Online / Web</option><option value="cashier">Offline / Kasir</option></select></label><label>Pembayaran<select id="bnMgmtPay" class="field" onchange="bnRenderManagementReport()"><option value="all">Semua</option><option value="cash">Cash</option><option value="qris">QRIS</option><option value="cod">COD</option><option value="other">Lainnya</option></select></label></div>
  <div id="bnMgmtResult" aria-live="polite"><p class="muted mt-3">Memuat ringkasan penjualan...</p></div>
  <div class="bn-v3-actions"><button class="btn !bg-green-800" id="bnMgmtExportOrders" type="button" onclick="bnMgmtExport('orders')" disabled>Ekspor Transaksi (Excel CSV)</button><button class="btn !bg-stone-700" id="bnMgmtExportProducts" type="button" onclick="bnMgmtExport('products')" disabled>Ekspor Produk Terlaris</button></div>

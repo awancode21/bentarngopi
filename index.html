@@ -1,4 +1,4 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#3e2217"><meta name="bn-app-version" content="barista-terpadu-4.2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="BentarNgopi"><title>BentarNgopi • Affiliate PIN V5.5</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{coffee:{50:'#fdf8f6',100:'#f2e8e5',200:'#eaddd7',300:'#e0cec7',500:'#a37a6a',600:'#8b5e4c',700:'#694132',800:'#523023',900:'#3e2217'}}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><style>
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#3e2217"><meta name="bn-app-version" content="barista-terpadu-4.2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="BentarNgopi"><title>BentarNgopi • Audit Affiliate V6.1</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{coffee:{50:'#fdf8f6',100:'#f2e8e5',200:'#eaddd7',300:'#e0cec7',500:'#a37a6a',600:'#8b5e4c',700:'#694132',800:'#523023',900:'#3e2217'}}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><style>
 :root{--coffee-900:#3b2418;--coffee-800:#523023;--coffee-700:#6f3f24;--amber-500:#f59e0b;--surface:#fffdf9;--muted:#7c6f64;--shadow:0 18px 45px rgba(59,36,24,.08)}
 html{scroll-behavior:smooth}
 body{font-family:system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top,#fff7ed 0,#fdf8f6 32%,#f8fafc 100%);color:#2d1d14}
@@ -1949,7 +1949,7 @@ async function bnOpenLocationPicker(){
  const root=document.createElement('div');root.id='bnLocationModal';root.className='bn-map-modal';root.innerHTML='<div class="bn-map-panel"><div class="flex justify-between items-center mb-3"><h3 class="font-black text-xl">Pilih Titik Pengantaran</h3><button type="button" class="btn !bg-stone-600" onclick="bnCloseMapPicker()">Tutup</button></div><p class="muted mb-3">Ketuk peta untuk memasang pin atau geser pin ke lokasi tujuan. GPS bersifat opsional.</p><div id="bnMapCanvas" style="height:min(56vh,440px);border-radius:14px;overflow:hidden;background:#eee"></div><p id="bnMapPicked" class="font-semibold mt-3">Belum ada titik dipilih</p><div class="flex gap-2 mt-3"><button type="button" class="btn" onclick="bnUseGps()">Gunakan GPS</button><button type="button" class="btn !bg-green-800 flex-1" onclick="bnCloseMapPicker()">Simpan Titik</button></div></div>';document.body.appendChild(root);
  try{await bnLoadLeaflet();const loc=state.orderLocation;const lat=Number.isFinite(loc?.lat)?loc.lat:-6.2,lng=Number.isFinite(loc?.lng)?loc.lng:106.816666;window.bnLeafletMap=L.map('bnMapCanvas').setView([lat,lng],Number.isFinite(loc?.lat)?16:5);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(window.bnLeafletMap);window.bnLeafletMap.on('click',e=>bnMapPick(e.latlng.lat,e.latlng.lng));if(Number.isFinite(loc?.lat))bnMapPick(loc.lat,loc.lng);setTimeout(()=>window.bnLeafletMap?.invalidateSize(),80)}catch(err){document.getElementById('bnMapCanvas').innerHTML='<p class="p-5 text-red-700">Peta gagal dimuat. Gunakan GPS atau tempel link Google Maps pada form.</p>'}
 }
-async function submitOnlineOrder(e){e.preventDefault();syncOnlineMember();if(!state.onlineCart.length)return toast('Keranjang masih kosong',true);const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;const name=document.getElementById('onName').value.trim(),phone=state.phone||phoneVal(document.getElementById('onPhone').value),address=document.getElementById('onAddress').value.trim(),notes=document.getElementById('onNotes').value.trim(),serviceType=state.onlineServiceType,paymentMethod=state.onlinePaymentMethod;if(!/^\+?[0-9]{9,16}$/.test(phone)){btn.disabled=false;return toast('Nomor WhatsApp tidak valid',true)}try{if(state.onlineCart.some(x=>{const m=state.menu.find(z=>z.id===x.id);return !bnCanOrder(m)||Number(x.qty)>Number(m.stock_qty)}))throw Error('Produk habis atau jumlah melebihi stok, mohon perbarui keranjang');if(state.onlineCart.some(x=>!bnPackageOptions(state.menu.find(z=>z.id===x.id)).includes(x.package_variant)))throw Error('Pilih varian Cup atau Botol yang tersedia');const items=state.onlineCart.map(x=>({...x,sugar:state.menu.find(m=>m.id===x.id)?.sugar_enabled===false?'none':x.sugar}));const result=await api('rpc/bn_place_online_order_packaged','POST',{p_type:state.onlineType,p_name:name,p_phone:phone,p_address:address,p_notes:notes,p_items:items,p_service_type:serviceType,p_payment_method:paymentMethod});state.lastOrder={...result,name,phone,address,notes,service_type:serviceType,payment_method:paymentMethod,items:items.map(x=>{const m=state.menu.find(z=>z.id===x.id);return {name:m?.name||x.id,qty:x.qty,price:Number(state.onlineType==='member'?m?.price_member:m?.price_normal||0)+(x.toppings||[]).reduce((v,id)=>v+Number(bnToppings.find(t=>t.id===id)?.price||0),0),sugar:state.menu.find(m=>m.id===x.id)?.sugar_enabled===false?'none':x.sugar,ice:x.ice,package_variant:x.package_variant,toppings:(x.toppings||[]).map(id=>bnToppings.find(t=>t.id===id)?.name||id)}})};storeOrderAccess(result.order_id,result.access_token); const bn50Ref=sessionStorage.getItem('bnAffiliateRef');if(bn50Ref&&result.order_id&&result.access_token){try{const attached=await api('rpc/bn_affiliate_attach_v56','POST',{p_order_id:result.order_id,p_access_token:result.access_token,p_ref_code:bn50Ref});if(attached?.ok)sessionStorage.removeItem('bnAffiliateRef')}catch(refErr){console.warn('Atribusi affiliate belum tersimpan:',refErr.message)}}
+async function submitOnlineOrder(e){e.preventDefault();syncOnlineMember();if(!state.onlineCart.length)return toast('Keranjang masih kosong',true);const btn=e.target.querySelector('button[type=submit]');btn.disabled=true;const name=document.getElementById('onName').value.trim(),phone=state.phone||phoneVal(document.getElementById('onPhone').value),address=document.getElementById('onAddress').value.trim(),notes=document.getElementById('onNotes').value.trim(),serviceType=state.onlineServiceType,paymentMethod=state.onlinePaymentMethod;if(!/^\+?[0-9]{9,16}$/.test(phone)){btn.disabled=false;return toast('Nomor WhatsApp tidak valid',true)}try{if(state.onlineCart.some(x=>{const m=state.menu.find(z=>z.id===x.id);return !bnCanOrder(m)||Number(x.qty)>Number(m.stock_qty)}))throw Error('Produk habis atau jumlah melebihi stok, mohon perbarui keranjang');if(state.onlineCart.some(x=>!bnPackageOptions(state.menu.find(z=>z.id===x.id)).includes(x.package_variant)))throw Error('Pilih varian Cup atau Botol yang tersedia');const items=state.onlineCart.map(x=>({...x,sugar:state.menu.find(m=>m.id===x.id)?.sugar_enabled===false?'none':x.sugar}));const result=await api('rpc/bn_place_online_order_packaged','POST',{p_type:state.onlineType,p_name:name,p_phone:phone,p_address:address,p_notes:notes,p_items:items,p_service_type:serviceType,p_payment_method:paymentMethod});state.lastOrder={...result,name,phone,address,notes,service_type:serviceType,payment_method:paymentMethod,items:items.map(x=>{const m=state.menu.find(z=>z.id===x.id);return {name:m?.name||x.id,qty:x.qty,price:Number(state.onlineType==='member'?m?.price_member:m?.price_normal||0)+(x.toppings||[]).reduce((v,id)=>v+Number(bnToppings.find(t=>t.id===id)?.price||0),0),sugar:state.menu.find(m=>m.id===x.id)?.sugar_enabled===false?'none':x.sugar,ice:x.ice,package_variant:x.package_variant,toppings:(x.toppings||[]).map(id=>bnToppings.find(t=>t.id===id)?.name||id)}})};storeOrderAccess(result.order_id,result.access_token); const bn50Ref=sessionStorage.getItem('bnAffiliateRef');if(bn50Ref&&result.order_id&&result.access_token){try{const attached=await api('rpc/bn_affiliate_attach_v50','POST',{p_order_id:result.order_id,p_access_token:result.access_token,p_ref_code:bn50Ref});if(attached?.ok)sessionStorage.removeItem('bnAffiliateRef')}catch(refErr){console.warn('Atribusi affiliate belum tersimpan:',refErr.message)}}
 if(serviceType==='delivery'&&state.orderLocation?.url){try{await api('rpc/bn_customer_set_order_location','POST',{p_order_id:result.order_id,p_access_token:result.access_token,p_lat:state.orderLocation.lat,p_lng:state.orderLocation.lng,p_url:state.orderLocation.url});state.lastOrder={...state.lastOrder,location_lat:state.orderLocation.lat,location_lng:state.orderLocation.lng,location_url:state.orderLocation.url}}catch(err){toast('Pesanan masuk, tetapi titik Maps gagal disimpan. Hubungi Admin.',true)}}
 state.onlineCart=[];renderOrderSuccess();if(serviceType!=='delivery'||!state.orderLocation?.url)toast('Pesanan tersimpan dan masuk ke Admin')}catch(error){btn.disabled=false}}
 function orderWaText(o){return ['*PESANAN BENTAR NGOPI*','No: '+o.order_no,'Jenis: '+(o.customer_type==='member'?'Member':'Non-member'),'Layanan: '+serviceLabel(o.service_type),'Pembayaran: '+paymentLabel(o.payment_method),'Nama: '+o.name,'WA: '+o.phone,'Alamat/Keterangan: '+o.address,o.location_url?'Lokasi Maps: '+bnSafeMapUrl(o):'','','*Pesanan:*',...o.items.map(x=>'- '+x.name+' x'+x.qty+' ('+(x.sugar==='none'?'no sugar':x.sugar+' sugar')+', '+(x.package_variant==='bottle'?'Botol (tanpa pilihan Ice)':(x.package_variant==='cup'?'Cup, ':'')+x.ice+' ice')+(x.toppings.length?', topping: '+x.toppings.join(', '):'')+') = '+money(x.price*x.qty)),'','*Total: '+money(o.total)+'*',o.notes?'Catatan: '+o.notes:'',o.payment_method==='qris'?'Pembayaran: scan QRIS pada aplikasi.':'','Status: Menunggu konfirmasi Admin'].filter(Boolean).join('\n')}
@@ -2025,7 +2025,7 @@ async function setAdminOrderSchedule(id){const p_process_date=document.getElemen
 
 
 // === Kasir POS / terpisah dari member pelanggan ===
-const bnPos={type:'nonmember',member:null,phone:'',cart:[],award:true,search:'',busy:false,requestKey:null,section:'sale'};
+const bnPos={type:'nonmember',member:null,phone:'',cart:[],award:true,search:'',busy:false,requestKey:null,section:'sale',refCode:'',buyerPhone:''};
 function bnPosUUID(){return (crypto?.randomUUID?.()||'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const v=Math.floor(Math.random()*16);return(c==='x'?v:(v&3|8)).toString(16)}))}
 function bnCashierPrice(m){return Number(bnPos.type==='member'?m.price_member:m.price_normal)||0}
 function bnCashierExtra(x){return (x.toppings||[]).reduce((sum,id)=>sum+Number(bnChoices(x.id).find(t=>t.id===id)?.price||0),0)}
@@ -2117,7 +2117,7 @@ function bnCashierRenderPage(inAdmin){
  const parent=inAdmin?document.getElementById('bnCashierAdminHost'):app;
  if(!parent)return;
  const isCashier=state.adminSession?.role==='kasir';
- parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><p class="bn-pos-muted">PO belum dianggap dibayar. Saat pelanggan membayar, pilih Cash/QRIS di panel Realisasi Pembayaran.</p></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
+ parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><div class="rounded-xl border border-amber-200 bg-amber-50 p-3 mt-3"><h3 class="font-bold">🔗 Kode Affiliate / QR Kasir · V5.8</h3><p class="text-xs text-stone-600 mt-1">Opsional. Scan QR dengan scanner keyboard atau masukkan kode referral. Hanya pembayaran langsung. Komisi diperiksa Admin; tidak otomatis dibayarkan.</p><div class="grid md:grid-cols-2 gap-2 mt-2"><label class="text-sm">Kode Referral<input id="bn58RefCode" class="field mt-1 w-full" autocomplete="off" maxlength="24" placeholder="BN..." oninput="bnPos.refCode=this.value.toUpperCase().trim();bnPos.requestKey=null"></label><label class="text-sm">No. WA Pembeli (wajib jika affiliate)<input id="bn58BuyerPhone" class="field mt-1 w-full" inputmode="tel" placeholder="08..." oninput="bnPos.buyerPhone=this.value.trim();bnPos.requestKey=null"></label></div></div><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><p class="bn-pos-muted">PO belum dianggap dibayar. Saat pelanggan membayar, pilih Cash/QRIS di panel Realisasi Pembayaran.</p></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
  bn39Switch();
  const sales=parent.querySelector('.bn-pos-shell');
  if(sales){
@@ -2295,17 +2295,22 @@ async function bnCashierCheckout(){
  const payment=document.getElementById('bnPosPay')?.value||'cash';
  const note=document.getElementById('bnPosNote')?.value.trim()||'';
  try{
-  const r=await staffRPC('bn_transaction_create_v39',{p_order_type:orderType,p_process_date:orderType==='po'?processDate:null,p_process_time:orderType==='po'?processTime:null,p_token:state.adminSession.token,p_customer_type:bnPos.type,p_phone:bnPos.type==='member'?bnPos.member.phone:null,p_items:items,p_award_stamps:bnPos.type==='member'&&bnPos.award,p_payment_method:payment,p_note:note,p_request_key:bnPos.requestKey,p_discount_mode:bnVoucherPos.mode,p_manual_type:bnVoucherPos.manualType,p_manual_value:Number(bnVoucherPos.manualValue||0),p_manual_reason:bnVoucherPos.reason,p_voucher_code:bnVoucherPos.code});
+  const referralCode=(document.getElementById('bn58RefCode')?.value||'').trim().toUpperCase();
+  const buyerPhone=(bnPos.type==='member'?bnPos.member?.phone:(document.getElementById('bn58BuyerPhone')?.value||'')).trim();
+  if(referralCode&&orderType!=='direct')throw Error('Referral Kasir V5.8 sementara hanya untuk pembayaran langsung.');
+  if(referralCode&&!/^\+?[0-9]{9,16}$/.test(buyerPhone))throw Error('Isi nomor WhatsApp pembeli yang valid untuk referral.');
+  const args={p_order_type:orderType,p_process_date:orderType==='po'?processDate:null,p_process_time:orderType==='po'?processTime:null,p_token:state.adminSession.token,p_customer_type:bnPos.type,p_phone:bnPos.type==='member'?bnPos.member.phone:null,p_items:items,p_award_stamps:bnPos.type==='member'&&bnPos.award,p_payment_method:payment,p_note:note,p_request_key:bnPos.requestKey,p_discount_mode:bnVoucherPos.mode,p_manual_type:bnVoucherPos.manualType,p_manual_value:Number(bnVoucherPos.manualValue||0),p_manual_reason:bnVoucherPos.reason,p_voucher_code:bnVoucherPos.code};
+  const r=referralCode?await staffRPC('bn_affiliate_pos_checkout_v58',{...args,p_ref_code:referralCode,p_buyer_phone:buyerPhone}):await staffRPC('bn_transaction_create_v39',args);
   const receipt=document.getElementById('bnPosReceipt');
   if(receipt)receipt.innerHTML='<div class="rounded-xl border border-green-200 bg-green-50 p-4"><div class="font-black text-green-800">✓ '+(orderType==='direct'?'Penjualan Langsung':'PO')+' Berhasil</div><div class="text-sm mt-2">Total: <b>'+money(r.total)+'</b> · '+(orderType==='direct'?'Lunas '+payment.toUpperCase():'Belum Bayar · Proses '+esc(processDate)+' '+esc(processTime))+'</div><div class="text-xs text-green-900 mt-1">ID: '+esc(r.purchase_id)+'</div></div>';
   toast(orderType==='direct'?'Penjualan langsung tersimpan • pembayaran diterima':'PO tersimpan • belum ada pembayaran diterima');bn38Load();if(orderType==='direct')bn37Load();
-  bnPos.cart=[];bnPos.member=null;bnPos.phone='';bnPos.award=true;bnPos.requestKey=null;bnVoucherPosReset();
+  bnPos.cart=[];bnPos.member=null;bnPos.phone='';bnPos.award=true;bnPos.requestKey=null;bnPos.refCode='';bnPos.buyerPhone='';bnVoucherPosReset();
   try{const ids=items.map(x=>x.id);ids.forEach(id=>{const m=state.menu.find(z=>z.id===id);if(m)m.stock_qty=Math.max(0,Number(m.stock_qty)-items.filter(x=>x.id===id).reduce((a,x)=>a+x.qty,0))})}catch{}
   bnCashierProducts();bnCashierCartUI();bnCashierStampUI();bnCashierTypeUI();
  }catch(e){toast(e.message||'Gagal menyimpan. Periksa riwayat sebelum mencoba lagi.',true)}
  finally{bnPos.busy=false;if(btn){btn.textContent=orderType==='direct'?'Simpan Pembayaran Langsung':'Buat PO (Belum Bayar)'}bnCashierCartUI()}
 }
-function bnCashierReset(){if(bnPos.busy)return;if(bnPos.cart.length&&!confirm('Kosongkan transaksi saat ini?'))return;bnPos.type='nonmember';bnPos.phone='';bnPos.member=null;bnPos.cart=[];bnPos.award=true;bnPos.search='';bnPos.requestKey=null;bnVoucherPosReset();bnCashierRenderPage(state.adminSession?.role==='admin')}
+function bnCashierReset(){if(bnPos.busy)return;if(bnPos.cart.length&&!confirm('Kosongkan transaksi saat ini?'))return;bnPos.type='nonmember';bnPos.phone='';bnPos.member=null;bnPos.cart=[];bnPos.award=true;bnPos.search='';bnPos.requestKey=null;bnPos.refCode='';bnPos.buyerPhone='';bnVoucherPosReset();bnCashierRenderPage(state.adminSession?.role==='admin')}
 
 window.addEventListener('hashchange',()=>{bnStopLiveOrderTracking();if(location.hash.startsWith('#tracking=')){state.view='tracking';render()}else if(location.hash==='#ngopidulu'&&state.view!=='admin')nav('admin');else if(location.hash!== '#ngopidulu'&&['admin','tracking'].includes(state.view))nav('home')});
 if(state.view==='admin')sessionStorage.setItem('bnAdminVisited','1');updateAdminReturn();bnRefreshMemberTab();restoreAdmin().then(render);
@@ -3093,16 +3098,9 @@ function bn49Export(kind){if(!bn49Data)return;
 
 // === BENTARNGOPI V5.0 AFFILIATE (ONLINE LINK) ===
 const bn50RefParam=new URLSearchParams(location.search).get('ref');
-function bn56NormalizeRef(value){
- const ref=String(value||'').trim().toLowerCase();
- return ref.length<=64&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(ref)?ref:null;
-}
-if(bn50RefParam!==null){
- const ref=bn56NormalizeRef(bn50RefParam);
- if(ref)sessionStorage.setItem('bnAffiliateRef',ref);else sessionStorage.removeItem('bnAffiliateRef');
-}
+if(bn50RefParam&&/^[A-Z0-9]{6,24}$/i.test(bn50RefParam))sessionStorage.setItem('bnAffiliateRef',bn50RefParam.toUpperCase());
 function bn50ReferralLink(code){return location.origin+location.pathname+'?ref='+encodeURIComponent(code)}
-// V5.5 PIN Member: login affiliate tidak menggunakan OTP, PIN diberikan Admin.
+// V5.5.1 Affiliate: daftar dahulu, approval Admin, lalu Member membuat PIN sendiri.
 let bn55PinSession=null;
 let bn55PinPhone=null;
 async function bn55PinRPC(fn,args){
@@ -3115,11 +3113,11 @@ async function bn50MountMember(){
  const root=document.getElementById('app');if(!root||!state.phone)return;
  const old=document.getElementById('bn50MemberAffiliate');if(old)old.remove();
  const section=document.createElement('section');section.className='card mb-4';section.id='bn50MemberAffiliate';
- section.innerHTML='<h2 class="text-lg font-extrabold">🔐 Affiliate & Referral Saya · Link Nama Member</h2><p class="muted mt-2">Masuk menggunakan PIN khusus Affiliate. Jika belum memiliki PIN, minta Admin mengaktifkan akses dan memberikan PIN awal secara langsung. Tidak perlu SMS OTP.</p><div id="bn50MemberData" class="mt-3"></div>';
+ section.innerHTML='<h2 class="text-lg font-extrabold">🔐 Affiliate & Referral Saya · PIN Member</h2><p class="muted mt-2">Daftar Affiliate terlebih dahulu. Setelah disetujui Admin, gunakan kode aktivasi untuk membuat PIN pribadi. Tidak perlu SMS OTP.</p><div id="bn50MemberData" class="mt-3"></div>';
  const first=root.querySelector('.grid.md\\:grid-cols-2');if(first)first.insertAdjacentElement('afterend',section);else root.prepend(section);
  if(bn55PinSession&&bn55PinPhone===state.phone){try{await bn55PinShowData();return}catch(e){bn55PinSession=null;bn55PinPhone=null}}
  const el=document.getElementById('bn50MemberData');if(!el)return;
- el.innerHTML='<form class="space-y-3" onsubmit="bn55PinLogin(event)"><label class="block text-sm font-bold">PIN Affiliate (6–8 angka)<input id="bn55PinInput" type="password" inputmode="numeric" maxlength="8" pattern="[0-9]{6,8}" autocomplete="current-password" class="field mt-2 w-full" required placeholder="Masukkan PIN"></label><button class="btn" type="submit">Buka Affiliate</button></form><p class="muted mt-2">Lupa PIN? Hubungi Admin untuk reset setelah pemeriksaan identitas.</p>';
+ el.innerHTML='<div class="grid md:grid-cols-2 gap-3"><form class="border rounded-xl p-3 space-y-2" onsubmit="bn551Apply(event)"><h3 class="font-bold">Belum punya Affiliate?</h3><p class="muted text-sm">Ajukan pendaftaran untuk nomor Member yang sedang digunakan.</p><button type="submit" class="btn">Daftar Affiliate</button></form><form class="border rounded-xl p-3 space-y-2" onsubmit="bn55PinLogin(event)"><h3 class="font-bold">Sudah punya PIN?</h3><label class="block text-sm">PIN Affiliate<input id="bn55PinInput" type="password" inputmode="numeric" maxlength="8" pattern="[0-9]{6,8}" autocomplete="current-password" class="field mt-1 w-full" required placeholder="6–8 angka"></label><button class="btn" type="submit">Masuk Affiliate</button></form></div><form class="border rounded-xl p-3 space-y-2 mt-3" onsubmit="bn551Activate(event)"><h3 class="font-bold">Sudah disetujui Admin? Buat PIN sendiri</h3><label class="block text-sm">Kode aktivasi dari Admin<input id="bn551ActivationCode" class="field w-full mt-1" required autocomplete="off" maxlength="48" placeholder="Kode aktivasi 48 karakter"></label><div class="grid md:grid-cols-2 gap-2"><label class="block text-sm">PIN baru (6–8 angka)<input id="bn551NewPin" type="password" inputmode="numeric" pattern="[0-9]{6,8}" maxlength="8" autocomplete="new-password" class="field w-full mt-1" required></label><label class="block text-sm">Ulangi PIN<input id="bn551NewPin2" type="password" inputmode="numeric" pattern="[0-9]{6,8}" maxlength="8" autocomplete="new-password" class="field w-full mt-1" required></label></div><button class="btn" type="submit">Aktivasi & Simpan PIN</button><p class="muted text-xs">Kode hanya berlaku satu kali selama 24 jam. PIN tidak pernah diperlihatkan ke Admin.</p></form><p class="muted mt-2">Lupa PIN? Hubungi Admin untuk proses pemulihan identitas. Jangan mengulang pendaftaran.</p>';
 }
 async function bn55PinLogin(e){
  e.preventDefault();const pin=document.getElementById('bn55PinInput')?.value||'';
@@ -3144,29 +3142,114 @@ async function bn55PinChange(e){
  catch(err){toast(err.message||'Gagal mengganti PIN',true)}
 }
 async function bn55PinShowData(){
- const d=await bn55PinRPC('bn_affiliate_member_pin_v56',{p_session_token:bn55PinSession});
+ const d=await bn55PinRPC('bn_affiliate_member_pin_v55',{p_session_token:bn55PinSession});
  const el=document.getElementById('bn50MemberData');if(!el)return;
- const link=bn50ReferralLink(d.link_code||d.username||d.code);
- el.innerHTML='<p class="text-sm font-bold">Username affiliate: '+esc(d.username||d.code)+'</p><p class="muted text-xs mt-1">Kode lama '+esc(d.legacy_code||d.code)+' tetap berlaku. Username tidak berubah saat nama profil diganti.</p><input class="field mt-2 w-full" id="bn50LinkInput" readonly value="'+esc(link)+'"><div class="flex flex-wrap gap-2 mt-3"><button class="btn" type="button" onclick="bn50CopyLink()">Salin Link</button><button class="btn" type="button" onclick="bn50ShareLink()">Bagikan via WhatsApp</button><button class="btn !bg-stone-700" type="button" onclick="bn55PinShowChange(false)">Ganti PIN</button><button class="btn !bg-stone-700" type="button" onclick="bn55PinLogout()">Kunci Affiliate</button></div><p class="muted mt-3">Pesanan referral: '+Number(d.summary?.orders||0)+' · Komisi disetujui: '+money(d.summary?.approved||0)+' · Komisi menunggu: '+money(d.summary?.pending||0)+'</p><p class="muted">Pencairan uang belum tersedia.</p>';
+ const link=bn50ReferralLink(d.code);
+ el.innerHTML='<p class="text-sm font-bold">Kode referral: '+esc(d.code)+'</p><input class="field mt-2 w-full" id="bn50LinkInput" readonly value="'+esc(link)+'"><div class="flex flex-wrap gap-2 mt-3"><button class="btn" type="button" onclick="bn50CopyLink()">Salin Link</button><button class="btn" type="button" onclick="bn50ShareLink()">Bagikan via WhatsApp</button><button class="btn !bg-stone-700" type="button" onclick="bn55PinShowChange(false)">Ganti PIN</button><button class="btn !bg-stone-700" type="button" onclick="bn55PinLogout()">Kunci Affiliate</button></div><p class="muted mt-3">Pesanan referral: '+Number(d.summary?.orders||0)+' · Komisi disetujui: '+money(d.summary?.approved||0)+' · Komisi menunggu: '+money(d.summary?.pending||0)+'</p><p class="muted">Pencairan uang belum tersedia.</p><div class="mt-3 border rounded-xl p-3"><b>QR Referral untuk Kasir</b><p class="text-xs muted">Tunjukkan QR ini ke Kasir. Berisi kode affiliate, bukan identitas atau PIN.</p><div id="bn58MemberQR" class="mt-2"></div></div>';
+ setTimeout(()=>bn58ShowMemberQR(d.code),0);
+ bn59LoadMember();
 }
 function bn55PinLogout(){bn55PinSession=null;bn55PinPhone=null;bn50MountMember()}
-async function bn55AdminIssuePin(){
+async function bn551Apply(e){
+ e.preventDefault();const b=e.submitter;if(b)b.disabled=true;
+ try{const d=await bn55PinRPC('bn_affiliate_apply_v551',{p_member_phone:state.phone});toast(d.message||'Permohonan dikirim untuk ditinjau Admin')}
+ catch(err){toast(err.message||'Pendaftaran gagal',true)}finally{if(b)b.disabled=false}
+}
+async function bn551Activate(e){
+ e.preventDefault();const code=document.getElementById('bn551ActivationCode')?.value?.trim()||'',a=document.getElementById('bn551NewPin')?.value||'',b=document.getElementById('bn551NewPin2')?.value||'';
+ if(!/^[0-9]{6,8}$/.test(a)||a!==b)return toast('PIN baru harus 6–8 angka dan sama pada kedua kolom',true);
+ const button=e.submitter;if(button)button.disabled=true;
+ try{const d=await bn55PinRPC('bn_affiliate_activate_pin_v551',{p_member_phone:state.phone,p_activation_code:code,p_new_pin:a});if(!d.ok)throw Error(d.message||'Aktivasi gagal');toast('PIN dibuat. Silakan masuk dengan PIN baru.');await bn50MountMember()}
+ catch(err){toast(err.message||'Aktivasi gagal',true)}finally{if(button)button.disabled=false}
+}
+// V5.5.2: WhatsApp click-to-chat, not automatic messaging.
+// The activation code is shown only after a successful Admin approval response.
+function bn552PhoneForWhatsApp(phone){
+ const digits=String(phone||'').replace(/\D/g,'');
+ const out=digits.startsWith('0')?'62'+digits.slice(1):digits.startsWith('62')?digits:'62'+digits;
+ return /^62[0-9]{8,13}$/.test(out)?out:null;
+}
+function bn552ShowActivationWhatsApp(phone,code,expires){
+ document.getElementById('bn552ActivationDialog')?.remove();
+ const waPhone=bn552PhoneForWhatsApp(phone);
+ const msg='Halo, pendaftaran Affiliate BentarNgopi Anda sudah disetujui.\n\nKode aktivasi: '+code+'\n\nBuka https://www.bentar-ngopidulu.my.id dan pilih Member > Affiliate > Aktivasi & Buat PIN.\nKode berlaku 24 jam dan hanya dapat digunakan sekali. Jangan bagikan kode atau PIN kepada siapa pun.';
+ const overlay=document.createElement('div');overlay.id='bn552ActivationDialog';
+ overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto';
+ const panel=document.createElement('div');panel.style.cssText='background:#fff;color:#292524;padding:20px;border-radius:16px;max-width:540px;width:100%;box-shadow:0 12px 40px #0004';
+ const heading=document.createElement('h3');heading.textContent='Affiliate Disetujui · Kirim Kode Aktivasi';heading.style.cssText='font-weight:800;font-size:18px;margin-bottom:12px';panel.append(heading);
+ const info=document.createElement('p');info.textContent='Nomor tujuan: '+phone+' · Kode hanya tampil sekarang. Pastikan nomor WA ini benar-benar milik pendaftar sebelum mengirim.';info.style.cssText='font-size:14px;margin-bottom:12px';panel.append(info);
+ const codeEl=document.createElement('div');codeEl.textContent=code;codeEl.style.cssText='font-family:monospace;word-break:break-all;background:#f5f5f4;padding:12px;border-radius:10px;font-size:13px';panel.append(codeEl);
+ const expiry=document.createElement('p');expiry.textContent='Berlaku sampai: '+(expires?new Date(expires).toLocaleString('id-ID'):'24 jam setelah persetujuan');expiry.style.cssText='font-size:12px;margin-top:8px;color:#78716c';panel.append(expiry);
+ const actions=document.createElement('div');actions.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:16px';
+ if(waPhone){
+  const link=document.createElement('a');link.href='https://wa.me/'+waPhone+'?text='+encodeURIComponent(msg);link.target='_blank';link.rel='noopener noreferrer';link.textContent='Kirim Kode via WhatsApp';link.style.cssText='background:#15803d;color:white;padding:10px 14px;border-radius:9px;font-weight:700;text-decoration:none';actions.append(link);
+ }else{
+  const err=document.createElement('p');err.textContent='Format nomor tidak sesuai WhatsApp Indonesia. Salin kode dan periksa nomor Member.';err.style.cssText='color:#b91c1c;font-size:12px';panel.append(err);
+ }
+ const copy=document.createElement('button');copy.type='button';copy.textContent='Salin Pesan';copy.style.cssText='background:#e7e5e4;padding:10px 14px;border-radius:9px';copy.onclick=async()=>{try{await navigator.clipboard.writeText(msg);toast('Pesan aktivasi disalin')}catch(e){toast('Gagal menyalin pesan',true)}};actions.append(copy);
+ const sentButton=document.createElement('button');sentButton.type='button';sentButton.textContent='Saya Sudah Kirim via WA';sentButton.style.cssText='background:#1d4ed8;color:white;padding:10px 14px;border-radius:9px;font-weight:700';sentButton.onclick=()=>bn553ConfirmSent(phone);actions.append(sentButton);
+ const close=document.createElement('button');close.type='button';close.textContent='Tutup';close.style.cssText='background:#e7e5e4;padding:10px 14px;border-radius:9px';close.onclick=()=>overlay.remove();actions.append(close);
+ panel.append(actions);const disclaimer=document.createElement('p');disclaimer.textContent='WhatsApp terbuka dengan pesan siap kirim. Pengiriman tidak otomatis dan aplikasi tidak dapat memastikan pesan sudah diterima.';disclaimer.style.cssText='font-size:12px;color:#78716c;margin-top:12px';panel.append(disclaimer);overlay.append(panel);document.body.append(overlay);
+}
+async function bn551AdminReview(phone,approve){
  if(state.adminSession?.role!=='admin')return;
- const phone=document.getElementById('bn55AdminPhone')?.value?.trim();
- if(!phone)return toast('Masukkan nomor HP Member',true);
- if(!confirm('Buat/reset PIN Affiliate untuk '+phone+'? Sesi PIN lama akan dicabut. Pastikan identitas Member sudah diperiksa.'))return;
+ const note=prompt((approve?'Setujui':'Tolak')+' permohonan '+phone+'\nTulis catatan pemeriksaan identitas (minimal 8 karakter):');
+ if(note===null)return;if(note.trim().length<8)return toast('Catatan minimal 8 karakter',true);
  try{
-  const d=await api('rpc/bn_affiliate_pin_admin_issue_v55','POST',{p_token:state.adminSession.token,p_member_phone:phone});
-  alert('PIN AWAL MEMBER '+phone+': '+d.temporary_pin+'\\nBerikan secara pribadi dan minta Member segera menggantinya. PIN tidak dapat dilihat kembali.');
-  document.getElementById('bn55AdminPhone').value='';
-  toast('PIN awal berhasil dibuat/reset');
- }catch(err){toast(err.message||'Reset PIN gagal',true)}
+  const d=await api('rpc/bn_affiliate_review_v551','POST',{p_token:state.adminSession.token,p_member_phone:phone,p_approve:approve,p_note:note.trim()});
+  if(approve&&d.activation_code)bn552ShowActivationWhatsApp(phone,d.activation_code,d.expires_at);
+  toast(approve?'Pendaftaran disetujui':'Pendaftaran ditolak');await bn551LoadApplications();
+ }catch(err){toast(err.message||'Gagal memproses pengajuan',true)}
+}
+async function bn553ConfirmSent(phone){
+ if(state.adminSession?.role!=='admin')return;
+ if(!confirm('Konfirmasi Anda SUDAH menekan Kirim di WhatsApp untuk '+phone+'?\n\nStatus ini adalah catatan petugas, bukan bukti pesan diterima.'))return;
+ try{
+  const d=await api('rpc/bn_affiliate_mark_sent_v553','POST',{p_token:state.adminSession.token,p_member_phone:phone});
+  toast(d.already_marked?'Status pengiriman sudah tercatat':'Konfirmasi pengiriman dicatat');
+  document.getElementById('bn552ActivationDialog')?.remove();
+  await bn551LoadApplications();
+ }catch(e){toast(e.message||'Gagal menyimpan status pengiriman',true)}
+}
+function bn553StatusMeta(x){
+ if(x.status==='activated')return {label:'Affiliate Aktif',tone:'background:#dcfce7;color:#166534',detail:'PIN telah dibuat oleh member'};
+ if(x.status==='approved'&&x.activation_sent_at)return {label:'Kode Sudah Dikirim',tone:'background:#dbeafe;color:#1d4ed8',detail:'Menunggu Aktivasi PIN'};
+ if(x.status==='approved')return {label:'Menunggu Aktivasi PIN',tone:'background:#fef3c7;color:#92400e',detail:'Kode belum dikonfirmasi terkirim'};
+ if(x.status==='pending')return {label:'Menunggu Persetujuan',tone:'background:#fef3c7;color:#92400e',detail:'Perlu review Admin'};
+ return {label:'Ditolak',tone:'background:#fee2e2;color:#991b1b',detail:'Permohonan ditolak'};
+}
+async function bn551LoadApplications(){
+ const root=document.getElementById('bn551Applications');if(!root)return;
+ try{
+  const d=await api('rpc/bn_affiliate_applications_admin_v551','POST',{p_token:state.adminSession.token});
+  const rows=d.applications||[];
+  const count=(v)=>rows.filter(x=>v(x)).length;
+  const counters=[['Menunggu Persetujuan',count(x=>x.status==='pending')],['Kode Sudah Dikirim',count(x=>x.status==='approved'&&!!x.activation_sent_at)],['Menunggu Aktivasi PIN',count(x=>x.status==='approved')],['Affiliate Aktif',count(x=>x.status==='activated')]];
+  let html='<h3 class="font-extrabold mb-2">📋 Monitoring Pendaftaran Affiliate · V5.5.3</h3><p class="muted text-xs mb-3">Status dikirim adalah konfirmasi manual Admin, bukan bukti terkirim atau dibaca dari WhatsApp.</p>';
+  html+='<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-4">'+counters.map(([label,val])=>'<div class="border rounded-xl p-3"><p class="muted text-xs">'+label+'</p><strong class="text-xl">'+val+'</strong></div>').join('')+'</div>';
+  html+='<label class="block mb-3 text-sm font-medium">Filter status <select id="bn553StatusFilter" class="field mt-1 w-full" onchange="bn553ApplyFilter()"><option value="all">Semua Pendaftaran</option><option value="pending">Menunggu Persetujuan</option><option value="sent">Kode Sudah Dikirim</option><option value="awaiting">Menunggu Aktivasi PIN</option><option value="activated">Affiliate Aktif</option><option value="rejected">Ditolak</option></select></label>';
+  html+='<div id="bn553ApplicationRows">'+(rows.length?rows.map(x=>{
+    const s=bn553StatusMeta(x),filter=x.status==='approved'&&x.activation_sent_at?'sent':x.status==='approved'?'awaiting':x.status;
+    const expiry=x.status==='approved'&&x.activation_expires_at?'<p class="muted text-xs">Batas aktivasi: '+esc(new Date(x.activation_expires_at).toLocaleString('id-ID'))+'</p>':'';
+    const sent=x.activation_sent_at?'<p class="muted text-xs">Dikonfirmasi kirim: '+esc(new Date(x.activation_sent_at).toLocaleString('id-ID'))+' oleh '+esc(x.activation_sent_by||'-')+'</p>':'';
+    const buttons=x.status==='pending'?'<div class="flex flex-wrap gap-2 mt-2"><button class="btn" type="button" data-phone="'+esc(x.member_phone)+'" onclick="bn551AdminReview(this.dataset.phone,true)">Setujui & Buat Kode</button><button class="btn !bg-red-700" type="button" data-phone="'+esc(x.member_phone)+'" onclick="bn551AdminReview(this.dataset.phone,false)">Tolak</button></div>':x.status==='approved'?'<div class="flex flex-wrap gap-2 mt-2">'+(!x.activation_sent_at?'<button class="btn !bg-green-700" type="button" data-phone="'+esc(x.member_phone)+'" onclick="bn553ConfirmSent(this.dataset.phone)">Tandai Kode Sudah Dikirim</button>':'')+'<button class="btn !bg-stone-600" type="button" data-phone="'+esc(x.member_phone)+'" onclick="bn551AdminReview(this.dataset.phone,true)">Terbitkan Ulang Kode</button></div>':'';
+    return '<article class="border rounded-xl p-3 mb-2" data-bn553-filter="'+filter+'" data-bn553-approved="'+(x.status==='approved'?'yes':'no')+'"><div class="flex flex-wrap justify-between gap-2"><strong>'+esc(x.member_phone)+'</strong><span style="'+s.tone+';padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700">'+s.label+'</span></div><p class="muted text-sm">'+s.detail+'</p><p class="muted text-xs">Diajukan: '+esc(x.requested_at?new Date(x.requested_at).toLocaleString('id-ID'):'-')+(x.review_note?' · '+esc(x.review_note):'')+'</p>'+sent+expiry+buttons+'</article>';
+  }).join(''):'<p class="muted">Belum ada pengajuan.</p>')+'</div>';
+  root.innerHTML=html;
+ }catch(err){root.textContent='Gagal membaca pengajuan: '+(err.message||err)}
+}
+function bn553ApplyFilter(){
+ const selected=document.getElementById('bn553StatusFilter')?.value||'all';
+ document.querySelectorAll('#bn553ApplicationRows [data-bn553-filter]').forEach(el=>{
+  const f=el.dataset.bn553Filter;
+  el.hidden=!(selected==='all'||selected===f||(selected==='awaiting'&&el.dataset.bn553Approved==='yes'));
+ });
 }
 function bn55MountAdminPin(){
- const root=document.getElementById('bn50AdminBody');if(!root||document.getElementById('bn55PinAdmin'))return;
- const panel=document.createElement('div');panel.id='bn55PinAdmin';panel.className='rounded-xl border p-4 mb-4 space-y-2';
- panel.innerHTML='<h3 class="font-extrabold">🔐 PIN Affiliate Member · V5.5</h3><p class="muted text-sm">Admin mengaktifkan atau mereset PIN pertama sesudah memeriksa Member. PIN sementara hanya tampil sekali. Member wajib mengganti PIN saat login pertama.</p><div class="flex flex-wrap gap-2"><input id="bn55AdminPhone" class="field flex-1" placeholder="Nomor HP Member terdaftar" inputmode="tel"><button type="button" class="btn" onclick="bn55AdminIssuePin()">Buat / Reset PIN</button></div><p class="muted text-xs">Jangan mengirim PIN lewat grup, menyimpan PIN dalam catatan Member, atau mengunggahnya ke spreadsheet.</p>';
- root.prepend(panel);
+ const root=document.getElementById('bn50AdminBody');if(!root||document.getElementById('bn551Applications'))return;
+ const panel=document.createElement('div');panel.id='bn551Applications';panel.className='rounded-xl border p-4 mb-4 space-y-2';
+ panel.innerHTML='<h3 class="font-extrabold">📝 Pengajuan Affiliate · V5.5.1</h3><p class="muted text-sm">Admin menyetujui pendaftaran, membuka WhatsApp untuk mengirim kode, dan mencatat konfirmasi kirim. Member mengaktifkan PIN sendiri; status menjadi Affiliate Aktif setelah PIN dibuat.</p><p>Memuat pengajuan...</p>';
+ root.prepend(panel);bn551LoadApplications();
 }
 function bn50CopyLink(){const el=document.getElementById('bn50LinkInput');if(!el)return;navigator.clipboard?.writeText(el.value).then(()=>toast('Link referral disalin')).catch(()=>{el.select();document.execCommand('copy');toast('Link referral disalin')})}
 function bn50ShareLink(){const el=document.getElementById('bn50LinkInput');if(el)window.open('https://wa.me/?text='+encodeURIComponent('Yuk pesan BentarNgopi melalui link saya: '+el.value),'_blank','noopener')}
@@ -3175,7 +3258,7 @@ function bn50MountAdmin(){
  const container=document.querySelector('[data-admin-panel="inventory"]')?.parentElement;
  if(!container)return;
  const el=document.createElement('section');el.id='bn50AdminPanel';el.setAttribute('data-admin-panel','affiliate');el.className='card';
- el.innerHTML='<h2 class="font-extrabold text-xl">🔗 Affiliate Member · V5.6</h2><p class="muted mb-3">Atur komisi dan tinjau referral dari pesanan Online. Pencairan dana belum diaktifkan.</p><div id="bn50AdminBody">Memuat data...</div>';
+ el.innerHTML='<h2 class="font-extrabold text-xl">🔗 Affiliate Member · V6.1</h2><p class="muted mb-3">Atur komisi dan tinjau referral dari pesanan Online. Pencairan manual V5.9 tersedia setelah verifikasi dan audit; tidak ada transfer otomatis.</p><div id="bn50AdminBody">Memuat data...</div>';
  container.appendChild(el);
  applyAdminTab();if(state.adminTab==='affiliate')bn50LoadAdmin();
 }
@@ -3186,12 +3269,210 @@ async function bn50LoadAdmin(){
  const v51=audit?.summary;
  const v51Panel=v51?'<div class="rounded-xl border p-3 mb-3"><b>Audit Komisi V5.1</b><div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-2"><div>Pending<br><b>'+Number(v51.pending||0)+'</b></div><div>Disetujui<br><b>'+Number(v51.approved||0)+'</b></div><div>Dibatalkan karena refund<br><b>'+Number(v51.reversed||0)+'</b></div><div>Komisi aktif<br><b>'+money(v51.approved_commission||0)+'</b></div></div><p class="muted mt-2">Riwayat komisi dibatalkan: '+money(v51.reversed_historical||0)+'. Pencairan belum diaktifkan.</p></div>':'<div class="rounded-xl border p-3 mb-3">Audit V5.1 belum terpasang; pasang SQL V5.1 untuk pembatalan komisi saat refund.</div>';
  root.innerHTML=v51Panel+'<form class="grid md:grid-cols-4 gap-2 mb-4" onsubmit="bn50SaveRule(event)"><label class="text-sm">Jenis komisi<select id="bn50Mode" class="field w-full"><option value="percent" '+(r.mode==='percent'?'selected':'')+'>Persentase (%)</option><option value="fixed" '+(r.mode==='fixed'?'selected':'')+'>Nominal tetap (Rp)</option></select></label><label class="text-sm">Nilai<input id="bn50Value" type="number" min="0" step="0.01" class="field w-full" value="'+Number(r.value||0)+'"></label><label class="text-sm">Minimum order (Rp)<input id="bn50Min" type="number" min="0" class="field w-full" value="'+Number(r.min_order||0)+'"></label><label class="text-sm">Status<select id="bn50Active" class="field w-full"><option value="false" '+(!r.active?'selected':'')+'>Nonaktif</option><option value="true" '+(r.active?'selected':'')+'>Aktif</option></select></label><button class="btn md:col-span-4" type="submit">Simpan Pengaturan Affiliate</button></form><div class="space-y-2">'+(d.orders||[]).map(x=>'<div class="border rounded-xl p-3"><div class="flex flex-wrap justify-between gap-2"><b>'+esc(x.order_no||x.order_id)+'</b><span class="tag">'+esc(x.status)+'</span></div><p class="muted">Member '+esc(x.member_phone)+' · Pesanan '+esc(x.order_status)+' · '+money(x.total)+' · Diterima '+money(x.received)+' · Refund '+money(x.refunded)+'</p><div class="mt-2 flex flex-wrap items-center gap-2"><b>Komisi '+money(x.commission)+'</b>'+(x.status==='pending'?'<button class="btn" data-ref-order="'+esc(x.order_id)+'" onclick="bn50Approve(this.dataset.refOrder)">Setujui Setelah Lunas</button>':'')+'</div></div>').join('')+'</div>';
- bn55MountAdminPin();bn56LoadLinks();bn52LoadWallet();
+ bn55MountAdminPin();bn52LoadWallet();bn56MountAudit();bn57MountRules();
+   bn58LoadAdmin();
+   bn59LoadAdmin();
+   bn60LoadAnalytics();
+   bn61LoadAudit();
  }catch(e){root.textContent='Gagal memuat Affiliate. Periksa SQL V5.0 dan fungsi penerimaan Online.'}
 }
 async function bn50SaveRule(e){e.preventDefault();try{await api('rpc/bn_affiliate_admin_v50','POST',{p_token:state.adminSession.token,p_mode:document.getElementById('bn50Mode').value,p_value:Number(document.getElementById('bn50Value').value),p_min_order:Number(document.getElementById('bn50Min').value),p_active:document.getElementById('bn50Active').value==='true'});toast('Pengaturan Affiliate disimpan');bn50LoadAdmin()}catch(e){toast(e.message,true)}}
 async function bn50Approve(id){if(!confirm('Setujui komisi pesanan ini setelah memeriksa pembayaran?'))return;try{const r=await api('rpc/bn_affiliate_approve_v50','POST',{p_token:state.adminSession.token,p_order_id:id});toast('Komisi disetujui: '+money(r.commission));bn50LoadAdmin()}catch(e){toast(e.message,true)}}
 
+
+
+
+// === V5.7 — ATURAN KOMISI PER PRODUK + CAMPAIGN ===
+async function bn57MountRules(){
+ const root=document.getElementById('bn50AdminBody');if(!root)return;
+ let host=document.getElementById('bn57ProductRules');
+ if(!host){host=document.createElement('section');host.id='bn57ProductRules';host.className='rounded-xl border p-4 mb-4';root.prepend(host)}
+ host.innerHTML='<h3 class="font-bold text-lg">🏷️ Komisi per Produk & Campaign · V5.7</h3><p class="muted text-sm">Memuat aturan komisi...</p>';
+ try{
+  const d=await api('rpc/bn_affiliate_rules_dashboard_v57','POST',{p_token:state.adminSession.token});
+  let menus=(d.menus||[]).map(m=>'<option value="'+esc(m.id)+'">'+esc(m.name)+'</option>').join('');
+  let rules=(d.rules||[]).map(r=>'<tr class="border-t"><td class="p-2">'+esc(r.product_name)+'</td><td class="p-2">'+esc(r.campaign_name)+'</td><td class="p-2">'+(r.mode==='percent'?esc(String(r.value))+'%':money(r.value)+'/pcs')+'</td><td class="p-2">'+esc(String(r.priority))+'</td><td class="p-2">'+(r.active?'Aktif':'Nonaktif')+'</td><td class="p-2"><button class="btn" type="button" data-rid="'+esc(r.id)+'" data-next="'+(!r.active)+'" onclick="bn57ToggleRule(this.dataset.rid,this.dataset.next==&#39;true&#39;)">'+(r.active?'Nonaktifkan':'Aktifkan')+'</button></td></tr>').join('');
+  host.innerHTML='<h3 class="font-bold text-lg mb-1">🏷️ Komisi per Produk & Campaign · V5.7</h3>'+
+  '<p class="muted text-sm mb-3">Prioritas tertinggi dipakai saat periode berlaku. Snapshot komisi disimpan ketika referral tertaut. Aturan baru tidak mengubah komisi transaksi lama.</p>'+
+  '<form class="grid grid-cols-1 md:grid-cols-3 gap-2 mb-4" onsubmit="bn57CreateRule(event)">'+
+  '<label class="text-sm">Produk<select class="field w-full" id="bn57Menu" required>'+menus+'</select></label>'+
+  '<label class="text-sm">Nama Campaign<input class="field w-full" id="bn57Campaign" maxlength="80" value="Promo Affiliate" required></label>'+
+  '<label class="text-sm">Jenis komisi<select class="field w-full" id="bn57Mode"><option value="percent">Persentase (%)</option><option value="fixed">Nominal per pcs (Rp)</option></select></label>'+
+  '<label class="text-sm">Nilai<input class="field w-full" id="bn57Value" type="number" step="0.01" min="0" required></label>'+
+  '<label class="text-sm">Mulai (opsional)<input class="field w-full" id="bn57From" type="datetime-local"></label>'+
+  '<label class="text-sm">Berakhir (opsional)<input class="field w-full" id="bn57Until" type="datetime-local"></label>'+
+  '<label class="text-sm">Prioritas (0–1000)<input class="field w-full" id="bn57Priority" type="number" min="0" max="1000" value="10"></label>'+
+  '<label class="text-sm">Status<select class="field w-full" id="bn57Active"><option value="true">Aktif</option><option value="false">Nonaktif</option></select></label>'+
+  '<button type="submit" class="btn md:col-span-3">Simpan Aturan Baru</button></form>'+
+  '<div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr><th class="p-2 text-left">Produk</th><th class="p-2 text-left">Campaign</th><th class="p-2">Komisi</th><th class="p-2">Prioritas</th><th class="p-2">Status</th><th class="p-2">Aksi</th></tr></thead><tbody>'+(rules||'<tr><td colspan="6" class="p-3">Belum ada aturan khusus. Komisi umum tetap berlaku.</td></tr>')+'</tbody></table></div>';
+ }catch(e){host.innerHTML='<h3 class="font-bold">Komisi per Produk V5.7</h3><p class="text-amber-800">'+esc(e.message||String(e))+'</p><p class="muted text-xs">Jalankan SQL V5.7 sebelum memakai fitur ini.</p>'}
+}
+async function bn57CreateRule(ev){
+ ev.preventDefault();
+ const val=id=>document.getElementById(id).value;
+ const toIso=id=>val(id)?new Date(val(id)).toISOString():null;
+ try{
+  await api('rpc/bn_affiliate_rule_create_v57','POST',{
+   p_token:state.adminSession.token,p_menu_id:val('bn57Menu'),p_campaign_name:val('bn57Campaign'),
+   p_mode:val('bn57Mode'),p_value:Number(val('bn57Value')),
+   p_valid_from:toIso('bn57From'),p_valid_until:toIso('bn57Until'),
+   p_priority:Number(val('bn57Priority')),p_active:val('bn57Active')==='true'
+  });toast('Aturan komisi berhasil disimpan');bn57MountRules();
+ }catch(e){toast(e.message||String(e),true)}
+}
+async function bn57ToggleRule(id,active){
+ if(!confirm((active?'Aktifkan':'Nonaktifkan')+' aturan komisi ini?'))return;
+ try{await api('rpc/bn_affiliate_rule_toggle_v57','POST',{
+  p_token:state.adminSession.token,p_rule_id:id,p_active:active
+ });toast('Status aturan diperbarui');bn57MountRules()}catch(e){toast(e.message||String(e),true)}
+}
+
+// === V5.6 AUDIT REFERRAL — READ ONLY ===
+async function bn56MountAudit(){
+ const root=document.getElementById('bn50AdminBody');if(!root)return;
+ let host=document.getElementById('bn56AuditBox');
+ if(!host){host=document.createElement('section');host.id='bn56AuditBox';host.className='rounded-xl border p-4 mb-4';root.prepend(host)}
+ host.innerHTML='<h3 class="font-extrabold mb-2">🛡️ Audit Referral · V5.6</h3><p class="muted text-sm">Memeriksa komisi dan pembayaran...</p>';
+ try{
+  const d=await api('rpc/bn_affiliate_audit_admin_v56','POST',{p_token:state.adminSession.token});
+  const s=d.summary||{}, f=d.flagged_orders||[];
+  const tiles=[['Referral',s.total_referral],['Komisi disetujui',s.approved_count],['Perlu diperiksa',s.flagged_count],['Total komisi aktif',money(s.commission_approved_total||0)]];
+  host.innerHTML='<h3 class="font-extrabold mb-2">🛡️ Audit Referral · V5.6</h3>'+
+   '<p class="muted text-xs mb-3">Audit baca-saja, tidak mengubah komisi. Statistik klik belum tersedia.</p>'+
+   '<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">'+tiles.map(t=>'<div class="rounded-lg bg-stone-50 p-3"><div class="text-xs text-stone-600">'+esc(t[0])+'</div><b>'+esc(String(t[1]??0))+'</b></div>').join('')+'</div>'+
+   '<div class="flex flex-wrap gap-2 mb-3"><button type="button" class="btn" onclick="bn56MountAudit()">Perbarui Audit</button><button type="button" class="btn" onclick="bn56ExportAudit()">Ekspor CSV</button></div>'+
+   (f.length?'<div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr><th class="p-2 text-left">Pesanan</th><th class="p-2 text-left">Affiliate</th><th class="p-2 text-left">Temuan</th><th class="p-2 text-right">Komisi</th></tr></thead><tbody>'+f.map(x=>'<tr class="border-t"><td class="p-2">'+esc(x.order_no||x.order_id)+'</td><td class="p-2">'+esc(x.member_phone)+'</td><td class="p-2">'+(x.flags||[]).map(y=>'<div class="text-amber-800">'+esc(y.replaceAll('_',' '))+'</div>').join('')+'</td><td class="p-2 text-right">'+money(x.commission||0)+'</td></tr>').join('')+'</tbody></table></div>':'<p class="text-sm text-green-700">Tidak ada anomali pada aturan audit ini.</p>');
+  window.bn56AuditRows=f;
+ }catch(e){host.innerHTML='<h3 class="font-extrabold">Audit Referral V5.6</h3><p class="text-amber-800 text-sm">Belum dapat memuat audit: '+esc(e.message||String(e))+'</p><p class="muted text-xs">Jalankan SQL V5.6 dan pastikan prasyarat V5.0/V4.4 lengkap.</p>'}
+}
+function bn56ExportAudit(){
+ const f=window.bn56AuditRows||[];
+ const rows=[['Order ID','Nomor Pesanan','Member','Kode Referral','Status Komisi','Nominal Komisi','Status Pesanan','Total Pesanan','Diterima','Refund','Risiko','Temuan'],...f.map(x=>[x.order_id,x.order_no,x.member_phone,x.ref_code,x.commission_status,x.commission,x.order_status,x.order_total,x.received,x.refunded,x.refund_pending,(x.flags||[]).join('; ')])];
+ if(typeof bn40DownloadCsv==='function')bn40DownloadCsv(rows,'Bentar-ngopi-V56-Audit-Referral.csv');
+ else toast('Fitur ekspor CSV tidak tersedia',true);
+}
+
+
+function bn58ShowMemberQR(code){
+ const el=document.getElementById('bn58MemberQR');if(!el)return;
+ if(typeof QRCode==='undefined'){el.textContent='QR tidak tersedia. Tunjukkan kode: '+code;return;}
+ el.innerHTML='';new QRCode(el,{text:code,width:170,height:170,correctLevel:QRCode.CorrectLevel.M});
+}
+// === V5.8 Referral QR Kasir: ringkasan dan pemeriksaan Admin ===
+async function bn58LoadAdmin(){
+ const host=document.getElementById('bn50AdminBody');if(!host)return;
+ let section=document.getElementById('bn58Admin');if(!section){section=document.createElement('section');section.id='bn58Admin';section.className='rounded-2xl border border-amber-200 p-4 mt-5';host.append(section)}
+ section.innerHTML='<h3 class="font-extrabold">📷 Referral QR Kasir · V5.8</h3><p class="muted text-sm">Kode dari QR diketik/scanner di Kasir POS; komisi menunggu pemeriksaan Admin. Referral tidak memotong pendapatan pelanggan.</p><p class="muted mt-2">Memuat transaksi Kasir...</p>';
+ try{
+  const d=await api('rpc/bn_affiliate_pos_admin_v58','POST',{p_token:state.adminSession.token});
+  const rows=d.orders||[];
+  section.innerHTML='<div class="flex flex-wrap items-center justify-between gap-2"><h3 class="font-extrabold">📷 Referral QR Kasir · V5.8</h3><button type="button" class="btn" onclick="bn58LoadAdmin()">Perbarui</button></div><p class="muted text-sm mt-1">Pending belum menjadi hak komisi yang bisa dicairkan. Verifikasi penjualan, pembeli, dan refund sebelum setujui.</p>'+
+   '<div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-3">'+[['Total Referral',d.summary?.total||0],['Pending',d.summary?.pending||0],['Disetujui',d.summary?.approved||0]].map(x=>'<div class="rounded-xl bg-stone-50 p-3"><small>'+x[0]+'</small><div class="font-black">'+Number(x[1])+'</div></div>').join('')+'</div>'+
+   '<div class="space-y-2 mt-3">'+(rows.map(x=>'<div class="rounded-xl border p-3"><div class="font-bold">'+esc(x.ref_code)+' · '+esc(x.status)+'</div><div class="text-sm muted">'+esc(x.buyer_phone)+' · Tagihan '+money(x.total_due)+' · Diterima '+money(x.paid)+' · Refund '+money(x.refunded)+'</div><div class="text-sm">Komisi proposal: <b>'+money(x.commission_proposed)+'</b></div>'+(x.status==='pending'?'<button class="btn mt-2" type="button" data-pos-id="'+esc(x.purchase_id)+'" onclick="bn58Approve(this.dataset.posId)">Setujui setelah pemeriksaan</button>':'')+'</div>').join('')||'<p class="muted">Belum ada transaksi Kasir dengan referral.</p>')+'</div>';
+ }catch(e){section.innerHTML='<h3 class="font-bold">📷 Referral QR Kasir · V5.8</h3><p class="text-red-700 text-sm">'+esc(e.message||'Periksa SQL V5.8')+'</p>'}
+}
+async function bn58Approve(id){
+ if(!confirm('Sudah memeriksa identitas pembeli, penerimaan pembayaran, penyerahan produk, dan refund?'))return;
+ try{const result=await api('rpc/bn_affiliate_pos_approve_v58','POST',{p_token:state.adminSession.token,p_purchase_id:id,p_confirm_handover:true});toast('Komisi Kasir disetujui: '+money(result.commission));bn58LoadAdmin()}catch(e){toast(e.message,true)}
+}
+
+
+
+// BENTARNGOPI V5.9 — Pengajuan pencairan manual (bukan transfer otomatis).
+let bn59MemberData=null;
+async function bn59LoadMember(){
+ const parent=document.getElementById('bn50MemberData');
+ if(!parent||!bn55PinSession)return;
+ let host=document.getElementById('bn59MemberWallet');
+ if(!host){host=document.createElement('section');host.id='bn59MemberWallet';host.className='mt-4 border rounded-xl p-3';parent.append(host)}
+ host.innerHTML='<h3 class="font-extrabold">💳 Dompet Komisi & Pengajuan Pencairan · V5.9</h3><p class="muted text-sm">Memuat saldo yang bisa diajukan...</p>';
+ try{
+  const d=await bn55PinRPC('bn_affiliate_payout_member_v59',{p_session_token:bn55PinSession});
+  if(!document.getElementById('bn59MemberWallet'))return;
+  bn59MemberData=d;
+  const b=d.balance||{},requests=d.requests||[];
+  host.innerHTML='<div class="flex flex-wrap justify-between gap-2"><h3 class="font-extrabold">💳 Dompet Komisi · V5.9</h3><button type="button" class="btn" onclick="bn59LoadMember()">Perbarui</button></div>'+
+   '<p class="muted text-xs mt-1">Pencairan diproses manual oleh Admin, bukan transfer otomatis. Hanya komisi transaksi yang lolos audit yang dapat diajukan.</p>'+
+   '<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">'+[
+    ['Saldo tersedia',b.available],['Sedang diproses',b.reserved],['Sudah dibayar',b.paid],['Saldo bermasalah',b.deficit]
+   ].map(x=>'<div class="bg-stone-50 rounded-lg p-2"><small>'+x[0]+'</small><div class="font-extrabold">'+money(x[1]||0)+'</div></div>').join('')+'</div>'+
+   ((Number(b.risk_count||0)>0)?'<p class="text-red-700 text-sm mt-2">Ada '+Number(b.risk_count)+' transaksi yang perlu diaudit. Pengajuan sementara ditahan.</p>':'')+
+   '<form id="bn59RequestForm" onsubmit="bn59Request(event)" class="grid md:grid-cols-2 gap-2 mt-4">'+
+   '<label class="text-sm">Nominal pencairan (min Rp25.000)<input name="amount" type="number" min="25000" max="10000000" step="1" required class="field w-full" placeholder="25000"></label>'+
+   '<label class="text-sm">Metode<select name="method" class="field w-full"><option value="bank">Transfer Bank</option><option value="ewallet">E-wallet</option></select></label>'+
+   '<label class="text-sm">Nama Bank / E-wallet<input name="provider" class="field w-full" minlength="2" maxlength="60" required placeholder="BCA / DANA / GoPay"></label>'+
+   '<label class="text-sm">Nomor Rekening / E-wallet<input name="account" class="field w-full" inputmode="numeric" pattern="[0-9]{8,30}" maxlength="30" required autocomplete="off"></label>'+
+   '<label class="text-sm md:col-span-2">Nama Pemilik Rekening<input name="holder" class="field w-full" minlength="3" maxlength="100" required autocomplete="off"></label>'+
+   '<button class="btn md:col-span-2" type="submit" '+(!b.can_request?'disabled':'')+'>Ajukan Pencairan</button></form>'+
+   '<p class="muted text-xs mt-2">Hanya member yang sudah diverifikasi Admin dapat mengajukan. Pastikan rekening benar. Data rekening hanya ditampilkan kepada Admin yang berwenang.</p>'+
+   '<h4 class="font-bold mt-4 mb-2">Riwayat Pengajuan</h4>'+
+   '<div class="space-y-2">'+(requests.map(r=>'<div class="border rounded-lg p-2 text-sm"><b>'+money(r.amount)+'</b> · '+esc(r.status)+'<div class="muted">'+esc(r.provider)+' ••••'+esc(r.account_last4||'')+' · '+esc(String(r.requested_at||'').slice(0,10))+'</div>'+(r.transfer_reference?'<div>Referensi transfer: '+esc(r.transfer_reference)+'</div>':'')+(r.review_note?'<div>Catatan: '+esc(r.review_note)+'</div>':'')+'</div>').join('')||'<p class="muted text-sm">Belum ada pengajuan.</p>')+'</div>';
+ }catch(e){host.innerHTML='<h3 class="font-bold">Dompet Komisi V5.9</h3><p class="text-red-700 text-sm">'+esc(e.message||String(e))+'</p><p class="muted text-xs">Jalankan SQL V5.9 terlebih dahulu.</p>'}
+}
+async function bn59Request(ev){
+ ev.preventDefault();const f=ev.currentTarget,b=f.querySelector('button[type=submit]');
+ if(b.disabled)return;
+ const amount=Number(f.elements.amount.value);
+ if(!Number.isInteger(amount)||amount<25000||amount>10000000)return toast('Nominal harus Rp25.000–Rp10.000.000',true);
+ if(!confirm('Ajukan pencairan '+money(amount)+' ke rekening '+f.elements.provider.value+'? Pastikan data benar.'))return;
+ b.disabled=true;
+ try{
+  const d=await bn55PinRPC('bn_affiliate_payout_request_v59',{
+   p_session_token:bn55PinSession,p_amount:amount,p_method:f.elements.method.value,
+   p_provider:f.elements.provider.value.trim(),p_account_number:f.elements.account.value.trim(),
+   p_account_name:f.elements.holder.value.trim(),p_request_key:bnPosUUID()
+  });
+  if(!d.ok)throw Error(d.message||'Pengajuan gagal');
+  toast('Pengajuan berhasil, menunggu pemeriksaan Admin');await bn59LoadMember();
+ }catch(e){toast(e.message||String(e),true);b.disabled=false}
+}
+async function bn59LoadAdmin(){
+ const root=document.getElementById('bn50AdminBody');if(!root||state.adminSession?.role!=='admin')return;
+ let host=document.getElementById('bn59AdminPayout');
+ if(!host){host=document.createElement('section');host.id='bn59AdminPayout';host.className='border rounded-xl p-4 mt-5';root.append(host)}
+ host.innerHTML='<h3 class="font-extrabold">💸 Pengajuan Pencairan · V5.9</h3><p class="muted">Memuat...</p>';
+ try{
+  const d=await api('rpc/bn_affiliate_payout_admin_v59','POST',{p_token:state.adminSession.token});
+  if(!document.getElementById('bn59AdminPayout'))return;
+  const s=d.summary||{},rows=d.requests||[];
+  host.innerHTML='<div class="flex flex-wrap items-center justify-between gap-2"><h3 class="font-extrabold">💸 Pengajuan Pencairan · V5.9</h3><button type="button" class="btn" onclick="bn59LoadAdmin()">Perbarui</button></div>'+
+   '<p class="muted text-sm mt-1">Approve hanya menyetujui permohonan. Transfer dilakukan di aplikasi bank/e-wallet di luar BentarNgopi; tandai Dibayar hanya setelah benar-benar transfer.</p>'+
+   '<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">'+[
+    ['Menunggu',s.pending],['Disetujui',s.approved],['Sudah Dibayar',s.paid],['Total Dibayar',money(s.paid_total||0)]
+   ].map(x=>'<div class="bg-stone-50 p-2 rounded-lg"><small>'+x[0]+'</small><div class="font-extrabold">'+esc(String(x[1]??0))+'</div></div>').join('')+'</div>'+
+   '<div class="space-y-2 mt-3">'+(rows.map(x=>'<div class="rounded-xl border p-3">'+
+    '<div class="flex flex-wrap justify-between gap-2"><b>'+esc(x.member_phone)+' · '+money(x.amount)+'</b><span class="tag">'+esc(x.status)+'</span></div>'+
+    '<div class="text-sm mt-1">'+esc(x.method)+' · '+esc(x.provider)+' · '+esc(x.account_number)+' · '+esc(x.account_name)+'</div>'+
+    '<div class="muted text-xs">Verifikasi: '+esc(x.verification_status)+' · Temuan: '+Number(x.risk_count||0)+' · Defisit: '+money(x.wallet_deficit||0)+'</div>'+
+    (x.transfer_reference?'<div class="text-xs">Referensi transfer: '+esc(x.transfer_reference)+'</div>':'')+
+    (x.review_note?'<div class="text-xs">Catatan: '+esc(x.review_note)+'</div>':'')+
+    '<div class="flex flex-wrap gap-2 mt-2">'+
+    (x.status==='pending'?'<button class="btn" data-id="'+esc(x.id)+'" onclick="bn59Review(this.dataset.id,\'approve\')">Setujui</button>':'')+
+    (x.status==='pending'||x.status==='approved'?'<button class="btn !bg-stone-700" data-id="'+esc(x.id)+'" onclick="bn59Review(this.dataset.id,\'reject\')">Tolak</button>':'')+
+    (x.status==='approved'?'<button class="btn" data-id="'+esc(x.id)+'" onclick="bn59Review(this.dataset.id,\'paid\')">Catat Sudah Dibayar</button>':'')+
+    '</div></div>').join('')||'<p class="muted">Belum ada pengajuan pencairan.</p>')+'</div>';
+ }catch(e){host.innerHTML='<h3 class="font-bold">Pencairan V5.9</h3><p class="text-red-700 text-sm">'+esc(e.message||String(e))+'</p>'}
+}
+async function bn59Review(id,action){
+ const label={approve:'Setujui',reject:'Tolak',paid:'Catat sudah dibayar'}[action];
+ if(!label)return;
+ const note=prompt('Catatan pemeriksaan '+label+' (minimal 8 karakter):');
+ if(note===null)return;
+ if(note.trim().length<8||note.trim().length>300)return toast('Catatan harus 8–300 karakter',true);
+ let ref=null;
+ if(action==='paid'){
+  if(!confirm('Pastikan transfer uang SUDAH dilakukan di aplikasi bank/e-wallet dan rekening tujuan benar. BentarNgopi tidak mentransfer dana.'))return;
+  ref=prompt('Masukkan nomor referensi transfer dari bank/e-wallet (6–100 karakter):');
+  if(ref===null)return;
+  if(ref.trim().length<6||ref.trim().length>100)return toast('Referensi transfer tidak valid',true);
+ }
+ try{
+  await api('rpc/bn_affiliate_payout_review_v59','POST',{
+   p_token:state.adminSession.token,p_payout_id:id,p_action:action,p_note:note.trim(),p_transfer_reference:ref?.trim()||null
+  });
+  toast('Status pencairan diperbarui');bn59LoadAdmin();
+ }catch(e){toast(e.message||String(e),true)}
+}
 
 // === V5.2: Rekap Dompet Komisi Affiliate (hanya Admin) ===
 let bn52WalletData=null;
@@ -3305,25 +3586,82 @@ async function bn53VerifyPrompt(phone){
 }
 
 
-// === V5.6: Link Nama Member; kode lama dan PIN tetap berlaku. ===
-async function bn56LoadLinks(){
- const parent=document.getElementById('bn50AdminBody');
- if(!parent||state.adminSession?.role!=='admin')return;
- let host=document.getElementById('bn56Links');
- if(!host){host=document.createElement('section');host.id='bn56Links';host.className='mb-4';parent.prepend(host)}
- host.innerHTML='<div class="rounded-xl border p-3 muted">Memuat link nama member...</div>';
- try{
-  const d=await api('rpc/bn_affiliate_links_admin_v56','POST',{p_token:state.adminSession.token});
-  if(!document.getElementById('bn56Links'))return;
-  host.innerHTML='<div class="rounded-xl border p-4 space-y-3"><h3 class="font-extrabold">Link Affiliate Nama Member · V5.6</h3><p class="muted text-sm">Username dibuat otomatis dan tetap. Nama sama diberi pembeda 02, 03, dan seterusnya. Kode referral lama tetap berlaku.</p><div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="border-b text-left"><th class="p-2">Member</th><th class="p-2">Username</th><th class="p-2">Status</th><th class="p-2">Link</th></tr></thead><tbody>'
-   +(d.members||[]).map(m=>'<tr class="border-b"><td class="p-2"><b>'+esc(m.name||'Member')+'</b><br><span class="muted">'+esc(m.member_phone)+'</span></td><td class="p-2">'+esc(m.affiliate_username)+'<br><small class="muted">Kode lama: '+esc(m.ref_code)+'</small></td><td class="p-2">'+(m.active?'Aktif':'Nonaktif')+'</td><td class="p-2"><button type="button" class="btn" data-aff-user="'+esc(m.affiliate_username)+'" onclick="bn56CopyMemberLink(this.dataset.affUser)">Salin Link</button></td></tr>').join('')
-   +'</tbody></table></div>'+(!(d.members||[]).length?'<p class="muted">Belum ada affiliate. Aktifkan member melalui Buat / Reset PIN.</p>':'')+'<p class="text-xs muted">Maksimal 500 affiliate ditampilkan. Link baru aktif mengikuti status program dan member.</p></div>';
- }catch(err){host.textContent='Link nama member belum tersedia: '+(err.message||'Jalankan SQL V5.6 terlebih dahulu.')}
+// BENTARNGOPI V6.0: Analitik Affiliate dan WA manual. Hanya Admin.
+let bn60Rows=[],bn60Summary={},bn60Payouts=[];
+function bn60Date(days=0){const d=new Date();d.setDate(d.getDate()+days);const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),day=String(d.getDate()).padStart(2,'0');return `${y}-${m}-${day}`}
+function bn60CsvField(value){const v=String(value??'');return '"'+( /^[=+@\-\t\r]/.test(v)?"'":'')+v.replace(/"/g,'""')+'"'}
+function bn60DownloadCSV(){
+ if(!bn60Rows.length){toast('Tidak ada baris data untuk diekspor',true);return}
+ const lines=[['Nomor Member','Kode Referral','Total Referral','Online','Kasir','Disetujui','Komisi Disetujui'],...bn60Rows.map(m=>[m.member_phone,m.ref_code,m.referral_count,m.online_count,m.pos_count,m.approved_count,m.approved_commission])];
+ const content='\ufeff'+lines.map(row=>row.map(bn60CsvField).join(';')).join('\r\n');
+ const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));
+ const link=document.createElement('a');link.href=url;link.download='Bentar-ngopi-Affiliate-Analitik-'+(document.getElementById('bn60From')?.value||'periode')+'.csv';link.click();setTimeout(()=>URL.revokeObjectURL(url),1200);
 }
-async function bn56CopyMemberLink(username){
- const link=bn50ReferralLink(username);
- try{if(!navigator.clipboard?.writeText)throw Error('clipboard');await navigator.clipboard.writeText(link);toast('Link affiliate disalin')}
- catch(err){const input=document.createElement('textarea');input.value=link;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();const ok=document.execCommand('copy');input.remove();if(ok)toast('Link affiliate disalin');else prompt('Salin link affiliate berikut:',link)}
+function bn60WaAdmin(phone){
+ if(state.adminSession?.role!=='admin')return;
+ const digits=String(phone||'').replace(/\D/g,'');const normalized=digits.startsWith('0')?'62'+digits.slice(1):digits;
+ if(!/^62\d{9,13}$/.test(normalized)){toast('Nomor WA tidak valid',true);return}
+ const msg='Halo, kami dari BentarNgopi. Ada informasi mengenai program Affiliate Anda. Silakan buka aplikasi BentarNgopi atau hubungi Admin untuk detailnya. Jangan membagikan PIN atau kode aktivasi kepada siapa pun.';
+ window.open('https://wa.me/'+normalized+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
+}
+async function bn60LoadAnalytics(){
+ const root=document.getElementById('bn50AdminBody');if(!root||state.adminSession?.role!=='admin')return;
+ let host=document.getElementById('bn60Analytics');
+ if(!host){host=document.createElement('section');host.id='bn60Analytics';host.className='rounded-xl border p-4 mt-5 bg-white';root.prepend(host)}
+ const from=document.getElementById('bn60From')?.value||bn60Date(-29),to=document.getElementById('bn60To')?.value||bn60Date();
+ host.innerHTML='<h3 class="font-extrabold text-xl">📊 Analitik Affiliate · V6.0</h3><p class="muted">Memuat laporan...</p>';
+ try{
+  const d=await api('rpc/bn_affiliate_analytics_admin_v60','POST',{p_token:state.adminSession.token,p_from:from,p_to:to});
+  if(!document.getElementById('bn60Analytics'))return;
+  const sm=d.summary||{},members=d.members||[],daily=d.daily||[];bn60Rows=members;bn60Summary=sm;bn60Payouts=d.payouts||[];
+  const cards=[['Referral Online',sm.online],['Referral Kasir',sm.pos],['Referral Disetujui',sm.approved],['Komisi Disetujui',money(sm.approved_commission||0)],['Permintaan Pencairan',sm.payout_pending],['Pencairan Terbayar',money(sm.payout_paid||0)]];
+  host.innerHTML='<div class="flex flex-wrap gap-3 items-center justify-between"><h3 class="font-extrabold text-xl">📊 Analitik Affiliate · V6.0</h3><button type="button" class="btn" onclick="bn60DownloadCSV()">Ekspor CSV</button></div>'+
+  '<p class="muted text-sm mt-1">Data berdasarkan waktu atribusi referral. Status dan komisi dihitung sesuai kondisi terbaru, bukan omzet usaha.</p>'+
+  '<div class="grid grid-cols-2 md:grid-cols-3 gap-2 mt-3">'+cards.map(c=>'<div class="bg-stone-50 border rounded-xl p-3"><div class="text-xs muted">'+esc(c[0])+'</div><b class="block text-lg mt-1">'+esc(String(c[1]??0))+'</b></div>').join('')+'</div>'+
+  '<form id="bn60Filter" class="flex flex-wrap gap-2 items-end mt-4" onsubmit="event.preventDefault();bn60LoadAnalytics()"><label class="text-sm">Dari<input id="bn60From" class="field" type="date" required value="'+esc(from)+'"></label><label class="text-sm">Sampai<input id="bn60To" class="field" type="date" required value="'+esc(to)+'"></label><button class="btn" type="submit">Terapkan</button></form>'+
+  '<h4 class="font-bold mt-4 mb-2">Rekap Harian</h4><div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="text-left border-b"><th class="p-2">Tanggal</th><th class="p-2">Online</th><th class="p-2">Kasir</th><th class="p-2">Disetujui</th><th class="p-2">Komisi</th></tr></thead><tbody>'+daily.map(r=>'<tr class="border-b"><td class="p-2">'+esc(r.day)+'</td><td class="p-2">'+Number(r.online||0)+'</td><td class="p-2">'+Number(r.pos||0)+'</td><td class="p-2">'+Number(r.approved||0)+'</td><td class="p-2">'+money(r.commission||0)+'</td></tr>').join('')+'</tbody></table></div>'+
+  '<h4 class="font-bold mt-4 mb-2">Performa Member</h4><div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="border-b text-left"><th class="p-2">Kode</th><th class="p-2">Referral</th><th class="p-2">Komisi</th><th class="p-2">Notifikasi</th></tr></thead><tbody>'+(members.map(m=>'<tr class="border-b"><td class="p-2">'+esc(m.ref_code)+'</td><td class="p-2">'+Number(m.referral_count||0)+'</td><td class="p-2">'+money(m.approved_commission||0)+'</td><td class="p-2"><button class="btn" type="button" data-phone="'+esc(m.member_phone)+'" onclick="bn60WaAdmin(this.dataset.phone)">Buka WhatsApp</button></td></tr>').join('')||'<tr><td colspan="4" class="p-3 muted">Belum ada referral pada periode ini.</td></tr>')+'</tbody></table></div>'+
+  '<p class="muted text-xs mt-3">WhatsApp menggunakan klik-untuk-chat; Admin harus menekan Kirim. Tidak ada PIN, nomor rekening, atau kode aktivasi di pesan. Transaksi refund dan pembayaran tidak diubah oleh laporan ini.</p>';
+ }catch(e){host.innerHTML='<h3 class="font-bold">📊 Analitik Affiliate V6.0</h3><p class="text-red-700 text-sm">'+esc(e.message||String(e))+'</p><button type="button" class="btn mt-2" onclick="bn60LoadAnalytics()">Coba Lagi</button>'}
+}
+
+
+// V6.1: audit end-to-end, hanya baca; tidak ada tombol setujui/pencairan otomatis.
+let bn61AuditRows=[];
+function bn61Csv(){
+ if(!bn61AuditRows.length){toast('Tidak ada temuan untuk diekspor');return}
+ const fields=['channel','reference','member_phone','event_at','severity','finding','value'];
+ const content='\ufeff'+[fields,...bn61AuditRows.map(r=>fields.map(k=>r[k]??''))]
+  .map(a=>a.map(bn60CsvField).join(';')).join('\r\n');
+ const url=URL.createObjectURL(new Blob([content],{type:'text/csv;charset=utf-8'}));
+ const a=document.createElement('a');a.href=url;a.download='Bentar-ngopi-Audit-Affiliate-V61.csv';a.click();
+ setTimeout(()=>URL.revokeObjectURL(url),1200);
+}
+async function bn61LoadAudit(){
+ const root=document.getElementById('bn50AdminBody');
+ if(!root||state.adminSession?.role!=='admin')return;
+ let host=document.getElementById('bn61Audit');
+ if(!host){host=document.createElement('section');host.id='bn61Audit';host.className='rounded-xl border p-4 mb-4 bg-white';root.prepend(host)}
+ const from=document.getElementById('bn61From')?.value||bn60Date(-29);
+ const to=document.getElementById('bn61To')?.value||bn60Date();
+ host.innerHTML='<h3 class="font-extrabold text-xl">🔎 Audit End-to-End Affiliate V6.1</h3><p class="muted">Memeriksa integritas data...</p>';
+ try{
+  const d=await api('rpc/bn_affiliate_integrity_admin_v61','POST',{
+   p_token:state.adminSession.token,p_from:from,p_to:to
+  });
+  if(!document.getElementById('bn61Audit'))return;
+  bn61AuditRows=Array.isArray(d.issues)?d.issues:[];
+  const sm=d.summary||{};
+  const cards=[['Total Temuan',sm.total_findings],['Kritis',sm.critical],['Tinggi',sm.high],['Sedang',sm.medium]];
+  host.innerHTML='<div class="flex flex-wrap gap-2 justify-between items-center"><h3 class="font-extrabold text-xl">🔎 Audit End-to-End · V6.1</h3><button class="btn" type="button" onclick="bn61Csv()">Ekspor Temuan CSV</button></div>'+
+   '<p class="muted text-sm mt-1">Baca-saja. Temuan perlu diverifikasi; tidak otomatis memotong saldo atau menyatakan transfer berhasil.</p>'+
+   '<form class="flex flex-wrap gap-2 items-end mt-3" onsubmit="event.preventDefault();bn61LoadAudit()"><label class="text-sm">Dari<input class="field" id="bn61From" type="date" required value="'+esc(from)+'"></label><label class="text-sm">Sampai<input class="field" id="bn61To" type="date" required value="'+esc(to)+'"></label><button class="btn" type="submit">Jalankan Audit</button></form>'+
+   '<div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-3">'+cards.map(x=>'<div class="bg-stone-50 border rounded-xl p-3"><div class="text-xs muted">'+esc(x[0])+'</div><strong class="text-xl">'+Number(x[1]||0)+'</strong></div>').join('')+'</div>'+
+   (sm.truncated?'<p class="text-amber-800 mt-2 text-sm">Daftar dibatasi 200 temuan terbaru. Total dihitung untuk seluruh temuan dalam periode.</p>':'')+
+   '<h4 class="font-bold mt-4 mb-2">Transaksi yang perlu diperiksa</h4><div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr class="border-b text-left"><th class="p-2">Tingkat</th><th class="p-2">Sumber</th><th class="p-2">Referensi</th><th class="p-2">Member</th><th class="p-2">Temuan</th></tr></thead><tbody>'+
+   (bn61AuditRows.map(r=>'<tr class="border-b"><td class="p-2">'+esc(r.severity)+'</td><td class="p-2">'+esc(r.channel)+'</td><td class="p-2">'+esc(r.reference)+'</td><td class="p-2">'+esc(r.member_phone)+'</td><td class="p-2">'+esc(r.finding)+'</td></tr>').join('')||'<tr><td class="p-3 muted" colspan="5">Tidak ada temuan pada pemeriksaan yang didukung saat ini.</td></tr>')+'</tbody></table></div>'+
+   '<p class="muted text-xs mt-3">Batas audit: tidak memverifikasi mutasi bank, identitas asli pembeli, atau jalur refund selain tabel yang diperiksa. Data terbaru dilihat saat tombol audit ditekan.</p>';
+ }catch(e){host.innerHTML='<h3 class="font-bold">🔎 Audit Affiliate V6.1</h3><p class="text-red-700 text-sm">'+esc(e.message||String(e))+'</p><button class="btn mt-2" onclick="bn61LoadAudit()">Coba Lagi</button>'}
 }
 
 </script></body></html>

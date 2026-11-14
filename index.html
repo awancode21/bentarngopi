@@ -499,7 +499,60 @@ body{font-family:system-ui,-apple-system,sans-serif;background:radial-gradient(c
 [data-admin-panel="inventory"] .bn46-tabs button,
 [data-admin-panel="inventory"] .bn48-nav button{min-height:44px;white-space:nowrap;flex-shrink:0}
 @media(max-width:640px){[data-admin-panel="inventory"]{padding:12px!important}[data-admin-panel="inventory"] .bn46,[data-admin-panel="inventory"] .bn48{padding:12px}[data-admin-panel="inventory"] .bn48-inventory-title{padding:4px 0 10px}}
-</style><style>.bn49 h3{font-size:1.08rem;font-weight:800;color:#442819}.bn49-status{display:inline-flex;border-radius:99px;background:#f6e5ca;color:#70430f;font-size:12px;font-weight:750;padding:6px 10px}.bn49-details{margin:12px 0;padding:12px;border:1px solid #e8d9c9;border-radius:12px;background:#fffcf8}.bn49-details summary{font-weight:800;cursor:pointer;min-height:40px;padding:8px 0}.bn49ReceiveForm{display:grid;gap:10px}.bn49ReceiveForm>label{display:grid;gap:5px;font-weight:700}.bn49ReceiveForm input{padding:11px;width:100%;min-width:0;border:1px solid #ddcdbb;border-radius:10px}.bn49-receive-line{display:grid;grid-template-columns:minmax(0,2fr) minmax(70px,1fr) minmax(80px,1fr);gap:8px;align-items:center;border-bottom:1px solid #f0e5da;padding:8px 0}.bn49-receive-line small{display:block;color:#7c6958}.bn49 .bn48-tablewrap{margin:10px 0}.bn49 .bn48-card{background:#fff}@media(max-width:640px){.bn49-receive-line{grid-template-columns:minmax(0,1fr) minmax(76px,1fr)}.bn49-receive-line>span{grid-column:1/-1}.bn49 .bn48-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.bn49 .bn48-stat strong{font-size:16px}}</style></head><body class="bg-stone-50 text-stone-800 min-h-screen"><header class="sticky top-0 z-30 bg-coffee-900 text-white shadow"><div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3"><button onclick="nav('home')" class="font-black text-xl"><i class="fa-solid fa-mug-hot text-amber-400"></i> Bentar<span class="text-amber-400">Ngopi</span></button><div class="flex items-center gap-2 text-sm"><button onclick="nav('home')" class="px-2 py-2">Menu</button><button id="bnMemberTab" onclick="nav('member')" class="bn-member-tab bg-amber-600 rounded-full px-3 py-2" aria-label="Buka akun Member"><i class="fa-solid fa-user"></i> <span id="bnMemberTabName">Member</span><span id="bnMemberTabBadge" class="bn-member-notif hidden" aria-label="Notifikasi aktivitas">0</span></button><button id="adminReturn" onclick="nav('admin')" class="hidden rounded-full px-3 py-2 bg-stone-700 border border-stone-500"><i class="fa-solid fa-gear"></i> Admin</button></div></div></header><main id="app" class="max-w-5xl mx-auto p-4 pb-20"></main><footer class="text-center text-xs text-stone-400 pb-8">BentarNgopi • Menu, Sampel & Stamp</footer><div id="toast" class="hidden fixed bottom-5 right-4 left-4 sm:left-auto z-50 rounded-xl px-4 py-3 text-white shadow-2xl"></div><script>
+</style><style>.bn49 h3{font-size:1.08rem;font-weight:800;color:#442819}.bn49-status{display:inline-flex;border-radius:99px;background:#f6e5ca;color:#70430f;font-size:12px;font-weight:750;padding:6px 10px}.bn49-details{margin:12px 0;padding:12px;border:1px solid #e8d9c9;border-radius:12px;background:#fffcf8}.bn49-details summary{font-weight:800;cursor:pointer;min-height:40px;padding:8px 0}.bn49ReceiveForm{display:grid;gap:10px}.bn49ReceiveForm>label{display:grid;gap:5px;font-weight:700}.bn49ReceiveForm input{padding:11px;width:100%;min-width:0;border:1px solid #ddcdbb;border-radius:10px}.bn49-receive-line{display:grid;grid-template-columns:minmax(0,2fr) minmax(70px,1fr) minmax(80px,1fr);gap:8px;align-items:center;border-bottom:1px solid #f0e5da;padding:8px 0}.bn49-receive-line small{display:block;color:#7c6958}.bn49 .bn48-tablewrap{margin:10px 0}.bn49 .bn48-card{background:#fff}@media(max-width:640px){.bn49-receive-line{grid-template-columns:minmax(0,1fr) minmax(76px,1fr)}.bn49-receive-line>span{grid-column:1/-1}.bn49 .bn48-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.bn49 .bn48-stat strong{font-size:16px}}
+/* BentarNgopi UX 6.4 - presentation only, no backend changes */
+:root{--bnux-ink:#34251b;--bnux-beige:#fffaf4;--bnux-outline:#e9dfd3}
+html{scroll-padding-top:85px}body{overflow-x:hidden}button,a,input,select{touch-action:manipulation}
+#app{max-width:1280px}#app:has(.bn-pos-shell){max-width:1360px}
+.bn-admin-v32{font-size:14px}.bn-admin-v32 .soft-panel{box-shadow:0 8px 32px rgba(70,40,20,.06)}
+.bn-admin-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:14px}
+.bn-admin-shortcuts button,.bn-admin-shortcuts a{display:flex;align-items:center;justify-content:center;gap:7px;text-align:center;padding:11px 5px;border:1px solid #e8dacc;background:#fff;border-radius:12px;color:#654229;font-size:.8rem;font-weight:800;min-height:46px}
+.bn-admin-shortcuts button:active,.bn-admin-shortcuts a:active{background:#fff1df}
+.bn-mobile-nav-toggle{display:none}
+.bn-shop-controls{background:#fff;border:1px solid var(--bnux-outline);border-radius:22px;padding:20px;margin:0 0 22px;box-shadow:0 12px 30px rgba(62,39,20,.05)}
+.bn-shop-controls h2{font-size:clamp(1.25rem,4vw,1.7rem);font-weight:900;color:var(--bnux-ink);line-height:1.3}
+.bn-shop-controls p{font-size:.84rem;color:#76675a}.bn-shop-controls .bn-shop-eyebrow{color:#b27737;font-weight:900;letter-spacing:.13em;font-size:.65rem;margin-bottom:4px}
+.bn-shop-search{display:flex;align-items:center;gap:10px;border-radius:15px;border:1px solid #dfd3c8;background:#fffaf6;padding:0 13px;margin-top:16px}
+.bn-shop-search:focus-within{border-color:#b7793b;box-shadow:0 0 0 3px #f5cfa37f}.bn-shop-search i{color:#97693e}.bn-shop-search input{background:transparent;width:100%;min-width:0;padding:14px 0;outline:none;font-size:16px}
+.bn-shop-filters{display:flex;gap:9px;overflow-x:auto;padding:12px 0 1px;scrollbar-width:none}.bn-shop-filters button{flex-shrink:0;white-space:nowrap;border-radius:30px;border:1px solid #e7d8c6;background:#fff;padding:9px 15px;color:#63432c;font-size:.82rem;font-weight:800;min-height:42px}
+.bn-shop-filters button.active{background:#583923;border-color:#583923;color:#fff}.bn-shop-empty{background:#fff8ed;padding:13px;border-radius:13px;margin-top:10px}
+.bn-shop-product{display:flex;flex-direction:column;gap:8px;border:1px solid #eadfd2;border-radius:20px;padding:18px;box-shadow:0 6px 20px rgba(68,42,24,.035);background:white;min-width:0}
+.bn-shop-product > .btn{margin-top:auto!important;min-height:46px;border-radius:13px}
+.bn-shop-product b{line-height:1.4;display:block}.bn-shop-product .bn-menu-composition{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.bn-shop-product .price-pill{font-size:.92rem;background:#fff6e8;color:#774313}
+#bnFloatingCart{padding-bottom:max(12px,env(safe-area-inset-bottom));z-index:30}#bnFloatingCart .btn{min-height:48px}
+body.bn-cashier-mode>header .bn-public-links{display:none}body.bn-cashier-mode #app{padding-top:12px}
+.bn-online-order-shell .field{font-size:16px}
+@media(max-width:1023px){
+ .bn-admin-v32 .soft-panel{padding:12px!important}.bn-admin-v32 .bn-admin-hero{padding:14px!important}
+ .bn-admin-v32 .bn-admin-hero h1{font-size:1.45rem}
+ .bn-mobile-nav-toggle{display:flex;width:100%;align-items:center;justify-content:space-between;gap:12px;background:#573923;color:#fff;padding:14px 16px;border-radius:13px;margin-bottom:8px;font-size:.9rem;font-weight:850;min-height:48px}
+ .bn-admin-v32 .bn-admin-nav-shell{display:none;max-height:65vh;overflow-y:auto;overscroll-behavior:contain}
+ .bn-admin-v32.bn-admin-menu-open .bn-admin-nav-shell{display:block}
+ .bn-admin-v32 .admin-nav{display:flex!important;flex-direction:column!important;overflow-x:visible!important;max-height:none!important}
+ .bn-admin-v32 .bn-admin-nav-shell .admin-tab-btn{width:100%;min-height:43px}
+ .bn-admin-v32 .bn-admin-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .bn-admin-v32 [data-admin-panel]{min-width:0;overflow-wrap:anywhere}
+ .bn-admin-v32 [data-admin-panel] .overflow-x-auto{max-width:calc(100vw - 40px)}
+ .bn-admin-shortcuts{position:sticky;top:62px;z-index:12;background:#faf6f0;border:1px solid #f0e6db;border-radius:15px;padding:8px;box-shadow:0 6px 12px #42301a0f}
+ .bn-admin-shortcuts button,.bn-admin-shortcuts a{display:flex;flex-direction:column;gap:4px;line-height:1.15;font-size:11px;padding:7px 4px}
+ .bn-admin-shortcuts i{font-size:16px}
+}
+@media(max-width:600px){
+ body>header .max-w-5xl{padding:10px 13px;gap:8px}body>header button{font-size:.8rem}body>header button.font-black{font-size:1.05rem}
+ #app{padding:12px 12px 90px}.bn-shop-controls{padding:15px;border-radius:17px;margin-bottom:18px}
+ .bn-shop-product{padding:14px;border-radius:16px;gap:6px}
+ .bn-shop-category>.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .bn-shop-product .text-4xl{font-size:1.6rem}.bn-shop-product b{font-size:.89rem!important}
+ .bn-shop-product .price-pill{font-size:.78rem;padding:5px 8px}
+ .bn-shop-product .bn-menu-composition{font-size:.74rem;line-height:1.35;-webkit-line-clamp:2}
+ .bn-shop-product .btn{font-size:.78rem;padding:10px 6px;min-height:44px}
+ .bn-shop-product .text-xs{font-size:.68rem}
+ #bnFloatingCart{padding-left:10px;padding-right:10px}#bnFloatingCart .max-w-3xl{padding:10px 12px}#bnFloatingCart .btn{font-size:.8rem}
+ .bn-pos-shell{border-radius:16px!important}.bn-pos-pane{padding:12px!important}
+}
+@media(max-width:360px){.bn-shop-category>.grid{grid-template-columns:1fr}}
+</style></head><body class="bg-stone-50 text-stone-800 min-h-screen"><header class="sticky top-0 z-30 bg-coffee-900 text-white shadow"><div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3"><button onclick="nav('home')" class="font-black text-xl"><i class="fa-solid fa-mug-hot text-amber-400"></i> Bentar<span class="text-amber-400">Ngopi</span></button><div class="flex items-center gap-2 text-sm"><button onclick="nav('home')" class="px-2 py-2">Menu</button><button id="bnMemberTab" onclick="nav('member')" class="bn-member-tab bg-amber-600 rounded-full px-3 py-2" aria-label="Buka akun Member"><i class="fa-solid fa-user"></i> <span id="bnMemberTabName">Member</span><span id="bnMemberTabBadge" class="bn-member-notif hidden" aria-label="Notifikasi aktivitas">0</span></button><button id="adminReturn" onclick="nav('admin')" class="hidden rounded-full px-3 py-2 bg-stone-700 border border-stone-500"><i class="fa-solid fa-gear"></i> Admin</button></div></div></header><main id="app" class="max-w-5xl mx-auto p-4 pb-20"></main><footer class="text-center text-xs text-stone-400 pb-8">BentarNgopi • Menu, Sampel & Stamp</footer><div id="toast" class="hidden fixed bottom-5 right-4 left-4 sm:left-auto z-50 rounded-xl px-4 py-3 text-white shadow-2xl"></div><script>
 const BASE="https://fqaewybhgsxlkgkvjnjv.supabase.co/rest/v1", KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZxYWV3eWJoZ3N4bGtna3Zqbmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyODc4MzQsImV4cCI6MjEwNjg2MzgzNH0.s4Frl_Mpj77Fc321j7MWykvxaXA7XWkKjWzJKEn-LXE";
 const state={adminSession:null,adminChecked:false,adminTab:sessionStorage.getItem('bnAdminTab')||'settings',view:location.hash.startsWith('#tracking=')?'tracking':location.hash==='#ngopidulu'?'admin':'home',phone:sessionStorage.getItem('bnphone')||'',menu:[],settings:null,member:null,samples:[],purchases:[],rewards:[],camera:null,selectedSample:null,ratings:[0,0,0,0],cart:[],onlineCart:[],lastOrder:null,onlineType:'nonmember',onlineServiceType:'delivery',onlinePaymentMethod:'cash',orderLocation:null,bnMemberNoticeCount:0};
 const app=document.getElementById('app');
@@ -596,7 +649,7 @@ async function loadCore(){syncOnlineMember();bnRefreshMemberTab();const [m,c]=aw
 async function stopCamera(){if(state.camera){try{await state.camera.stop()}catch(e){}try{state.camera.clear()}catch(e){}state.camera=null}}
 function updateAdminReturn(){const btn=document.getElementById('adminReturn');if(btn)btn.classList.toggle('hidden',sessionStorage.getItem('bnAdminVisited')!=='1'||state.view==='admin')}
 async function nav(view){bnStopLiveOrderTracking();if(view!=='member')bnStopMemberOrderTracking();await stopCamera();state.view=view;if(view==='admin'){sessionStorage.setItem('bnAdminVisited','1');if(location.hash!=='#ngopidulu')history.replaceState(null,'',location.pathname+location.search+'#ngopidulu')}else if(location.hash.startsWith('#tracking=')||location.hash==='#ngopidulu')history.replaceState(null,'',location.pathname+location.search);updateAdminReturn();await render()}
-function adminTab(tab){if(tab!=='orders')bnStopOrderScanner();if(tab!=='members')bnCloseStampEditor();const allowed=['overview','settings','products','toppings','members','cashier','vouchers','transactions','orders','samples','reviews','insights','reports','users','inventory','affiliate'];if(!allowed.includes(tab))return;state.adminTab=tab;sessionStorage.setItem('bnAdminTab',tab);applyAdminTab();if(tab==='affiliate'&&state.adminSession?.role==='admin')bn50LoadAdmin();if(tab==='inventory'&&state.adminSession?.role==='admin')bn46Mount();if(tab==='cashier'&&state.adminSession?.role==='admin')bnCashierRenderPage(true);if(tab==='toppings'&&state.adminSession?.role==='admin')renderBnToppingAdmin();if(tab==='vouchers'&&state.adminSession?.role==='admin')bnVoucherAdminLoad();if(tab==='users'&&state.adminSession?.role==='admin')loadStaffUsers();if(tab==='members'&&state.adminSession?.role==='admin')loadMembers();if(tab==='orders'&&state.adminSession?.role==='admin')loadAdminOrders();if(tab==='reviews'&&state.adminSession?.role==='admin')bnLoadAdminReviews();if(tab==='insights'&&state.adminSession?.role==='admin')bnLoadReviewInsights();if(tab==='overview'&&state.adminSession?.role==='admin'){bn36Mount();bn37ShiftMount();bnLoadRevenue();bnLoadManagementReport();}if(tab==='reports'&&state.adminSession?.role==='admin')bnLoadDetailReport();}
+function adminTab(tab){if(tab!=='orders')bnStopOrderScanner();if(tab!=='members')bnCloseStampEditor();const allowed=['overview','settings','products','toppings','members','cashier','vouchers','transactions','orders','samples','reviews','insights','reports','users','inventory','affiliate'];if(!allowed.includes(tab))return;state.adminTab=tab;sessionStorage.setItem('bnAdminTab',tab);applyAdminTab();bnCloseAdminMenu();if(tab==='affiliate'&&state.adminSession?.role==='admin')bn50LoadAdmin();if(tab==='inventory'&&state.adminSession?.role==='admin')bn46Mount();if(tab==='cashier'&&state.adminSession?.role==='admin')bnCashierRenderPage(true);if(tab==='toppings'&&state.adminSession?.role==='admin')renderBnToppingAdmin();if(tab==='vouchers'&&state.adminSession?.role==='admin')bnVoucherAdminLoad();if(tab==='users'&&state.adminSession?.role==='admin')loadStaffUsers();if(tab==='members'&&state.adminSession?.role==='admin')loadMembers();if(tab==='orders'&&state.adminSession?.role==='admin')loadAdminOrders();if(tab==='reviews'&&state.adminSession?.role==='admin')bnLoadAdminReviews();if(tab==='insights'&&state.adminSession?.role==='admin')bnLoadReviewInsights();if(tab==='overview'&&state.adminSession?.role==='admin'){bn36Mount();bn37ShiftMount();bnLoadRevenue();bnLoadManagementReport();}if(tab==='reports'&&state.adminSession?.role==='admin')bnLoadDetailReport();}
 
 // BENTARNGOPI V3.6: Dashboard operasional bersumber dari bn_admin_detailed_report.
 // Angka menggunakan status *proses pesanan*, bukan bukti settlement pembayaran.
@@ -707,7 +760,7 @@ function menuCards(member=false){
  if(!arr.length)return '<div class="card">Belum ada menu. Admin dapat menambah produk.</div>';
  return ['kopi','non-kopi'].map(cat=>{
    const rows=arr.filter(x=>x.category===cat);
-   return '<section class="mb-8"><div class="flex items-end justify-between gap-3 mb-3"><div><div class="section-kicker">Katalog</div><h2 class="font-black text-xl md:text-2xl">'+(cat==='kopi'?'☕ Pilihan Kopi':'🥛 Pilihan Non Kopi')+'</h2></div><span class="price-pill">'+rows.length+' menu</span></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">'+(rows.map(x=>'<div class="menu-card"><div class="flex justify-between gap-3 items-start"><div><b class="text-coffee-900 text-[1.02rem]">'+esc(x.name)+'</b><div class="mt-2 flex flex-wrap gap-2"><span class="price-pill" aria-label="Harga produk">'+money(state.phone?x.price_member:x.price_normal)+'</span></div></div><div class="text-4xl opacity-90">'+(cat==='kopi'?'☕':'🥤')+'</div></div>'+(x.description?'<p class="bn-menu-composition mt-3 text-sm leading-relaxed text-stone-600">'+esc(x.description)+'</p>':'')+bnStatusBadge(x)+'<p class="text-xs text-amber-900 font-semibold mt-2">Kemasan: '+bnPackageLabels(x)+'</p>'+(x.stamp_enabled?'<p class="text-xs mt-3 text-green-700 font-semibold">'+icon('stamp')+' Dapat stamp reward</p>':'<p class="text-xs mt-3 text-stone-400">Tanpa stamp</p>')+'<button class="btn w-full mt-4" '+(!bnCanOrder(x)?'disabled':'onclick="addOnlineProduct(\''+esc(x.id)+'\')"')+'>'+(bnProductStatus(x)==='coming_soon'?'Segera Hadir':Number(x.stock_qty||0)<=0?'Stok Habis':'+ Tambah ke Pesanan')+'</button></div>').join('')||'<p class="muted">Belum ada produk</p>')+'</div></section>';
+   return '<section class="mb-8 bn-shop-category" data-bn-category="'+cat+'"><div class="flex items-end justify-between gap-3 mb-3"><div><div class="section-kicker">Katalog</div><h2 class="font-black text-xl md:text-2xl">'+(cat==='kopi'?'☕ Pilihan Kopi':'🥛 Pilihan Non Kopi')+'</h2></div><span class="price-pill">'+rows.length+' menu</span></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">'+(rows.map(x=>'<div class="menu-card bn-shop-product" data-bn-name="'+esc(String(x.name).toLowerCase())+'"><div class="flex justify-between gap-3 items-start"><div><b class="text-coffee-900 text-[1.02rem]">'+esc(x.name)+'</b><div class="mt-2 flex flex-wrap gap-2"><span class="price-pill" aria-label="Harga produk">'+money(state.phone?x.price_member:x.price_normal)+'</span></div></div><div class="text-4xl opacity-90">'+(cat==='kopi'?'☕':'🥤')+'</div></div>'+(x.description?'<p class="bn-menu-composition mt-3 text-sm leading-relaxed text-stone-600">'+esc(x.description)+'</p>':'')+bnStatusBadge(x)+'<p class="text-xs text-amber-900 font-semibold mt-2">Kemasan: '+bnPackageLabels(x)+'</p>'+(x.stamp_enabled?'<p class="text-xs mt-3 text-green-700 font-semibold">'+icon('stamp')+' Dapat stamp reward</p>':'<p class="text-xs mt-3 text-stone-400">Tanpa stamp</p>')+'<button class="btn w-full mt-4" '+(!bnCanOrder(x)?'disabled':'onclick="addOnlineProduct(\''+esc(x.id)+'\')"')+'>'+(bnProductStatus(x)==='coming_soon'?'Segera Hadir':Number(x.stock_qty||0)<=0?'Stok Habis':'+ Tambah ke Pesanan')+'</button></div>').join('')||'<p class="muted">Belum ada produk</p>')+'</div></section>';
  }).join('');
 }
 async function render(){app.innerHTML='<div class="text-center p-12 text-amber-700">'+icon('spinner fa-spin')+' Memuat...</div>';try{if(state.view==='tracking')return await renderOrderTracking();await loadCore();if(state.view==='home')return renderHome();if(state.view==='order'){await loadBnToppings();return renderOnlineOrder();}if(state.view==='member'){await renderMember();bn50MountMember();return;}if(state.view==='admin'){await renderAdmin();if(state.adminSession?.role==='admin')bn50MountAdmin();if(state.adminSession){const bar=document.createElement('div');bar.className='max-w-6xl mx-auto w-full flex justify-end mt-3';bar.innerHTML='<button class="text-sm text-red-700 font-bold underline" onclick="logoutAdmin()"><i class="fa-solid fa-right-from-bracket mr-1"></i>Keluar Admin</button>';app.prepend(bar)}return;}if(state.view==='register')return renderRegister();if(state.view==='login')return renderLogin();if(state.view==='request')return await renderRequest();if(state.view==='review')return await renderReview();}catch(e){app.innerHTML='<div class="card text-red-700">Tidak dapat memuat data. Periksa SQL Supabase dan koneksi internet. <button class="btn mt-3" onclick="render()">Coba Lagi</button></div>'}}
@@ -716,7 +769,7 @@ function bnCartBar(){
  return '<div id="bnFloatingCart" class="floating-cart fixed bottom-0 left-0 right-0 z-50 px-4 py-3"><div class="max-w-3xl mx-auto flex items-center justify-between gap-3 rounded-2xl border border-amber-200 bg-white/85 px-4 py-3"><div><div class="text-[11px] tracking-wide font-black text-amber-900">🛒 KERANJANG AKTIF · '+count+' ITEM</div><div class="text-xl font-black text-coffee-900">'+money(onlineCalc())+'</div></div><button class="btn" onclick="nav(\'order\')">Lihat Keranjang</button></div></div>';
 }
 function renderHome(){
- app.innerHTML='<div class="fade pb-32"><section class="relative overflow-hidden rounded-[1.8rem] bg-gradient-to-br from-coffee-900 via-coffee-800 to-amber-700 text-white p-7 md:p-10 mb-6 shadow-2xl"><div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-white/10"></div><div class="absolute right-12 bottom-0 w-28 h-28 rounded-full bg-amber-300/10"></div><div class="relative max-w-2xl"><p class="section-kicker text-amber-200">BentarNgopi</p><h1 class="text-3xl md:text-5xl font-black leading-tight mt-2">Pesan kopi favorit dengan tampilan yang lebih nyaman.</h1><p class="text-amber-50/90 mt-4 mb-6 text-sm md:text-base">Nikmati katalog kopi & non kopi, harga member otomatis, keranjang praktis, dan riwayat pesanan yang mudah dipantau.</p><div class="flex flex-wrap gap-3">'+(!state.phone?'<button class="bg-white text-coffee-900 font-extrabold rounded-2xl px-5 py-3 shadow-lg" onclick="nav(\'member\')">Masuk / Gabung Member '+icon('arrow-right')+'</button>':'')+'<button class="bg-white/10 backdrop-blur rounded-2xl px-5 py-3 font-bold border border-white/20" onclick="nav(\'order\')">Buka Keranjang</button></div></div></section><div class="grid md:grid-cols-3 gap-4 mb-5"><div class="card"><div class="section-kicker mb-2">Keunggulan</div><b class="block mb-1">Order fleksibel</b><p class="muted">Pesan kapan saja, atur ambil ke tempat atau pengantaran.</p></div><div class="card"><div class="section-kicker mb-2">Pembayaran</div><b class="block mb-1">Cash & QRIS</b><p class="muted">Metode pembayaran lebih praktis langsung dari aplikasi.</p></div><div class="card"><div class="section-kicker mb-2">Loyalitas</div><b class="block mb-1">Reward & Sampel</b><p class="muted">Member bisa melihat stamp, reward, dan status sampel di satu tempat.</p></div></div>'+menuCards()+'</div>'+bnCartBar();
+ app.innerHTML='<div class="fade pb-32"><section class="relative overflow-hidden rounded-[1.8rem] bg-gradient-to-br from-coffee-900 via-coffee-800 to-amber-700 text-white p-7 md:p-10 mb-6 shadow-2xl"><div class="absolute -right-8 -top-8 w-36 h-36 rounded-full bg-white/10"></div><div class="absolute right-12 bottom-0 w-28 h-28 rounded-full bg-amber-300/10"></div><div class="relative max-w-2xl"><p class="section-kicker text-amber-200">BentarNgopi</p><h1 class="text-3xl md:text-5xl font-black leading-tight mt-2">Pesan kopi favorit dengan tampilan yang lebih nyaman.</h1><p class="text-amber-50/90 mt-4 mb-6 text-sm md:text-base">Nikmati katalog kopi & non kopi, harga member otomatis, keranjang praktis, dan riwayat pesanan yang mudah dipantau.</p><div class="flex flex-wrap gap-3">'+(!state.phone?'<button class="bg-white text-coffee-900 font-extrabold rounded-2xl px-5 py-3 shadow-lg" onclick="nav(\'member\')">Masuk / Gabung Member '+icon('arrow-right')+'</button>':'')+'<button class="bg-white/10 backdrop-blur rounded-2xl px-5 py-3 font-bold border border-white/20" onclick="nav(\'order\')">Buka Keranjang</button></div></div></section><div class="grid md:grid-cols-3 gap-4 mb-5"><div class="card"><div class="section-kicker mb-2">Keunggulan</div><b class="block mb-1">Order fleksibel</b><p class="muted">Pesan kapan saja, atur ambil ke tempat atau pengantaran.</p></div><div class="card"><div class="section-kicker mb-2">Pembayaran</div><b class="block mb-1">Cash & QRIS</b><p class="muted">Metode pembayaran lebih praktis langsung dari aplikasi.</p></div><div class="card"><div class="section-kicker mb-2">Loyalitas</div><b class="block mb-1">Reward & Sampel</b><p class="muted">Member bisa melihat stamp, reward, dan status sampel di satu tempat.</p></div></div><section class="bn-shop-controls" id="bnShopTools"><div><p class="bn-shop-eyebrow">MENU BENTAR NGOPI</p><h2>Pilih minuman favoritmu</h2><p>Cari menu, pilih kopi atau non-kopi, lalu tambahkan ke keranjang.</p></div><div class="bn-shop-search"><i class="fa-solid fa-magnifying-glass"></i><input aria-label="Cari menu minuman" type="search" placeholder="Cari Butterscotch, Matcha, Americano..." oninput="bnShopSearch(this.value)"></div><div class="bn-shop-filters" role="group" aria-label="Filter jenis minuman"><button type="button" data-bn-filter="all" onclick="bnShopCategory(\'all\')" class="active">Semua Menu</button><button type="button" data-bn-filter="kopi" onclick="bnShopCategory(\'kopi\')">☕ Kopi</button><button type="button" data-bn-filter="non-kopi" onclick="bnShopCategory(\'non-kopi\')">🥛 Non Kopi</button></div><p id="bnShopNoResults" class="hidden bn-shop-empty">Menu tidak ditemukan. Coba nama minuman lain.</p></section>'+menuCards()+'</div>'+bnCartBar();const bnSearch=document.querySelector('.bn-shop-search input');if(bnSearch)bnSearch.value=bnShopQuery;bnShopApplyFilters();
 }
 function renderLogin(){app.innerHTML='<div class="card max-w-md mx-auto fade">'+title('Masuk Member','Gunakan nomor WhatsApp yang terdaftar.')+'<form onsubmit="login(event)" class="space-y-3"><input class="field" id="phone" type="tel" placeholder="08xxxxxxxxxx" required><button class="btn w-full">Masuk</button></form><button class="mt-4 underline text-sm" onclick="nav(\'register\')">Belum punya akun? Buat member</button></div>'}
 function renderRegister(){app.innerHTML='<div class="card max-w-md mx-auto fade">'+title('Buat Member')+'<form onsubmit="register(event)" class="space-y-3"><input class="field" id="regName" placeholder="Nama lengkap" required><input class="field" id="regPhone" type="tel" placeholder="Nomor WhatsApp" required><button class="btn w-full">Daftar Member</button></form><button class="mt-4 underline text-sm" onclick="nav(\'login\')">Sudah terdaftar? Masuk</button></div>'}
@@ -1372,6 +1425,7 @@ function bnSetupRevenuePanel(){
 async function renderAdmin(){
  if(!state.adminSession){renderAdminLogin();return;}
  if(state.adminSession.role==='kasir'){renderKasirLimited();return;}
+ if(new URLSearchParams(location.search).get('kasir')==='1'&&state.adminSession.role==='admin'){bnCashierRenderPage(false);return;}
  if(state.adminSession.role!=='admin'){renderAdminLogin();return;}
 
  const [samples,purchases,memberRows]=await Promise.all([
@@ -1406,9 +1460,9 @@ async function renderAdmin(){
   +'<div class="bn-admin-hero flex flex-wrap items-start justify-between gap-3"><div><div class="text-xs tracking-widest font-bold uppercase text-amber-700">BentarNgopi / Pengelolaan</div><h1 class="text-2xl md:text-3xl font-black text-coffee-900">Dashboard Admin <span class="text-sm text-amber-800">V5.2 · Wallet Affiliate</span></h1><p class="muted">Akses cepat Kasir, Pesanan, Inventory, Member, dan Affiliate dalam menu terkelompok.</p></div><button type="button" onclick="render()" class="bn-admin-refresh">'+icon('rotate')+' Refresh</button></div>'
   +'<div class="bn-admin-stat-grid grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">'+statHTML+'</div>'
   +'<div class="grid grid-cols-1 lg:grid-cols-[230px_minmax(0,1fr)] gap-4 items-start">'
-  +'<aside class="bn-admin-nav-wrap min-w-0"><div class="bn-admin-nav-shell"><div class="bn-admin-search-wrap"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input type="search" aria-label="Cari menu Admin" class="bn-admin-search" placeholder="Cari menu Admin..." oninput="bnAdminSearchMenu(this.value)" autocomplete="off"></div><nav aria-label="Menu pengelolaan Admin" class="admin-nav">'+navHTML+'</nav></div><div class="hidden lg:block mt-3 rounded-xl bg-coffee-900 text-white p-4"><p class="text-xs font-semibold text-amber-200 uppercase">Kuota Sampel Bulan Ini</p><div class="text-2xl font-black mt-1">'+total+' / '+cfg.sample_quota+'</div><div class="h-2 rounded-full bg-white/20 mt-3 overflow-hidden"><div class="h-full bg-amber-400" style="width:'+Math.min(100,cfg.sample_quota?100*total/cfg.sample_quota:100)+'%"></div></div><p class="text-xs mt-2 text-stone-200">'+(cfg.sample_open?'Pengajuan dibuka':'Pengajuan ditutup')+' · Sisa '+remaining+'</p></div></aside>'
+  +'<aside class="bn-admin-nav-wrap min-w-0"><button type="button" class="bn-mobile-nav-toggle" onclick="bnToggleAdminMenu()" aria-expanded="false" id="bnMobileMenuToggle"><i class="fa-solid fa-bars"></i> Pilih Menu Admin <i class="fa-solid fa-chevron-down"></i></button><div class="bn-admin-nav-shell"><div class="bn-admin-search-wrap"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input type="search" aria-label="Cari menu Admin" class="bn-admin-search" placeholder="Cari menu Admin..." oninput="bnAdminSearchMenu(this.value)" autocomplete="off"></div><nav aria-label="Menu pengelolaan Admin" class="admin-nav">'+navHTML+'</nav></div><div class="hidden lg:block mt-3 rounded-xl bg-coffee-900 text-white p-4"><p class="text-xs font-semibold text-amber-200 uppercase">Kuota Sampel Bulan Ini</p><div class="text-2xl font-black mt-1">'+total+' / '+cfg.sample_quota+'</div><div class="h-2 rounded-full bg-white/20 mt-3 overflow-hidden"><div class="h-full bg-amber-400" style="width:'+Math.min(100,cfg.sample_quota?100*total/cfg.sample_quota:100)+'%"></div></div><p class="text-xs mt-2 text-stone-200">'+(cfg.sample_open?'Pengajuan dibuka':'Pengajuan ditutup')+' · Sisa '+remaining+'</p></div></aside>'
   +'<div class="min-w-0 max-w-full grid grid-cols-1 gap-4">'
-  +'<div class="bn-admin-current"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span id="bnAdminCurrentLabel">Ringkasan</span></div>'
+  +'<div class="bn-admin-shortcuts"><button type="button" onclick="adminTab(\'overview\')"><i class="fa-solid fa-chart-pie"></i> Ringkasan</button><button type="button" onclick="adminTab(\'orders\')"><i class="fa-solid fa-bag-shopping"></i> Pesanan</button><button type="button" onclick="adminTab(\'products\')"><i class="fa-solid fa-mug-hot"></i> Produk</button><a href="kasir.html"><i class="fa-solid fa-cash-register"></i> Kasir</a></div><div class="bn-admin-current"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span id="bnAdminCurrentLabel">Ringkasan</span></div>'
   +'<section data-admin-panel="overview" class="space-y-4">'+'<div id="bn36DashboardHost" class="bn36-dashboard"><div class="bn36-skel">Memuat dashboard operasional...</div></div>'
   +'<div class="bn-admin-quick"><button type="button" onclick="adminTab(\'orders\')"><i class="fa-solid fa-bag-shopping"></i>Pesanan</button><button type="button" onclick="adminTab(\'cashier\')"><i class="fa-solid fa-cash-register"></i>Kasir POS</button><button type="button" onclick="adminTab(\'reports\')"><i class="fa-solid fa-file-lines"></i>Laporan Detail</button><button type="button" onclick="adminTab(\'products\')"><i class="fa-solid fa-mug-hot"></i>Produk</button></div>'
   +'<div class="card"><h2 class="font-extrabold text-xl text-coffee-900 mb-2">Ringkasan Status Sampel</h2><p class="muted mb-4">Pembaruan berdasarkan status terakhir di database.</p><div class="grid grid-cols-2 sm:grid-cols-3 gap-3">'
@@ -3098,7 +3152,7 @@ function bn49Export(kind){if(!bn49Data)return;
 
 // === BENTARNGOPI V5.0 AFFILIATE (ONLINE LINK) ===
 const bn50RefParam=new URLSearchParams(location.search).get('ref');
-if(bn50RefParam&&/^[A-Z0-9]{6,24}$/i.test(bn50RefParam))sessionStorage.setItem('bnAffiliateRef',bn50RefParam.toUpperCase());
+if(bn50RefParam&&/^[A-Z0-9]{6,24}$/i.test(bn50RefParam)){sessionStorage.setItem('bnAffiliateRef',bn50RefParam.toUpperCase());bn63RecordLandingVisit(bn50RefParam.toUpperCase());}
 function bn50ReferralLink(code){return location.origin+location.pathname+'?ref='+encodeURIComponent(code)}
 // V5.5.1 Affiliate: daftar dahulu, approval Admin, lalu Member membuat PIN sendiri.
 let bn55PinSession=null;
@@ -3148,6 +3202,7 @@ async function bn55PinShowData(){
  el.innerHTML='<p class="text-sm font-bold">Kode referral: '+esc(d.code)+'</p><input class="field mt-2 w-full" id="bn50LinkInput" readonly value="'+esc(link)+'"><div class="flex flex-wrap gap-2 mt-3"><button class="btn" type="button" onclick="bn50CopyLink()">Salin Link</button><button class="btn" type="button" onclick="bn50ShareLink()">Bagikan via WhatsApp</button><button class="btn !bg-stone-700" type="button" onclick="bn55PinShowChange(false)">Ganti PIN</button><button class="btn !bg-stone-700" type="button" onclick="bn55PinLogout()">Kunci Affiliate</button></div><p class="muted mt-3">Pesanan referral: '+Number(d.summary?.orders||0)+' · Komisi disetujui: '+money(d.summary?.approved||0)+' · Komisi menunggu: '+money(d.summary?.pending||0)+'</p><p class="muted">Pencairan uang belum tersedia.</p><div class="mt-3 border rounded-xl p-3"><b>QR Referral untuk Kasir</b><p class="text-xs muted">Tunjukkan QR ini ke Kasir. Berisi kode affiliate, bukan identitas atau PIN.</p><div id="bn58MemberQR" class="mt-2"></div></div>';
  setTimeout(()=>bn58ShowMemberQR(d.code),0);
  bn59LoadMember();
+ bn63LoadMember();
 }
 function bn55PinLogout(){bn55PinSession=null;bn55PinPhone=null;bn50MountMember()}
 async function bn551Apply(e){
@@ -3258,7 +3313,7 @@ function bn50MountAdmin(){
  const container=document.querySelector('[data-admin-panel="inventory"]')?.parentElement;
  if(!container)return;
  const el=document.createElement('section');el.id='bn50AdminPanel';el.setAttribute('data-admin-panel','affiliate');el.className='card';
- el.innerHTML='<h2 class="font-extrabold text-xl">🔗 Affiliate Member · V6.1</h2><p class="muted mb-3">Atur komisi dan tinjau referral dari pesanan Online. Pencairan manual V5.9 tersedia setelah verifikasi dan audit; tidak ada transfer otomatis.</p><div id="bn50AdminBody">Memuat data...</div>';
+ el.innerHTML='<h2 class="font-extrabold text-xl">🔗 Affiliate Member · V6.3</h2><p class="muted mb-3">Atur komisi dan tinjau referral dari pesanan Online. Pencairan manual V5.9 tersedia setelah verifikasi dan audit; tidak ada transfer otomatis.</p><div id="bn50AdminBody">Memuat data...</div>';
  container.appendChild(el);
  applyAdminTab();if(state.adminTab==='affiliate')bn50LoadAdmin();
 }
@@ -3274,6 +3329,7 @@ async function bn50LoadAdmin(){
    bn59LoadAdmin();
    bn60LoadAnalytics();
    bn61LoadAudit();
+   bn63LoadAdmin();
  }catch(e){root.textContent='Gagal memuat Affiliate. Periksa SQL V5.0 dan fungsi penerimaan Online.'}
 }
 async function bn50SaveRule(e){e.preventDefault();try{await api('rpc/bn_affiliate_admin_v50','POST',{p_token:state.adminSession.token,p_mode:document.getElementById('bn50Mode').value,p_value:Number(document.getElementById('bn50Value').value),p_min_order:Number(document.getElementById('bn50Min').value),p_active:document.getElementById('bn50Active').value==='true'});toast('Pengaturan Affiliate disimpan');bn50LoadAdmin()}catch(e){toast(e.message,true)}}
@@ -3664,4 +3720,83 @@ async function bn61LoadAudit(){
  }catch(e){host.innerHTML='<h3 class="font-bold">🔎 Audit Affiliate V6.1</h3><p class="text-red-700 text-sm">'+esc(e.message||String(e))+'</p><button class="btn mt-2" onclick="bn61LoadAudit()">Coba Lagi</button>'}
 }
 
+
+// === V6.3: TRACKING KUNJUNGAN LINK & KONVERSI (tanpa V6.2) ===
+// Dibaca hanya saat link ?ref= dibuka. Penyimpanan browser menghitung visitor berulang 1x/hari.
+async function bn63RecordLandingVisit(ref){
+ if(!/^BN[0-9A-F]{12}$/.test(ref))return;
+ try{
+  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Jakarta',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+  const part=k=>parts.find(x=>x.type===k)?.value;const day=part('year')+'-'+part('month')+'-'+part('day');
+  const key='bn63Visit:'+ref+':'+day;
+  let visitor=localStorage.getItem(key);
+  if(!visitor||!/^[a-f0-9-]{36}$/i.test(visitor)){
+   visitor=(crypto.randomUUID?crypto.randomUUID():bnPosUUID());
+   localStorage.setItem(key,visitor);
+  }
+  await api('rpc/bn_affiliate_visit_v63','POST',{p_ref_code:ref,p_visitor_id:visitor});
+ }catch(err){console.warn('Tracking kunjungan affiliate tidak tersedia:',err?.message||err)}
+}
+let bn63AdminRows=[];
+function bn63Tile(label,value){return '<div class="rounded-xl border bg-stone-50 p-3"><div class="text-xs muted">'+esc(label)+'</div><strong class="text-xl">'+esc(String(value))+'</strong></div>'}
+async function bn63LoadMember(){
+ const root=document.getElementById('bn50MemberData');
+ if(!root||!bn55PinSession)return;
+ let host=document.getElementById('bn63MemberStats');
+ if(!host){host=document.createElement('section');host.id='bn63MemberStats';host.className='rounded-xl border p-3 mt-3';root.appendChild(host)}
+ const from=document.getElementById('bn63MemberFrom')?.value||bn60Date(-29),to=document.getElementById('bn63MemberTo')?.value||bn60Date();
+ host.innerHTML='<h3 class="font-bold">📈 Tracking Link Affiliate V6.3</h3><p class="muted text-sm">Memuat statistik...</p>';
+ try{
+  const d=await bn55PinRPC('bn_affiliate_funnel_member_v63',{p_session_token:bn55PinSession,p_from:from,p_to:to});
+  if(!document.getElementById('bn63MemberStats'))return;
+  host.innerHTML='<h3 class="font-bold">📈 Tracking Link Affiliate V6.3</h3><form class="flex flex-wrap items-end gap-2 my-3" onsubmit="event.preventDefault();bn63LoadMember()"><label class="text-xs">Dari<input class="field" id="bn63MemberFrom" type="date" required value="'+esc(from)+'"></label><label class="text-xs">Sampai<input class="field" id="bn63MemberTo" type="date" required value="'+esc(to)+'"></label><button class="btn" type="submit">Tampilkan</button></form>'+
+   '<div class="grid grid-cols-2 md:grid-cols-4 gap-2">'+bn63Tile('Kunjungan link',d.visits||0)+bn63Tile('Checkout referral',d.online_orders||0)+bn63Tile('Pesanan selesai',d.completed_orders||0)+bn63Tile('Rasio checkout/kunjungan',Number(d.order_to_visit_percent||0).toFixed(2)+'%')+'</div>'+
+   '<p class="muted text-xs mt-3">Kunjungan dihitung sejak pemasangan V6.3, 1 kali per browser/kode/hari. Angka konversi perbandingan agregat, bukan pengaitan setiap klik ke pembelian. Referral Kasir: '+Number(d.pos_referrals||0)+' (tidak termasuk klik link).</p>';
+ }catch(err){host.innerHTML='<h3 class="font-bold">📈 Tracking Affiliate V6.3</h3><p class="text-sm text-red-700">'+esc(err.message||String(err))+'</p><button type="button" class="btn mt-2" onclick="bn63LoadMember()">Coba Lagi</button>'}
+}
+function bn63Csv(){
+ bn40DownloadCsv([['Kode Affiliate','Kunjungan Link','Checkout Online','Pesanan Selesai','Rasio Checkout %'],...bn63AdminRows.map(x=>[x.ref_code,x.visits,x.online_orders,x.completed_orders,x.conversion_percent])],'Bentar-ngopi-Tracking-Affiliate-V63.csv');
+}
+async function bn63LoadAdmin(){
+ const root=document.getElementById('bn50AdminBody');if(!root||state.adminSession?.role!=='admin')return;
+ let host=document.getElementById('bn63AdminTracking');
+ if(!host){host=document.createElement('section');host.id='bn63AdminTracking';host.className='rounded-xl border p-4 mb-4 bg-white';root.prepend(host)}
+ const from=document.getElementById('bn63AdminFrom')?.value||bn60Date(-29),to=document.getElementById('bn63AdminTo')?.value||bn60Date();
+ host.innerHTML='<h3 class="font-extrabold text-xl">📊 Tracking Klik & Konversi V6.3</h3><p class="muted">Memuat data kunjungan...</p>';
+ try{
+  const d=await api('rpc/bn_affiliate_funnel_admin_v63','POST',{p_token:state.adminSession.token,p_from:from,p_to:to});
+  if(!document.getElementById('bn63AdminTracking'))return;
+  bn63AdminRows=Array.isArray(d.members)?d.members:[];
+  const sm=d.summary||{};
+  host.innerHTML='<div class="flex flex-wrap justify-between items-center gap-2"><h3 class="font-extrabold text-xl">📊 Tracking Klik & Konversi V6.3</h3><button type="button" class="btn" onclick="bn63Csv()">Ekspor CSV</button></div>'+
+   '<form class="flex flex-wrap gap-2 items-end my-3" onsubmit="event.preventDefault();bn63LoadAdmin()"><label class="text-sm">Dari<input type="date" id="bn63AdminFrom" class="field" required value="'+esc(from)+'"></label><label class="text-sm">Sampai<input type="date" id="bn63AdminTo" class="field" required value="'+esc(to)+'"></label><button type="submit" class="btn">Perbarui</button></form>'+
+   '<div class="grid grid-cols-2 md:grid-cols-4 gap-2">'+bn63Tile('Kunjungan link',sm.visits||0)+bn63Tile('Checkout referral',sm.online_orders||0)+bn63Tile('Pesanan selesai',sm.completed_orders||0)+bn63Tile('Rasio checkout/kunjungan',Number(sm.order_to_visit_percent||0).toFixed(2)+'%')+'</div>'+
+   '<div class="overflow-x-auto mt-4"><table class="w-full text-sm"><thead><tr class="border-b text-left"><th class="p-2">Kode</th><th class="p-2">Kunjungan</th><th class="p-2">Checkout</th><th class="p-2">Selesai</th><th class="p-2">Rasio</th></tr></thead><tbody>'+
+   (bn63AdminRows.map(x=>'<tr class="border-b"><td class="p-2 font-semibold">'+esc(x.ref_code)+'</td><td class="p-2">'+Number(x.visits||0)+'</td><td class="p-2">'+Number(x.online_orders||0)+'</td><td class="p-2">'+Number(x.completed_orders||0)+'</td><td class="p-2">'+Number(x.conversion_percent||0).toFixed(2)+'%</td></tr>').join('')||'<tr><td colspan="5" class="p-3 muted">Belum ada kunjungan atau referral di periode ini.</td></tr>')+'</tbody></table></div>'+
+   '<p class="muted text-xs mt-3">Tracking dimulai setelah V6.3 dipasang. Kunjungan dihitung per browser/kode/hari (WIB), tanpa IP. Data checkout berasal dari atribusi affiliate yang berhasil disimpan; bukan bukti bahwa setiap transaksi berasal dari salah satu klik tercatat. Refresh, mode privat, atau perangkat berbeda dapat memengaruhi hitungan. Statistik ini bukan dasar saldo pencairan.</p>';
+ }catch(err){host.innerHTML='<h3 class="font-bold">📊 Tracking V6.3</h3><p class="text-red-700 text-sm">'+esc(err.message||String(err))+'</p><button class="btn mt-2" onclick="bn63LoadAdmin()">Coba Lagi</button>'}
+}
+
+// UX-only helpers: keep all existing checkout, Admin, POS and Affiliate RPCs unchanged.
+let bnShopQuery='',bnShopSelected='all';
+function bnShopSearch(value){bnShopQuery=String(value||'').toLocaleLowerCase('id-ID').trim();bnShopApplyFilters()}
+function bnShopCategory(cat){bnShopSelected=['all','kopi','non-kopi'].includes(cat)?cat:'all';bnShopApplyFilters()}
+function bnShopApplyFilters(){
+ const roots=document.querySelectorAll('.bn-shop-category');if(!roots.length)return;
+ let count=0;
+ roots.forEach(section=>{const category=section.dataset.bnCategory;let visible=0;
+  section.querySelectorAll('.bn-shop-product').forEach(card=>{const match=(bnShopSelected==='all'||category===bnShopSelected)&&(!bnShopQuery||card.dataset.bnName.includes(bnShopQuery));card.hidden=!match;card.style.display=match?'':'none';if(match){count++;visible++}});
+  section.hidden=visible===0;section.style.display=visible?'':'none';
+ });
+ document.querySelectorAll('[data-bn-filter]').forEach(btn=>{const active=btn.dataset.bnFilter===bnShopSelected;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});
+ const empty=document.getElementById('bnShopNoResults');if(empty)empty.classList.toggle('hidden',count!==0);
+}
+function bnToggleAdminMenu(){const shell=document.querySelector('.bn-admin-v32');if(!shell)return;const opened=shell.classList.toggle('bn-admin-menu-open');const btn=document.getElementById('bnMobileMenuToggle');if(btn)btn.setAttribute('aria-expanded',String(opened))}
+function bnCloseAdminMenu(){const shell=document.querySelector('.bn-admin-v32');if(shell)shell.classList.remove('bn-admin-menu-open');const btn=document.getElementById('bnMobileMenuToggle');if(btn)btn.setAttribute('aria-expanded','false')}
+if(new URLSearchParams(location.search).get('kasir')==='1'){
+ document.body.classList.add('bn-cashier-mode');
+ document.title='Kasir • BentarNgopi';
+ const mainLinks=document.querySelector('body>header .flex.items-center.gap-2.text-sm');if(mainLinks)mainLinks.classList.add('bn-public-links');
+ const nameBtn=document.querySelector('body>header button.font-black');if(nameBtn){nameBtn.innerHTML='<i class="fa-solid fa-cash-register text-amber-400"></i> Kasir BentarNgopi';nameBtn.setAttribute('onclick',"nav('admin')")}
+}
 </script></body></html>

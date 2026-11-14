@@ -675,6 +675,38 @@ body.bn-cashier-mode #app{max-width:1120px;padding:12px 10px 75px}
 #bn652AffiliatePanel[hidden],#bn652MemberPanel[hidden]{display:none!important}
 #bn652AffiliatePanel,#bn652MemberPanel{min-width:0;max-width:100%}
 @media(max-width:400px){#bn652MemberTabs button{font-size:12px;gap:5px}.bn652-admin-picker label{font-size:11px}}
+</style><style id="bn653-mobile-affiliate-cashier">
+/* V6.5.3: Affiliate Admin sections, no horizontal overflow in mobile. */
+#bn50AdminPanel,#bn50AdminBody,.bn653-affiliate-sections,.bn653-affiliate-group,.bn653-affiliate-content{min-width:0;max-width:100%;box-sizing:border-box}
+#bn50AdminPanel{overflow:visible}
+#bn50AdminBody{overflow-wrap:anywhere}
+.bn653-affiliate-sections{display:grid;gap:10px}
+.bn653-affiliate-group{border:1px solid #e7d9cb;border-radius:15px;background:#fff;overflow:hidden}
+.bn653-affiliate-group>summary{list-style:none;cursor:pointer;position:relative;padding:13px 42px 13px 14px;display:flex;flex-direction:column;gap:3px;min-height:58px;justify-content:center;background:#fffaf5}
+.bn653-affiliate-group>summary::-webkit-details-marker{display:none}
+.bn653-affiliate-group>summary:after{content:'⌄';position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:24px;color:#79543a}
+.bn653-affiliate-group[open]>summary:after{transform:translateY(-50%) rotate(180deg)}
+.bn653-affiliate-title{font-size:14px;font-weight:850;color:#492d1d;line-height:1.25}
+.bn653-affiliate-group>summary small{font-size:11px;color:#796456;line-height:1.45}
+.bn653-affiliate-content{padding:12px;overflow-x:auto;overflow-y:visible;overscroll-behavior-x:contain}
+.bn653-affiliate-content> :is(section,div){max-width:100%;min-width:0;margin:0 0 12px!important}
+.bn653-affiliate-content :is(input,select,textarea){max-width:100%;min-width:0}
+.bn653-affiliate-content :is(table){min-width:520px}
+.bn653-affiliate-content :is(.overflow-x-auto){max-width:100%;overflow-x:auto}
+.bn653-affiliate-content :is(.grid){min-width:0}
+.bn653-affiliate-content :is(button,.btn){white-space:normal;min-height:38px}
+@media(max-width:640px){#bn50AdminPanel{padding:12px!important}.bn653-affiliate-content{padding:9px}.bn653-affiliate-content .grid{grid-template-columns:repeat(1,minmax(0,1fr))}.bn653-affiliate-content .grid.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Cashier: clear drink-type chips and legible catalog cards. */
+.bn653-drink-filters{display:flex;gap:7px;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain;padding:0 0 11px;scrollbar-width:thin}
+.bn653-drink-filters button{flex:none;white-space:nowrap;min-height:38px;border:1px solid #dfd2c5;background:#fffaf6;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;color:#6b4a33}
+.bn653-drink-filters button.active{background:#5d3927;border-color:#5d3927;color:white}
+.bn653-drink-filters button span{opacity:.75;font-weight:650;margin-left:3px}
+.bn-pos-menu{max-width:100%;min-width:0;grid-template-columns:repeat(2,minmax(0,1fr))}
+.bn-pos-item.bn653-product{min-width:0;max-width:100%;align-items:flex-start!important;display:flex;flex-direction:column!important;text-align:left;gap:5px;white-space:normal;overflow-wrap:anywhere}
+.bn653-product .name{font-size:13px;font-weight:800;line-height:1.3}
+.bn653-product .price{font-size:13px;font-weight:850}
+.bn653-category{font-size:10px;background:#f7ece0;color:#754b2f;padding:3px 7px;border-radius:6px;font-weight:750}
+@media(max-width:380px){.bn-pos-menu{gap:6px}.bn653-product .name{font-size:12px}}
 </style></head><body class="bg-stone-50 text-stone-800 min-h-screen"><header class="sticky top-0 z-30 bg-coffee-900 text-white shadow"><div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3"><button onclick="nav('home')" class="font-black text-xl"><i class="fa-solid fa-mug-hot text-amber-400"></i> Bentar<span class="text-amber-400">Ngopi</span></button><div class="flex items-center gap-2 text-sm"><button onclick="nav('home')" class="px-2 py-2">Menu</button><button id="bnMemberTab" onclick="nav('member')" class="bn-member-tab bg-amber-600 rounded-full px-3 py-2" aria-label="Buka akun Member"><i class="fa-solid fa-user"></i> <span id="bnMemberTabName">Member</span><span id="bnMemberTabBadge" class="bn-member-notif hidden" aria-label="Notifikasi aktivitas">0</span></button><button id="adminReturn" onclick="nav('admin')" class="hidden rounded-full px-3 py-2 bg-stone-700 border border-stone-500"><i class="fa-solid fa-gear"></i> Admin</button></div></div></header><main id="app" class="max-w-5xl mx-auto p-4 pb-20"></main><footer class="text-center text-xs text-stone-400 pb-8">BentarNgopi • Menu, Sampel & Stamp</footer><div id="toast" class="hidden fixed bottom-5 right-4 left-4 sm:left-auto z-50 rounded-xl px-4 py-3 text-white shadow-2xl"></div><script>
 const BASE="https://fqaewybhgsxlkgkvjnjv.supabase.co/rest/v1", KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZxYWV3eWJoZ3N4bGtna3Zqbmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyODc4MzQsImV4cCI6MjEwNjg2MzgzNH0.s4Frl_Mpj77Fc321j7MWykvxaXA7XWkKjWzJKEn-LXE";
 const state={adminSession:null,adminChecked:false,adminTab:sessionStorage.getItem('bnAdminTab')||'settings',view:location.hash.startsWith('#tracking=')?'tracking':location.hash==='#ngopidulu'?'admin':'home',phone:sessionStorage.getItem('bnphone')||'',menu:[],settings:null,member:null,samples:[],purchases:[],rewards:[],camera:null,selectedSample:null,ratings:[0,0,0,0],cart:[],onlineCart:[],lastOrder:null,onlineType:'nonmember',onlineServiceType:'delivery',onlinePaymentMethod:'cash',orderLocation:null,bnMemberNoticeCount:0};
@@ -2203,6 +2235,7 @@ async function setAdminOrderSchedule(id){const p_process_date=document.getElemen
 
 // === Kasir POS / terpisah dari member pelanggan ===
 const bnPos={type:'nonmember',member:null,phone:'',cart:[],award:true,search:'',busy:false,requestKey:null,section:'sale',refCode:'',buyerPhone:''};
+let bn653DrinkType="Semua";
 function bnPosUUID(){return (crypto?.randomUUID?.()||'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const v=Math.floor(Math.random()*16);return(c==='x'?v:(v&3|8)).toString(16)}))}
 function bnCashierPrice(m){return Number(bnPos.type==='member'?m.price_member:m.price_normal)||0}
 function bnCashierExtra(x){return (x.toppings||[]).reduce((sum,id)=>sum+Number(bnChoices(x.id).find(t=>t.id===id)?.price||0),0)}
@@ -2296,7 +2329,7 @@ function bnCashierRenderPage(inAdmin){
  const parent=inAdmin?document.getElementById('bnCashierAdminHost'):app;
  if(!parent)return;
  const isCashier=state.adminSession?.role==='kasir';
- parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><details class="bn65-optional"><summary>Referral Affiliate (opsional)</summary><div><h3 class="font-bold">Kode Referral / QR</h3><p class="text-xs text-stone-600 mt-1">Opsional. Scan QR dengan scanner keyboard atau masukkan kode referral. Hanya pembayaran langsung. Komisi diperiksa Admin; tidak otomatis dibayarkan.</p><div class="grid md:grid-cols-2 gap-2 mt-2"><label class="text-sm">Kode Referral<input id="bn58RefCode" class="field mt-1 w-full" autocomplete="off" maxlength="24" placeholder="BN..." oninput="bnPos.refCode=this.value.toUpperCase().trim();bnPos.requestKey=null"></label><label class="text-sm">No. WA Pembeli (wajib jika affiliate)<input id="bn58BuyerPhone" class="field mt-1 w-full" inputmode="tel" placeholder="08..." oninput="bnPos.buyerPhone=this.value.trim();bnPos.requestKey=null"></label></div></div></details><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><p class="bn-pos-muted">PO belum dianggap dibayar. Saat pelanggan membayar, pilih Cash/QRIS di panel Realisasi Pembayaran.</p></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
+ parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div id="bn653DrinkFilters" class="bn653-drink-filters" role="group" aria-label="Filter jenis minuman"></div><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><details class="bn65-optional"><summary>Referral Affiliate (opsional)</summary><div><h3 class="font-bold">Kode Referral / QR</h3><p class="text-xs text-stone-600 mt-1">Opsional. Scan QR dengan scanner keyboard atau masukkan kode referral. Hanya pembayaran langsung. Komisi diperiksa Admin; tidak otomatis dibayarkan.</p><div class="grid md:grid-cols-2 gap-2 mt-2"><label class="text-sm">Kode Referral<input id="bn58RefCode" class="field mt-1 w-full" autocomplete="off" maxlength="24" placeholder="BN..." oninput="bnPos.refCode=this.value.toUpperCase().trim();bnPos.requestKey=null"></label><label class="text-sm">No. WA Pembeli (wajib jika affiliate)<input id="bn58BuyerPhone" class="field mt-1 w-full" inputmode="tel" placeholder="08..." oninput="bnPos.buyerPhone=this.value.trim();bnPos.requestKey=null"></label></div></div></details><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><p class="bn-pos-muted">PO belum dianggap dibayar. Saat pelanggan membayar, pilih Cash/QRIS di panel Realisasi Pembayaran.</p></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
  bn39Switch();
  const sales=parent.querySelector('.bn-pos-shell');
  if(sales){
@@ -2398,11 +2431,35 @@ async function bnCashierFindMember(){
   bnCashierStampUI();bnCashierCartUI();
  }
 }
+function bn653DrinkCategory(m){
+ const raw=String(m.name||'').toLocaleLowerCase('id-ID');
+ const label=String(m.category||m.kategori||m.product_category||m.jenis_minuman||'').toLocaleLowerCase('id-ID');
+ const text=(label+' '+raw).normalize('NFKD');
+ // Explicitly marked non-coffee takes precedence over coffee terms like latte.
+ if(/non[ -]?kopi|non[ -]?coffee|tanpa kopi/.test(text)){
+  if(/matcha/.test(text))return 'Matcha';
+  if(/cokelat|chocolate|choco|cocoa/.test(text))return 'Cokelat';
+  if(/tea|teh/.test(text))return 'Teh';
+  return 'Non Kopi';
+ }
+ if(/matcha/.test(text))return 'Matcha';
+ if(/cokelat|chocolate|choco|cocoa/.test(text))return 'Cokelat';
+ if(/tea|teh/.test(text))return 'Teh';
+ if(/kopi|coffee|espresso|americano|cappuccino|cafe|caf[eé]|latte|butterscotch|caramel|palm sugar latte/.test(text))return 'Kopi';
+ if(/milky|susu|milk|noncoffee|non coffee/.test(text))return 'Non Kopi';
+ return 'Lainnya';
+}
+function bn653ChooseDrink(type){bn653DrinkType=type;bnCashierProducts()}
 function bnCashierProducts(){
  const el=document.getElementById('bnPosProducts');if(!el)return;
- const q=(bnPos.search||'').toLowerCase();
- const items=state.menu.filter(m=>m.name?.toLowerCase().includes(q)&&m.active!==false&&bnProductStatus(m)==='active');
- el.innerHTML=items.length?items.map(m=>'<button type="button" class="bn-pos-item" '+(!bnCanOrder(m)?'disabled':'onclick="bnCashierAdd(\''+esc(m.id)+'\')"')+'><span class="name">'+esc(m.name)+'</span><span class="price">'+money(bnCashierPrice(m))+'</span><span class="bn-pos-muted">Stok: '+Number(m.stock_qty??0)+' · '+esc(bnPackageLabels(m))+'</span></button>').join(''):'<p class="muted col-span-2">Produk tidak ditemukan.</p>';
+ const q=(bnPos.search||'').trim().toLocaleLowerCase('id-ID');
+ const available=state.menu.filter(m=>m.active!==false&&bnProductStatus(m)==='active');
+ const categories=['Semua',...['Kopi','Non Kopi','Matcha','Cokelat','Teh','Lainnya'].filter(k=>available.some(m=>bn653DrinkCategory(m)===k))];
+ if(!categories.includes(bn653DrinkType))bn653DrinkType='Semua';
+ const filter=document.getElementById('bn653DrinkFilters');
+ if(filter)filter.innerHTML=categories.map((c,i)=>'<button type="button" data-bn653-cat="'+esc(c)+'" aria-pressed="'+(c===bn653DrinkType)+'" class="'+(c===bn653DrinkType?'active':'')+'" onclick="bn653ChooseDrink(this.dataset.bn653Cat)">'+esc(c)+' <span>'+ (c==='Semua'?available.length:available.filter(m=>bn653DrinkCategory(m)===c).length)+'</span></button>').join('');
+ const items=available.filter(m=>m.name?.toLocaleLowerCase('id-ID').includes(q)&&(bn653DrinkType==='Semua'||bn653DrinkCategory(m)===bn653DrinkType));
+ el.innerHTML=items.length?items.map(m=>'<button type="button" class="bn-pos-item bn653-product" '+(!bnCanOrder(m)?'disabled':'onclick="bnCashierAdd(\''+esc(m.id)+'\')"')+'><span class="bn653-category">'+esc(bn653DrinkCategory(m))+'</span><span class="name">'+esc(m.name)+'</span><span class="price">'+money(bnCashierPrice(m))+'</span><span class="bn-pos-muted">Stok: '+Number(m.stock_qty??0)+' · '+esc(bnPackageLabels(m))+'</span></button>').join(''):'<p class="muted col-span-2">Tidak ada minuman pada kategori/pencarian ini.</p>';
 }
 function bnCashierAdd(id){
  if(bnPos.busy)return;
@@ -3458,12 +3515,39 @@ function bn55MountAdminPin(){
 }
 function bn50CopyLink(){const el=document.getElementById('bn50LinkInput');if(!el)return;navigator.clipboard?.writeText(el.value).then(()=>toast('Link referral disalin')).catch(()=>{el.select();document.execCommand('copy');toast('Link referral disalin')})}
 function bn50ShareLink(){const el=document.getElementById('bn50LinkInput');if(el)window.open('https://wa.me/?text='+encodeURIComponent('Yuk pesan BentarNgopi melalui link saya: '+el.value),'_blank','noopener')}
+// V6.5.3: make Admin Affiliate manageable on a phone, preserving original RPC forms and IDs.
+function bn653OrganizeAffiliate(){
+ const root=document.getElementById('bn50AdminBody');
+ if(!root||root.querySelector('.bn653-affiliate-sections'))return;
+ const config=[
+  ['applications','Pendaftaran & Aktivasi','Pengajuan, persetujuan, dan verifikasi member',['bn551Applications','bn53Verification']],
+  ['overview','Komisi & Referral Online','Aturan umum dan transaksi referral',['bn50BaseContent']],
+  ['rules','Komisi Produk & Kasir','Campaign produk dan referral penjualan kasir',['bn57ProductRules','bn58Admin']],
+  ['tracking','Tracking & Analitik','Kunjungan link, laporan dan performa',['bn63AdminTracking','bn60Analytics','bn52Wallet']],
+  ['audit','Audit & Pemeriksaan','Pemeriksaan komisi dan kesiapan',['bn61Audit','bn56AuditBox','bn54Readiness']],
+  ['payout','Pencairan Komisi','Pengajuan dan riwayat pembayaran',['bn59AdminPayout']]
+ ];
+ const wrapper=document.createElement('div');wrapper.className='bn653-affiliate-sections';
+ const base=document.createElement('div');base.id='bn50BaseContent';
+ const ids=new Set(config.flatMap(x=>x[3]));
+ Array.from(root.children).forEach(node=>{if(!ids.has(node.id))base.appendChild(node)});
+ root.appendChild(wrapper);
+ config.forEach(([key,name,description,panels],idx)=>{
+  const details=document.createElement('details');details.className='bn653-affiliate-group';details.dataset.group=key;
+  details.open=idx===0;
+  const summary=document.createElement('summary');summary.innerHTML='<span class="bn653-affiliate-title">'+name+'</span><small>'+description+'</small>';
+  const content=document.createElement('div');content.className='bn653-affiliate-content';
+  panels.forEach(id=>{const el=id==='bn50BaseContent'?base:document.getElementById(id);if(el)content.appendChild(el)});
+  details.append(summary,content);wrapper.appendChild(details);
+  details.addEventListener('toggle',()=>{if(details.open){wrapper.querySelectorAll('details').forEach(other=>{if(other!==details)other.open=false})}});
+ });
+}
 function bn50MountAdmin(){
  if(document.getElementById('bn50AdminPanel'))return;
  const container=document.querySelector('[data-admin-panel="inventory"]')?.parentElement;
  if(!container)return;
  const el=document.createElement('section');el.id='bn50AdminPanel';el.setAttribute('data-admin-panel','affiliate');el.className='card';
- el.innerHTML='<h2 class="font-extrabold text-xl">🔗 Affiliate Member · V6.3</h2><p class="muted mb-3">Atur komisi dan tinjau referral dari pesanan Online. Pencairan manual V5.9 tersedia setelah verifikasi dan audit; tidak ada transfer otomatis.</p><div id="bn50AdminBody">Memuat data...</div>';
+ el.innerHTML='<h2 class="font-extrabold text-xl">🔗 Affiliate Member · V6.5.3</h2><p class="muted mb-3">Atur komisi dan tinjau referral dari pesanan Online. Pencairan manual V5.9 tersedia setelah verifikasi dan audit; tidak ada transfer otomatis.</p><div id="bn50AdminBody">Memuat data...</div>';
  container.appendChild(el);
  applyAdminTab();if(state.adminTab==='affiliate')bn50LoadAdmin();
 }
@@ -3480,6 +3564,7 @@ async function bn50LoadAdmin(){
    bn60LoadAnalytics();
    bn61LoadAudit();
    bn63LoadAdmin();
+   bn653OrganizeAffiliate();
  }catch(e){root.textContent='Gagal memuat Affiliate. Periksa SQL V5.0 dan fungsi penerimaan Online.'}
 }
 async function bn50SaveRule(e){e.preventDefault();try{await api('rpc/bn_affiliate_admin_v50','POST',{p_token:state.adminSession.token,p_mode:document.getElementById('bn50Mode').value,p_value:Number(document.getElementById('bn50Value').value),p_min_order:Number(document.getElementById('bn50Min').value),p_active:document.getElementById('bn50Active').value==='true'});toast('Pengaturan Affiliate disimpan');bn50LoadAdmin()}catch(e){toast(e.message,true)}}

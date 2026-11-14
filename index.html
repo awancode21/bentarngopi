@@ -552,6 +552,83 @@ body.bn-cashier-mode>header .bn-public-links{display:none}body.bn-cashier-mode #
  .bn-pos-shell{border-radius:16px!important}.bn-pos-pane{padding:12px!important}
 }
 @media(max-width:360px){.bn-shop-category>.grid{grid-template-columns:1fr}}
+
+/* BENTARNGOPI V6.5: Mobile-first admin and simplified cashier */
+*,*::before,*::after{box-sizing:border-box}
+#app,.bn-admin-v32,.bn-admin-v32 .soft-panel,.bn-admin-v32 [data-admin-panel],.bn-admin-v32 .bn36-section,.bn-admin-v32 .card{min-width:0;max-width:100%}
+.bn-admin-v32 [data-admin-panel] [class*="grid"]>*{min-width:0}
+.bn-admin-v32 input,.bn-admin-v32 select,.bn-admin-v32 textarea,.bn-admin-v32 button{max-width:100%}
+.bn-admin-v32 input,.bn-admin-v32 select,.bn-admin-v32 textarea{min-width:0}
+.bn-admin-v32 [data-admin-panel] table{max-width:none}
+.bn-admin-v32 [data-admin-panel] :is(.bn36-table-wrap,.bn37-table,.bn45-table-wrap,.bn48-tablewrap,.overflow-x-auto){max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.bn-admin-v32 [data-admin-panel] :is(.bn36-metric strong,.bn44-tile strong,.bn45-stat strong,.bn37-balance b){overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+.bn-admin-v32 .bn-admin-hero h1{line-height:1.2;overflow-wrap:anywhere}
+.bn-admin-v32 .bn-admin-shortcuts{position:static!important;top:auto!important;z-index:auto!important;box-shadow:none}
+.bn-admin-v32 .bn-admin-current{position:static!important}
+.bn-admin-v32 .bn-admin-quick{display:none!important}
+.bn-admin-v32 [data-admin-panel].hidden{display:none!important}
+@media(max-width:1023px){
+ .bn-admin-v32 .bn-admin-nav-wrap{position:relative!important;top:auto!important;z-index:4!important;backdrop-filter:none!important;background:transparent!important;padding:0!important}
+ .bn-admin-v32 .bn-admin-nav-shell{position:static!important;max-height:min(58dvh,480px)!important;overflow:auto!important;contain:layout;box-shadow:0 8px 22px #2b1e1215}
+ .bn-admin-v32 .admin-nav,.bn-admin-v32 .bn-admin-nav-group,.bn-admin-v32 .bn-admin-group-items{display:flex!important;flex-direction:column!important;width:100%!important;max-width:100%!important;min-width:0!important;overflow:visible!important;gap:4px!important}
+ .bn-admin-v32 .bn-admin-nav .admin-tab-btn{width:100%!important;max-width:100%!important;min-width:0!important;white-space:normal!important;flex:0 0 auto!important}
+ .bn-admin-v32 .bn-admin-tab-name>span{white-space:normal!important}
+ .bn-admin-v32 .bn-admin-stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .bn-admin-v32 .bn-admin-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0!important;background:transparent!important;border:0!important;gap:7px;margin-bottom:12px}
+ .bn-admin-v32 .bn-admin-shortcuts :is(button,a){min-width:0;overflow-wrap:anywhere;white-space:normal}
+ .bn-admin-v32 .bn-admin-hero{gap:8px!important}
+ .bn-admin-v32 .bn-admin-hero>div{min-width:0;max-width:100%}
+ .bn-admin-v32 .bn-admin-hero .bn-admin-refresh{flex:0 0 auto}
+}
+@media(max-width:520px){
+ .bn-admin-v32 .soft-panel{padding:9px!important;border-radius:13px}
+ .bn-admin-v32 .bn-admin-hero{padding:12px!important;border-radius:12px}
+ .bn-admin-v32 .bn-admin-hero h1{font-size:1.25rem!important}
+ .bn-admin-v32 .bn-admin-hero p{font-size:12px}
+ .bn-admin-v32 .bn-admin-stat-grid{gap:7px;margin-bottom:10px}
+ .bn-admin-v32 .bn-admin-stat-grid>div{padding:10px!important;min-width:0}
+ .bn-admin-v32 .bn-admin-stat-grid strong{font-size:1.07rem!important;overflow-wrap:anywhere}
+ .bn-admin-v32 [data-admin-panel]>.card,.bn-admin-v32 .bn36-section,.bn-admin-v32 .bn37-shift{padding:11px!important}
+ .bn-admin-v32 [data-admin-panel] .bn36-toolbar,.bn-admin-v32 [data-admin-panel] .bn37-head{display:flex;flex-wrap:wrap;gap:8px}
+ .bn-admin-v32 .bn-admin-shortcuts :is(button,a){padding:8px 2px!important;font-size:10px!important;line-height:1.2}
+ .bn-admin-v32 .bn-admin-shortcuts i{font-size:15px}
+}
+/* Kasir: transaction-first, optional tools collapsed */
+body.bn-cashier-mode>header{position:relative!important;z-index:10}
+body.bn-cashier-mode>footer{display:none}
+body.bn-cashier-mode #app{max-width:1120px;padding:12px 10px 75px}
+.bn-pos-shell .bn-pos-head{padding:13px 15px;border-radius:15px}
+.bn-pos-shell .bn-pos-version{display:none!important}
+.bn-pos-shell .bn-pos-head h1{font-size:1.35rem}
+.bn-pos-shell .bn-pos-pane{overflow:visible}
+.bn-pos-shell .bn-pos-guide{font-size:12px}
+.bn-pos-worktabs{position:relative!important;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;overflow:visible;padding:4px 0 12px}
+.bn-pos-worktab{min-width:0!important;white-space:normal!important;padding:11px 7px!important;font-size:12px!important;line-height:1.25!important;justify-content:center!important}
+.bn65-report{background:#fff;border:1px solid #e6dccf;border-radius:18px;padding:16px;min-width:0;max-width:100%}
+.bn65-report-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.bn65-report h2{font-size:1.2rem;font-weight:850;color:#503323}
+.bn65-report .bn65-note{font-size:12px;line-height:1.5;color:#806956;margin:9px 0}
+.bn65-report-actions{display:flex;flex-wrap:wrap;gap:8px}
+.bn65-report-actions button{border-radius:10px;background:#603e26;color:#fff;min-height:42px;padding:9px 13px;font-weight:700;font-size:13px}
+.bn65-report-actions button.outline{background:#f5ede3;color:#583824}
+.bn65-report-filter{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;margin-bottom:12px}
+.bn65-report-filter label{font-size:12px;font-weight:750;color:#634d3b}
+.bn65-report-filter select{display:block;width:100%;min-height:45px;padding:10px;margin-top:5px;border:1px solid #d7c8b8;border-radius:11px;background:white;font-size:16px}
+.bn65-report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:10px 0}
+.bn65-report-card{padding:12px;border:1px solid #e9ddcd;border-radius:13px;background:#fffaf4;min-width:0}
+.bn65-report-card small{display:block;color:#7d6c5d;font-size:11px}
+.bn65-report-card strong{display:block;font-size:clamp(15px,3vw,22px);color:#553722;overflow-wrap:anywhere;margin-top:4px}
+.bn65-report-table{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid #eee1d2;border-radius:12px}
+.bn65-report-table table{min-width:550px;border-collapse:collapse;width:100%;font-size:12px}
+.bn65-report-table th,.bn65-report-table td{padding:9px;border-bottom:1px solid #f0e7dd;text-align:left}
+.bn65-report-table th{background:#f9f1e7}
+.bn65-optional{margin:12px 0;padding:0 12px;border:1px solid #eee1d2;border-radius:13px;background:#fffdf9;min-width:0}
+.bn65-optional>summary{cursor:pointer;font-size:13px;font-weight:800;padding:14px 0;color:#67452e;list-style:none}
+.bn65-optional>summary::after{content:'⌄';float:right}
+.bn65-optional[open]>summary::after{content:'⌃'}
+.bn65-optional>div{padding-bottom:12px}
+@media(max-width:500px){.bn-pos-worktab{font-size:11px!important;min-height:47px}.bn65-report{padding:12px}.bn65-report-head h2{font-size:1.08rem}.bn-pos-shell .bn-pos-head .flex.gap-2{flex-wrap:wrap}}
+@media print{body>header,body>footer,.bn-pos-worktabs,.bn65-report-actions,.bn65-report-filter,.bn65-note,#bnPosSalePanel,#bnCashierQueuePanel{display:none!important}#bn65CashierReport{display:block!important;border:0!important}#app{padding:0!important}.bn65-report-card,.bn65-report-table{break-inside:avoid}}
 </style></head><body class="bg-stone-50 text-stone-800 min-h-screen"><header class="sticky top-0 z-30 bg-coffee-900 text-white shadow"><div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3"><button onclick="nav('home')" class="font-black text-xl"><i class="fa-solid fa-mug-hot text-amber-400"></i> Bentar<span class="text-amber-400">Ngopi</span></button><div class="flex items-center gap-2 text-sm"><button onclick="nav('home')" class="px-2 py-2">Menu</button><button id="bnMemberTab" onclick="nav('member')" class="bn-member-tab bg-amber-600 rounded-full px-3 py-2" aria-label="Buka akun Member"><i class="fa-solid fa-user"></i> <span id="bnMemberTabName">Member</span><span id="bnMemberTabBadge" class="bn-member-notif hidden" aria-label="Notifikasi aktivitas">0</span></button><button id="adminReturn" onclick="nav('admin')" class="hidden rounded-full px-3 py-2 bg-stone-700 border border-stone-500"><i class="fa-solid fa-gear"></i> Admin</button></div></div></header><main id="app" class="max-w-5xl mx-auto p-4 pb-20"></main><footer class="text-center text-xs text-stone-400 pb-8">BentarNgopi • Menu, Sampel & Stamp</footer><div id="toast" class="hidden fixed bottom-5 right-4 left-4 sm:left-auto z-50 rounded-xl px-4 py-3 text-white shadow-2xl"></div><script>
 const BASE="https://fqaewybhgsxlkgkvjnjv.supabase.co/rest/v1", KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZxYWV3eWJoZ3N4bGtna3Zqbmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyODc4MzQsImV4cCI6MjEwNjg2MzgzNH0.s4Frl_Mpj77Fc321j7MWykvxaXA7XWkKjWzJKEn-LXE";
 const state={adminSession:null,adminChecked:false,adminTab:sessionStorage.getItem('bnAdminTab')||'settings',view:location.hash.startsWith('#tracking=')?'tracking':location.hash==='#ngopidulu'?'admin':'home',phone:sessionStorage.getItem('bnphone')||'',menu:[],settings:null,member:null,samples:[],purchases:[],rewards:[],camera:null,selectedSample:null,ratings:[0,0,0,0],cart:[],onlineCart:[],lastOrder:null,onlineType:'nonmember',onlineServiceType:'delivery',onlinePaymentMethod:'cash',orderLocation:null,bnMemberNoticeCount:0};
@@ -1464,7 +1541,7 @@ async function renderAdmin(){
   +'<div class="min-w-0 max-w-full grid grid-cols-1 gap-4">'
   +'<div class="bn-admin-shortcuts"><button type="button" onclick="adminTab(\'overview\')"><i class="fa-solid fa-chart-pie"></i> Ringkasan</button><button type="button" onclick="adminTab(\'orders\')"><i class="fa-solid fa-bag-shopping"></i> Pesanan</button><button type="button" onclick="adminTab(\'products\')"><i class="fa-solid fa-mug-hot"></i> Produk</button><a href="kasir.html"><i class="fa-solid fa-cash-register"></i> Kasir</a></div><div class="bn-admin-current"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span id="bnAdminCurrentLabel">Ringkasan</span></div>'
   +'<section data-admin-panel="overview" class="space-y-4">'+'<div id="bn36DashboardHost" class="bn36-dashboard"><div class="bn36-skel">Memuat dashboard operasional...</div></div>'
-  +'<div class="bn-admin-quick"><button type="button" onclick="adminTab(\'orders\')"><i class="fa-solid fa-bag-shopping"></i>Pesanan</button><button type="button" onclick="adminTab(\'cashier\')"><i class="fa-solid fa-cash-register"></i>Kasir POS</button><button type="button" onclick="adminTab(\'reports\')"><i class="fa-solid fa-file-lines"></i>Laporan Detail</button><button type="button" onclick="adminTab(\'products\')"><i class="fa-solid fa-mug-hot"></i>Produk</button></div>'
+  +'<!-- Navigasi cepat cukup satu baris di atas -->'
   +'<div class="card"><h2 class="font-extrabold text-xl text-coffee-900 mb-2">Ringkasan Status Sampel</h2><p class="muted mb-4">Pembaruan berdasarkan status terakhir di database.</p><div class="grid grid-cols-2 sm:grid-cols-3 gap-3">'
   +[['Pending',pending,'text-amber-700','bg-amber-50'],['Disetujui',approved,'text-blue-700','bg-blue-50'],['Diproses',processing,'text-orange-700','bg-orange-50'],['Diterima',received,'text-emerald-700','bg-emerald-50'],['Direview',reviewed,'text-green-700','bg-green-50'],['Sisa Kuota',remaining,'text-coffee-800','bg-stone-100']].map(v=>'<div class="rounded-xl '+v[3]+' p-3"><div class="text-2xl font-extrabold '+v[2]+'">'+v[1]+'</div><div class="text-xs font-semibold text-stone-700">'+v[0]+'</div></div>').join('')+'</div></div>'
   +'<div class="grid grid-cols-1 md:grid-cols-2 gap-4"><div class="card"><h3 class="font-bold text-coffee-900 mb-2">Program Free Sampel</h3><div class="text-sm mb-2">'+(cfg.sample_open?'🟢 Dibuka':'🔒 Ditutup')+' · Batas '+cfg.sample_per_member+' per member</div><div class="text-sm text-stone-600">'+remaining+' dari '+cfg.sample_quota+' kuota masih tersedia.</div><button class="btn mt-4 w-full" onclick="adminTab(\'settings\')">Atur Program</button></div><div class="card"><h3 class="font-bold text-coffee-900 mb-2">Program Loyalitas</h3><p class="text-sm text-stone-600">'+cfg.stamp_per_item+' stamp per produk, maksimal '+cfg.stamp_max_transaction+' per transaksi.</p><p class="text-sm text-stone-600 mt-2">Reward kopi gratis: '+cfg.reward_cost+' stamps.</p><button class="btn mt-4 w-full" onclick="adminTab(\'samples\')">Kelola Sampel</button></div></div></section>'
@@ -2114,12 +2191,14 @@ let bnCashierQueueSerial=0;
 function bnNextQueueStatus(status){return ({pending:'confirmed',confirmed:'processing',processing:'completed'})[status]||null}
 function bnQueueAdvanceLabel(next){return ({confirmed:'Konfirmasi',processing:'Mulai Proses',completed:'Tandai Selesai'})[next]||'Lanjut'}
 function bnCashierShowSection(section){
- bnPos.section=section==='queue'?'queue':'sale';
- const sale=document.getElementById('bnPosSalePanel');const queue=document.getElementById('bnCashierQueuePanel');
+ bnPos.section=['sale','queue','report'].includes(section)?section:'sale';
+ const sale=document.getElementById('bnPosSalePanel');const queue=document.getElementById('bnCashierQueuePanel');const report=document.getElementById('bn65CashierReport');
  if(sale)sale.classList.toggle('hidden',bnPos.section!=='sale');
  if(queue)queue.classList.toggle('hidden',bnPos.section!=='queue');
+ if(report)report.classList.toggle('hidden',bnPos.section!=='report');
  document.querySelectorAll('[data-bn-pos-tab]').forEach(el=>{const active=el.dataset.bnPosTab===bnPos.section;el.classList.toggle('active',active);el.setAttribute('aria-pressed',String(active))});
  if(bnPos.section==='queue')bnLoadCashierQueue();
+ if(bnPos.section==='report')bn65LoadReport();
 }
 function bnCashierQueueFilter(view){
  if(view)bnCashierQueueView=view;
@@ -2171,7 +2250,7 @@ function bnCashierRenderPage(inAdmin){
  const parent=inAdmin?document.getElementById('bnCashierAdminHost'):app;
  if(!parent)return;
  const isCashier=state.adminSession?.role==='kasir';
- parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><div class="rounded-xl border border-amber-200 bg-amber-50 p-3 mt-3"><h3 class="font-bold">🔗 Kode Affiliate / QR Kasir · V5.8</h3><p class="text-xs text-stone-600 mt-1">Opsional. Scan QR dengan scanner keyboard atau masukkan kode referral. Hanya pembayaran langsung. Komisi diperiksa Admin; tidak otomatis dibayarkan.</p><div class="grid md:grid-cols-2 gap-2 mt-2"><label class="text-sm">Kode Referral<input id="bn58RefCode" class="field mt-1 w-full" autocomplete="off" maxlength="24" placeholder="BN..." oninput="bnPos.refCode=this.value.toUpperCase().trim();bnPos.requestKey=null"></label><label class="text-sm">No. WA Pembeli (wajib jika affiliate)<input id="bn58BuyerPhone" class="field mt-1 w-full" inputmode="tel" placeholder="08..." oninput="bnPos.buyerPhone=this.value.trim();bnPos.requestKey=null"></label></div></div><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><p class="bn-pos-muted">PO belum dianggap dibayar. Saat pelanggan membayar, pilih Cash/QRIS di panel Realisasi Pembayaran.</p></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
+ parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><details class="bn65-optional"><summary>Referral Affiliate (opsional)</summary><div><h3 class="font-bold">Kode Referral / QR</h3><p class="text-xs text-stone-600 mt-1">Opsional. Scan QR dengan scanner keyboard atau masukkan kode referral. Hanya pembayaran langsung. Komisi diperiksa Admin; tidak otomatis dibayarkan.</p><div class="grid md:grid-cols-2 gap-2 mt-2"><label class="text-sm">Kode Referral<input id="bn58RefCode" class="field mt-1 w-full" autocomplete="off" maxlength="24" placeholder="BN..." oninput="bnPos.refCode=this.value.toUpperCase().trim();bnPos.requestKey=null"></label><label class="text-sm">No. WA Pembeli (wajib jika affiliate)<input id="bn58BuyerPhone" class="field mt-1 w-full" inputmode="tel" placeholder="08..." oninput="bnPos.buyerPhone=this.value.trim();bnPos.requestKey=null"></label></div></div></details><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><p class="bn-pos-muted">PO belum dianggap dibayar. Saat pelanggan membayar, pilih Cash/QRIS di panel Realisasi Pembayaran.</p></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
  bn39Switch();
  const sales=parent.querySelector('.bn-pos-shell');
  if(sales){
@@ -2182,11 +2261,16 @@ function bnCashierRenderPage(inAdmin){
   const queue=document.createElement('section');queue.id='bnCashierQueuePanel';queue.className='bn-pos-queue-panel hidden';
   queue.innerHTML='<div class="bn-pos-queue-head"><div><h2 class="text-xl font-black">Proses Pesanan</h2><p class="muted">Antrean Online / Web dan Offline / Kasir dalam satu tempat.</p></div><button type="button" class="btn" onclick="bnLoadCashierQueue()"><i class="fa-solid fa-rotate"></i> Refresh</button></div><div id="bnCashierQueueBody"><p class="muted">Pilih Proses Pesanan untuk melihat antrean.</p></div>';
   parent.appendChild(queue);
+  tabs.insertAdjacentHTML('beforeend','<button type="button" class="bn-pos-worktab" data-bn-pos-tab="report" onclick="bnCashierShowSection(\'report\')"><i class="fa-solid fa-chart-simple"></i> Laporan Klerek</button>');
+  const report=document.createElement('section');report.id='bn65CashierReport';report.className='bn65-report hidden';
+  report.innerHTML='<div class="bn65-report-head"><div><h2><i class="fa-solid fa-file-invoice-dollar"></i> Laporan Pendapatan / Klerek</h2><p class="bn65-note">Rekap penerimaan per shift outlet • Cash, QRIS, uang fisik dan selisih.</p></div><div class="bn65-report-actions"><button type="button" onclick="bn65LoadReport()">↻ Refresh</button><button type="button" class="outline" onclick="bn65ExportReport()">CSV Excel</button><button type="button" class="outline" onclick="bn65PrintReport()">Cetak</button></div></div><div class="bn65-report-filter"><label>Pilih Shift / Periode<select id="bn65ShiftSelect" onchange="bn65RenderReport()"><option value="">Memuat shift...</option></select></label></div><div id="bn65ReportContent" aria-live="polite">Pilih tab Laporan untuk memuat rekap.</div><p class="bn65-note">Laporan outlet, bukan pembagian pendapatan per kasir. Cash/QRIS berdasarkan catatan penerimaan di sistem; pencocokan QRIS bank dan serah-terima klerek tetap dilakukan manual. Data maksimal 20 shift terbaru sesuai RPC.</p>';
+  parent.appendChild(report);
  }
  bnCashierTypeUI();bnCashierProducts();bnCashierCartUI();bnCashierStampUI();bnVoucherPosMount();bnVoucherPosLoad();
  bn37ShiftMount();
  bnCashierLoadToppings();
- bnCashierShowSection(bnPos.section||'sale');
+ bn65SimplifyCashier();
+ bnCashierShowSection(['sale','queue','report'].includes(bnPos.section)?bnPos.section:'sale');
 }
 function bnCashierType(type){
  if(bnPos.busy)return;
@@ -3798,5 +3882,53 @@ if(new URLSearchParams(location.search).get('kasir')==='1'){
  document.title='Kasir • BentarNgopi';
  const mainLinks=document.querySelector('body>header .flex.items-center.gap-2.text-sm');if(mainLinks)mainLinks.classList.add('bn-public-links');
  const nameBtn=document.querySelector('body>header button.font-black');if(nameBtn){nameBtn.innerHTML='<i class="fa-solid fa-cash-register text-amber-400"></i> Kasir BentarNgopi';nameBtn.setAttribute('onclick',"nav('admin')")}
+}
+
+/* V6.5 - Laporan Klerek berbasis RPC shift v44 (bukan omzet pesanan) */
+let bn65ReportRows=[];
+let bn65ReportLoaded=false;
+const bn65Number=x=>Number(x||0);
+const bn65Wib=x=>x?new Date(x).toLocaleString('id-ID',{timeZone:'Asia/Jakarta',day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}).replace(/\./g,':'):'Masih berjalan';
+async function bn65LoadReport(){
+ const host=document.getElementById('bn65ReportContent');if(!host||!state.adminSession?.token)return;
+ if(!bn65ReportLoaded)host.innerHTML='<p class="bn65-note">Mengambil data shift outlet...</p>';
+ try{
+  const r=await staffRPC('bn_shift_summary_v44',{p_token:state.adminSession.token});
+  if(!host.isConnected)return;
+  bn65ReportRows=Array.isArray(r?.shifts)?r.shifts:[];bn65ReportLoaded=true;
+  const sel=document.getElementById('bn65ShiftSelect'),selected=sel?.value||'';
+  if(sel){sel.innerHTML='<option value="latest">Shift terbaru</option><option value="all">Semua shift yang tersedia</option>'+bn65ReportRows.map(x=>'<option value="'+esc(String(x.id))+'">'+esc(bn65Wib(x.opened_at))+' — '+esc(x.opened_by||'Petugas')+(x.closed_at?' (tutup)':' (aktif)')+'</option>').join('');sel.value=['latest','all',...bn65ReportRows.map(x=>String(x.id))].includes(selected)?selected:'latest'}
+  bn65RenderReport();
+ }catch(e){host.innerHTML='<div class="bn36-error">Tidak bisa mengambil laporan klerek: '+esc(e.message||'')+'. Pastikan fungsi bn_shift_summary_v44 tersedia dan akses sesi Kasir aktif.</div>';bn65ReportLoaded=false}
+}
+function bn65SelectedRows(){const selected=document.getElementById('bn65ShiftSelect')?.value||'latest';return selected==='all'?bn65ReportRows:selected==='latest'?bn65ReportRows.slice(0,1):bn65ReportRows.filter(r=>String(r.id)===selected)}
+function bn65RenderReport(){
+ const host=document.getElementById('bn65ReportContent');if(!host)return;
+ const rows=bn65SelectedRows();if(!rows.length){host.innerHTML='<p class="bn65-note">Belum ada shift yang tercatat. Buka shift pada transaksi Kasir terlebih dahulu.</p>';return}
+ const total=k=>rows.reduce((a,r)=>a+bn65Number(r[k]),0);
+ const cash=total('cash_total'),qris=total('qris_total'),other=total('other_total'),sales=total('sales_count'),opening=total('opening_cash');
+ const sumCash=total('expected_cash');const closed=rows.filter(x=>x.closed_at);const diff=closed.reduce((a,x)=>a+bn65Number(x.cash_difference),0);
+ const tile=(title,value)=>'<div class="bn65-report-card"><small>'+title+'</small><strong>'+value+'</strong></div>';
+ host.innerHTML='<div class="bn65-report-grid">'+tile('Cash neto tercatat',money(cash))+tile('QRIS neto tercatat',money(qris))+tile('Total penerimaan Cash + QRIS',money(cash+qris))+tile('Transaksi kasir',sales.toLocaleString('id-ID'))+tile('Modal awal shift',money(opening))+tile('Kas seharusnya',money(sumCash))+tile('Kas fisik (shift tutup)',closed.length?money(closed.reduce((a,r)=>a+bn65Number(r.counted_cash),0)):'Belum tutup')+tile('Selisih (shift tutup)',closed.length?money(diff):'Belum tutup')+'</div>'+
+ '<p class="bn65-note">'+(rows.length===1?'Dibuka: '+esc(bn65Wib(rows[0].opened_at))+' • '+esc(rows[0].opened_by||'Petugas')+'<br>Ditutup: '+esc(bn65Wib(rows[0].closed_at))+(rows[0].closed_by?' • '+esc(rows[0].closed_by):''):'Menampilkan '+rows.length+' shift dari data yang tersedia')+'. Metode lain: '+money(other)+'.</p>'+
+ '<div class="bn65-report-table"><table><thead><tr><th>Shift dibuka</th><th>Petugas</th><th>Cash neto</th><th>QRIS neto</th><th>Struk</th><th>Kas fisik</th><th>Selisih</th></tr></thead><tbody>'+rows.map(r=>'<tr><td>'+esc(bn65Wib(r.opened_at))+'</td><td>'+esc(r.opened_by||'')+'</td><td>'+money(r.cash_total)+'</td><td>'+money(r.qris_total)+'</td><td>'+bn65Number(r.sales_count)+'</td><td>'+(r.closed_at?money(r.counted_cash):'—')+'</td><td>'+(r.closed_at?money(r.cash_difference):'—')+'</td></tr>').join('')+'</tbody></table></div>'+
+ '<p class="bn65-note">Penerimaan tercatat tidak sama dengan laba bersih. Shift laporan bersifat tingkat outlet, tidak dapat dijumlahkan dengan laporan omzet pesanan untuk menghitung pendapatan total.</p>';
+}
+function bn65ExportReport(){
+ const rows=bn65SelectedRows();if(!rows.length)return toast('Belum ada data shift untuk diekspor',true);
+ const data=[['ID Shift','Dibuka WIB','Petugas Buka','Ditutup WIB','Petugas Tutup','Modal Awal','Cash Neto','QRIS Neto','Metode Lain','Jumlah Struk','Kas Seharusnya','Kas Fisik','Selisih','Catatan Buka','Catatan Tutup']];
+ for(const r of rows)data.push([r.id,bn65Wib(r.opened_at),r.opened_by||'',r.closed_at?bn65Wib(r.closed_at):'',r.closed_by||'',r.opening_cash,r.cash_total,r.qris_total,r.other_total,r.sales_count,r.expected_cash,r.closed_at?r.counted_cash:'',r.closed_at?r.cash_difference:'',r.opening_note||'',r.closing_note||'']);
+ const csv='\ufeff'+data.map(row=>row.map(x=>'"'+String(x??'').replaceAll('"','""')+'"').join(';')).join('\r\n');
+ const blob=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='BentarNgopi-Laporan-Klerek-'+bn40LocalDay()+'.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1200)
+}
+function bn65PrintReport(){if(!bn65SelectedRows().length)return toast('Belum ada laporan untuk dicetak',true);window.print()}
+/* Collapse advanced POS tools below cashier transaction area (keep all features accessible) */
+function bn65SimplifyCashier(){
+ const pos=document.querySelector('.bn-pos-shell');if(!pos||pos.dataset.bn65Enhanced==='yes')return;
+ pos.dataset.bn65Enhanced='yes';
+ const optional=['bn37ShiftPos','bn38PoPanel','bn41Pos','bn43Pos','bn44Pos'];
+ // mount functions may run after this; MutationObserver wraps late additions too
+ const wrap=()=>{for(const id of optional){const el=document.getElementById(id);if(!el||!pos.contains(el)||el.closest('.bn65-optional'))continue;const box=document.createElement('details');box.className='bn65-optional';const summary=document.createElement('summary');summary.textContent=id==='bn37ShiftPos'?'Buka / Tutup Shift Kas':id==='bn38PoPanel'?'Monitoring PO & Pembayaran':id==='bn41Pos'?'Antrean Barista':id==='bn43Pos'?'Pembatalan & Refund':'Koreksi Pembayaran';box.appendChild(summary);el.parentNode.insertBefore(box,el);box.appendChild(el);};};
+ wrap();const obs=new MutationObserver(()=>{wrap();if(!pos.isConnected)obs.disconnect()});obs.observe(pos,{childList:true,subtree:false});
 }
 </script></body></html>

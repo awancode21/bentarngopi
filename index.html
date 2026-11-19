@@ -1,4 +1,4 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#3e2217"><meta name="bn-app-version" content="barista-terpadu-4.2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="BentarNgopi"><title>Bentar, Ngopi Dulu!!</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{coffee:{50:'#fdf8f6',100:'#f2e8e5',200:'#eaddd7',300:'#e0cec7',500:'#a37a6a',600:'#8b5e4c',700:'#694132',800:'#523023',900:'#3e2217'}}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><style>
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#3e2217"><meta name="bn-app-version" content="pos-member-name-only-5.7.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="BentarNgopi"><title>Bentar, Ngopi Dulu!!</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{coffee:{50:'#fdf8f6',100:'#f2e8e5',200:'#eaddd7',300:'#e0cec7',500:'#a37a6a',600:'#8b5e4c',700:'#694132',800:'#523023',900:'#3e2217'}}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><style>
 :root{--coffee-900:#3b2418;--coffee-800:#523023;--coffee-700:#6f3f24;--amber-500:#f59e0b;--surface:#fffdf9;--muted:#7c6f64;--shadow:0 18px 45px rgba(59,36,24,.08)}
 html{scroll-behavior:smooth}
 body{font-family:system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top,#fff7ed 0,#fdf8f6 32%,#f8fafc 100%);color:#2d1d14}
@@ -424,6 +424,20 @@ body{font-family:system-ui,-apple-system,sans-serif;background:radial-gradient(c
  .bn-admin-v32 .bn-admin-stat-grid{gap:8px}
  .bn-admin-v32 .bn-admin-stat-grid>div{padding:11px}
 }
+
+/* V5.6.9 Harga pembelian terhubung */
+.bn48-rowinput .bn569-price-note{display:block;grid-column:1/-1;font-size:12px;line-height:1.5;color:#765440;background:#fcf7f0;border:1px solid #eedac3;border-radius:10px;padding:8px 10px}
+.bn48-rowinput .bn48-cost,.bn48-rowinput .bn49Cost{background:#fff9ec;border:1.5px solid #c69b64;font-weight:700}
+@media(max-width:650px){.bn48-rowinput .bn569-price-note{font-size:12px}}
+
+.bn570-card{margin-top:14px;padding:16px;background:#fffaf3;border:2px solid #d7ad7b;border-radius:18px;box-shadow:0 3px 12px rgba(70,41,20,.06)}
+.bn570-card h3{font-weight:850;color:#442a1c;font-size:16px;margin-bottom:4px}
+.bn570-row{display:flex;align-items:stretch;gap:8px;margin-top:10px;flex-wrap:wrap}
+.bn570-row .field{flex:1 1 160px;min-width:0;min-height:44px}
+.bn570-row .btn{flex:0 0 auto;min-height:44px;border:2px solid #54321c;box-shadow:0 3px 0 #3c2417}
+.bn570-selected{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;margin-top:12px}
+.bn570-selected span{font-size:13px;color:#57534e}
+@media(max-width:560px){.bn570-row .btn{flex:1 1 100%}.bn570-row .field{flex-basis:100%}}
 </style><link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkJlbnRhck5nb3BpIC0gS29waSAmIFJld2FyZHMiLCAic2hvcnRfbmFtZSI6ICJCZW50YXJOZ29waSIsICJzdGFydF91cmwiOiAiLi9CZW50YXItbmdvcGktRGFzaGJvYXJkLUFkbWluLmh0bWwiLCAiaWQiOiAiLi9CZW50YXItbmdvcGktRGFzaGJvYXJkLUFkbWluLmh0bWwiLCAic2NvcGUiOiAiLi8iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgImJhY2tncm91bmRfY29sb3IiOiAiI2ZkZjhmNiIsICJ0aGVtZV9jb2xvciI6ICIjM2UyMjE3IiwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBTUFBQUFEQUNBSUFBQURkdnZ0UUFBQUVKRWxFUVZSNG5PM2RQVzdWUUJTR1lZTW82ZWxaQWlVRlBSSkxTc21Ta0xJRFNsYVRCVkJFaWlDWFgzOGV6NW5qNXhGdHJQSDRaZXdyejAxZWZIajdab085WHM0ZUFHc1RFQkVCRVJFUUVRRVJFUkFSQVJFUkVCRUJFUkVRRVFFUkVSQVJBUkVSRUJFQkVSRVFFUUVSRVJBUkFSRVJFQkVCRVJFUUVRRVJFUkFSQVJFUkVCRUJFUkVRRVFFUkVSQVJBUkVSRUJFQkVSRVFFUUVSRVJBUkFSRVJFQkVCL1pQN3U0ZlpReWlxZjBEM2R3L2g1VCtrbm53WU5UVVA2T21hNVJjdk9jS0J3NmltYzBEUHJ0YStpL2ZqVCtWSDJIMlFzam9IeEFuYUJuVDdILzNqNTlmNVFhWU1vN0syQVkzUTdOb2Y0aW9CVFZsK0RobEdjVDBES3ZLZ1dtUVlRL1VNaU5NSWlNZ2xBanJreVNNL1NMOEhvSzFsUUVlOWVaaCtoQ1UwRElnekNZaUlnSWdJaUlpQWlBaUlpSUNJQ0lpSWdJZ0lpSWlBaUFpSWlJQ0lOQXpJNW8wek5Rem9sZzBlNDF3aUlNWVJFSkdlQVJWNS9pZ3lqS0Y2Qm5ScngvUEhpTXZmN3pIb0tnRWRvdC9sejdVTjZIYjltTElJSFRLTXl0b0d4RGs2QnpSaUVUcGtHZXUwQ0hVT2FCdHo4VFQwbytZQmJXV2VZN3ArcE84ZjBQYnp4ZHQzSVovOVZINlFOajI5K1BEMnpld3hzTEJYc3dmdzM3NTgvVFo3Q0VmNjlQN2Q3Q0ZFbGxtQm1uVnphOUdTMW5nR2FsL1B0dXc1TGhEUW9qTzd3NHBuV3YwV3R1S2NodjU2TDNzMkozUHZmYVVEdW1BOWovN2N4TyttWlVwSmRXOWhsNjFuMjN2dVg3NStPMy9TaWdaMDVYb2U3WjZCa3pNcUdoQ2gweG9TVUZ2bkxFVVZBM0wvZW5USVBJeWV6SW9CY2F5aERRbm9Fc1kxSkNBaUFycUtRWXVRZ0M1a1JFUHI3UWZpNlpWRmhZK3JWcUNGZlhyLzd2SGZ2Ly9JNGMwSnFJT0pMK1FGMU1Tc2hnVFVoKzBjbk9IWXh5QUJ0WEwrSWlRZ0lnSWlJaUFpQWlJaUlDSUNhc1czTWhqdTJJLzZBdXBqeXN0NUFUVXhhMnVIZ0RxWXVESElocktGN2VqbThIY2RBbHBQaFkySVQ5ekNMbVRFcTFZQlhjV2dGL1VDSWlLZ1N4aTNUMGhBL1EzZFpTYWc1a2J2VWZReHZxMXp0cmRhZ1hvNmJYTzBGYWliay9mVkM2aVBLZDhMRTlEeTV2NmljUUd0cDlTZlpmRVFUVVJBUkFSRXBHSkFwZTd4RXkweER4VURZaUVDSWxJMG9DVlc3NkZXbVlHaUFXM3J6T0FJQzUxNzNZQzJwZWJ4UUd1ZGRlbUF0dFZtTTdmYytWWVBhRnR3VG5kYjhVd1hDR2hiYzJiLzE2TG5XUHF2TnY5U3FhL1Y1UmJ0NXNsNkFWRktsZTBjOTNjUHM0ZXdubytmWDg4ZVFvMW5JUFhzVTJIZTVnZFVZUmJXTlgzMkpnYzAvZndibUR1SDgxY2dsaVlnSWdJaU1qbWdDaDlFVnpkM0R1ZXZRQnBLVEorOStRRnRCV1poVVJYbXphc01JaVZXSU5ZbElDSUNJaUlnSWdJaUlpQWlBaUlpSUNJQ0lpSWdJZ0lpSWlBaUFpSWlJQ0lDSWlJZ0lnSWlJaUFpQWlJaUlDSUNJaUlnSWdJaUlpQWlBaUlpSUNJQ0lpSWdJZ0lpSWlBaUFpSWlJQ0lDSWlJZ0lnSWlJaUFpQWlJaUlDSUNJaUlnSWdJaThoMFJsZ0c2ZnhWWEl3QUFBQUJKUlU1RXJrSmdnZz09IiwgInNpemVzIjogIjE5MngxOTIiLCAidHlwZSI6ICJpbWFnZS9wbmcifSwgeyJzcmMiOiAiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFnQUFBQUlBQ0FJQUFBQjdHa090QUFBTGYwbEVRVlI0bk8zZFBaSVZSeGFBMFdJQ1U3NThMVUdtRFBsRWFFbVlXaElSN0FDVDFiQUFHVXd3UFUyRDNxdXVlcFdaM3ptbXJHdGszYTkrSHEwM2YvNzI2d1pBejMrdUhnQ0Fhd2dBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FwL2o0L3N2SDkxK3VudUkrWnFaR0FEamV0NVUwMFc0eU0wRUN3TUdlTGFNcGRwT1phUklBVGpmamJqSXpCUUxBa1g2MGcwYmVUV1ltU3dBNHpNKzN6NWk3eWN5VUNRQ1BNK051TWpNTEV3Q09jZVBTR1dvM21aazRBUUNJRWdBT01PUDlwcGxCQUFDaTNsNDlBTk83L2JiMDNkKy9uRHJKN2N3TW15Y0FnQ3dCNEVGbXZDMDFNMnNUQUY1bHhzK1Nab2F2QkFBZ1NnQjRoQm5mUzVpWjVRa0ErODM0WHNMTThJMEFBRVFKQUVDVUFMRFRqUDh1eWN6d2xBQUFSQWtBUUpRQUFFUUpBSHZNK01ORU04TXpBc0M1WnZ3eWFXWWlCQUFnU2dBQW9nUUFJRW9BQUtJRWdMdk4rTk1VTThQM0JBQWdTZ0FBb2dRQUlFb0FBS0lFZ0JQTitNOVR6VXlIQUFCRUNRQkFsQUJ3bnhsL25HNW1lSkVBQUVRSkFFQ1VBQUJFQ1FCQWxBQUFSQWtBUUpRQUFFUUpBRUNVQUFCRUNRQkFsQUFBUkFrQVFKUUFBRVFKQUVDVUFBQkVDUUJBbEFBQVJBa0FRSlFBQUVRSkFFQ1VBQUJFQ1FEM2VmZjNMMWVQY0Rjenc0c0VBQ0JLQUFDaUJJQVRmWHovNWVvUjdtWm1PZ1FBSUVvQUFLSUVBQ0JLQUFDaUJJQzd6ZmdUZFRQRDl3UUFJRW9BQUtJRUFDQktBQUNpQklCenpmaVBWTTFNaEFDd3g0dy9VREV6UENNQUFGRUNBQkFsQUFCUkFzQk90NytlSHVmN3BKbmhLUUVBaUJJQWdDZ0JZTDhaZjZSb1p2aEdBSGlFR1Y5UG01bmxDUUJBbEFEd0tqTytuVEF6ZkNVQVBNaU1ieWZNek5vRUFDRHF6WisvL1hyMURFenZycnZPUWQ1bW1CazhBUUJFQ1FBSG1QRm0wOHdnQUFCUkFzQXhadnliWldZbVRnQzR3SXk3eWN5c1J3QTR6RjF2cUFmWlRXYW1UQUE0MG94ZktjMU1sZ0J3bVJsdlRzM01TZ1NBZzgzNGdzTE1OQWtBeDV0eE41bVpJQUhnRkRQdUpqTlRJd0NjNWZiZE5NNG5UVE9UNG8vQmNicWYzSGdPdTVMTVRJRUE4Q0RQMXRNVUs4bk1yRTBBQUtKOEF3Q0lFZ0NBS0FFQWlIcDc5UUNjNjhPbnoxZVB3RUQrK3VQM3EwZGdJRDRDcjhiRzUzWjZFQ2NBNjdENjJVY0dzZ1JnZXZZK1IxR0NHZ0dZbU5YUEdXU2d3NitBWm1YN2N4SkhxOE1Ud0h4Y256eUdSNEhsZVFLWWpPM1B3emhzeXhPQW1iZ2dlVEJIYm0wQ01BMlhJcGR3OEJZbUFITndFWEloeDI5VkFqQUJseCtYY3dpWDVGZEFvM1BoTVk2VGZoZjBvMFB1WjBobkU0Q2gyZjZNNW95bGZQczVsNFJqQ2NDNGJIL0dkUGdXM25IVWxlQVFBakFvMjUrUkhidC9YM25heFdBM0g0R0J1WDM0OU5rTjB6NENNQ0tubWNFTmVFUmxZQWV2Z0liakVET0xvOTY5bkhIbXZSZTZoU2NBWUVGdXBHNGhBR054YXBuSTRNZlZTNkYvSlFEQXltVGdKd1FBV0o4R3ZFZ0FCdUtNTXAySkRxMUhnZThKQUJDaUFVOEp3Q2ljU3lZMTNkR2RidUR6Q0FDUTQzWFFWd0lBUkdtQUFBQmQ4UVlJQUpCV2JvQUFES0Y4QkZuQTdBZDQ5dmwzRXdDQWFBTUVBR0Ria2cwUUFJQW9BUUQ0cjlwRGdBQUEvRStxQVFJQThIODZEUkFBZ09jaURSQUFnQ2dCQUhoQjRTRkFBQUNpQkFEZ1pjcy9CQWdBd0ErdDNRQUJBSWg2ZS9VQVFOMWZmL3orN0w4TWRkLzk0ZFBuN3lkY2d3QUF3M202Y0llS3dXSzhBZ0tHOXRjZnYxOStBNzVxaEFRQW1NQUlHVmlQQUFEVGtJRmpDUUF3bVVzeXNPUmJJQUVBcHVSUjRQVUVBSmlWQnJ5U0FBQVRlMlFEMW5zTEpBREEzRHdIN0NZQXdQUTBZQjhCQUxqVlltK0JCQUJZZ1llQUhRUUFJRW9BZ0VWNENMaVhBQUJFQ1FDd2pnYzhCS3owSFZnQUFLSUVBQ0JLQUlDbCtCUjhPd0VBaUJJQWdDZ0JBSWdTQUlBb0FRQ0lFZ0NBS0FFQWlCSUFnQ2dCQUpheTB0L3FPWnNBQUVRSkFFQ1VBQURyZU1EN241WCsxcEFBQUVRSkFMQUluMy92SlFBQVVRSUFyTUR0L3c0Q0FIQ3JsYjRBYndJQUxNRHQvejRDQU16Tjl0OU5BSUNKUFhMN0wvYitaeE1BWUY3dS9WOUpBSUFwMmY2djkvYnFBUUR1YzhucVgrLzl6eVlBd0VUYzlSOUxBSUFKV1AxbkVBQmdhQ09zL2lYZi8yd0NBQXhvaEtWZklBREF4UVpmOTZ2ZS9tOStCZ3FRSlFBQVA3VHc3ZjhtQUFBL3N2YjIzd1FBSUVzQUFGNncvTzMvSmdBQVdRSUE4RnpoOW44VEFJQm5JdHQvRXdDQXB6cmJmeE1BZ0c5UzIzOFRBSUFzQVFEWXR0N3QveVlBQUZ0eSsyOENBTkRjL3BzQUFISFo3YjhKQUZCVzN2NmJBQUJaOGUyLytUK0NBVUZXLzFlZUFJQVcyLzhiQVFCQ2JQK252QUlDRXF6Kzcza0NBTlpuKzcvSUV3Q3dNcXYvSndRQVdKUFYvNis4QWdJV1pQdmZ3aE1Bc0E1Ny95NENBS3pBNnQ5QkFJQzVXZjI3Q1FBd0gwdi9FQUlBVE1QZVA1WUFBSU95N3M4bUFNREZMUHFyK0hjQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJd0JMK0NZR29POEtRRUFDQktBQUNpQkFBZ1NnQUFvZ1JnRkQ2ak1TbEhkMTRDQUJBbEFBTnhKOFYwSE5xcENRQkFsQUFBUkFuQVdEeFFNeEhIZFhZQ0FCQWxBTU54VjhVVUhOUUZDTUNJWEZvTXpoRmRnd0FBUkFuQW9OeGhNU3lIY3hrQ01DNlhHUU55TEZjaUFFTnpzVEVVQjNJeEFqQTZseHlEY0JUWEl3QVRjT0Z4T1lkd1NRSXdCNWNmRjNMOFZpVUEwM0FSY2drSGIyRUNNQk9YSWcvbXlLMU5BQ2JqZ3VSaEhMYmx2Zm56dDErdm5vRTlQbno2ZlBVSUxNdnFqL0FFTUN1WEtDZHh0RG84QVV6UG93QkhzZnByQkdBZFNzQSs5bjZXQUt4R0JyaWQxUjhuQUl2VEE1Nnk4WGxLQUFDaS9Bb0lJRW9BQUtMZVhqMUF5OGYzWDY0ZUFVYjM3dTlmcmg2aHdqZUFSN0QzWVFjbE9KdFhRS2V6L1dFZjE4N1pQQUdjeVBHRlEzZ1VPSWtuZ0xQWS9uQVVWOU5KQkFBZ1NnQk80WVlGanVXYU9vTUFITTlKaFRPNHNnNG5BQUJSQWdBUUpRQUg4NVFLNTNGOUhVc0FBS0lFQUNCS0FBQ2lCQUFnU2dBQW9nVGdZUDVxRlp6SDlYVXNBUUNJRWdDQUtBRTRucWRVT0lNcjYzQUNjQW9uRlk3bG1qcURBQUJFQ2NCWjNMREFVVnhOSi9IL0JENmRQMThGdTFuOXAvSUVjRG9uR1BaeDdaek5FOEJEZVJxQWYyWHZQNHdBQUVSNUJRUVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJBbEFBQlJBZ0FRSlFBQVVRSUFFQ1VBQUZFQ0FCQWxBQUJSQWdBUUpRQUFVUUlBRUNVQUFGRUNBQkFsQUFCUkFnQVFKUUFBVVFJQUVDVUFBRkVDQUJEMUQrZkpqdGlQdmwvWEFBQUFBRWxGVGtTdVFtQ0MiLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3BuZyJ9XX0="><link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAEJElEQVR4nO3dPW7VQBSGYYMo6elZAiUFPRJLSsmSkLIDSlaTBVBEiiCXX38ez5nj5xFtrPH4Zewrz01efHj7ZoO9Xs4eAGsTEBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEBEREQEQERERARAREREBEB/ZP7u4fZQyiqf0D3dw/h5T+knnwYNTUP6Oma5RcvOcKBw6imc0DPrta+i/fjT+VH2H2QsjoHxAnaBnT7H/3j59f5QaYMo7K2AY3Q7Nof4ioBTVl+DhlGcT0DKvKgWmQYQ/UMiNMIiMglAjrkySM/SL8HoK1lQEe9eZh+hCU0DIgzCYiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICINAzI5o0zNQzolg0e41wiIMYREJGeARV5/igyjKF6BnRrx/PHiMvf7zHoKgEdot/lz7UN6Hb9mLIIHTKMytoGxDk6BzRiETpkGeu0CHUOaBtz8TT0o+YBbWWeY7p+pO8f0Pbzxdt3IZ/9VH6QNj29+PD2zewxsLBXswfw3758/TZ7CEf69P7d7CFEllmBmnVza9GS1ngGal/Ptuw5LhDQojO7w4pnWv0WtuKchv56L3s2J3PvfaUDumA9j/7cxO+mZUpJdW9hl61n23vuX75+O3/SigZ05Xoe7Z6BkzMqGhCh0xoSUFvnLEUVA3L/enTIPIyezIoBcayhDQnoEsY1JCAiArqKQYuQgC5kREPr7Qfi6ZVFhY+rVqCFfXr/7vHfv//I4c0JqIOJL+QF1MSshgTUh+0cnOHYxyABtXL+IiQgIgIiIiAiAiIiICICasW3Mhju2I/6Aupjyst5ATUxa2uHgDqYuDHIhrKF7ejm8HcdAlpPhY2IT9zCLmTEq1YBXcWgF/UCIiKgSxi3T0hA/Q3dZSag5kbvUfQxvq1ztrdagXo6bXO0Faibk/fVC6iPKd8LE9Dy5v6icQGtp9SfZfEQTURARAREpGJApe7xEy0xDxUDYiECIlI0oCVW76FWmYGiAW3rzOAIC5173YC2pebxQGuddemAttVmM7fc+VYPaFtwTndb8UwXCGhbc2b/16LnWPqvNv9Sqa/V5Rbt5sl6AVFKle0c93cPs4ewno+fX88eQo1nIPXsU2He5gdUYRbWNX32Jgc0/fwbmDuH81cgliYgIgIiMjmgCh9EVzd3DuevQBpKTJ+9+QFtBWZhURXmzasMIiVWINYlICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIiIiAiAiIiICICIiIgIgIi8h0RlgG6fxVXIwAAAABJRU5ErkJggg=="><link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADoklEQVR4nO3dPW7bQBSFUTlImd69l+DShfsAXlLKLMlAduDSq8kCUggwDDnXkMyfefN0DtQSIIefhqRISTePd7cH+J9vo1eAusRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEEkDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOop5x/Pn1d97F62gYhzLW0i2Ot33ztZ00dvFqusXxnilkoVZxnOyPn79/TLR4Qa3iYF1t41j4xh27eBF94nCGsbo+cbA6cRCJg6hJHC5it9AkDrYgDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcRE3iOLkReulzWWMXL6tJHGxBHETiIOoTh+8irK5PHCd8U2G5tnGwXKs4XNCuq1UcHzm4LNEtjo8nhhftobGLV9MtjsPoHdypj4ZxHD7soUuvM8cuXsfN493t6HWgqO+jV+Aszy+vo1dhqaeH+9GrcLHqM0eDLN6bK5G6cTTL4r1ZEil6Qtq4jMM8W1dx5phl7Bb6fP44GYQhk025OK6kjKNPdnkahz0rKXpYIXl+ed3t/VMrjquaNg4LtnefRGrFwUW27qNQHNc2bRwt3OpNB61QHHzNdn2Io4ON+hBHE1v0IY4+Vu9DHETiKOrp4f74umipdSePOZ7nuGZvfex/qW/mmMaZs8iKDYljJjvfmxXHZNyVZZG1jizimM9uk4c4iMRBJA4icRCJg0gc87nSB4xZxVrXuuKYzJ6338Qxk51vzIpjGmeWseLnp57nqG7gNzbEUdTXmlj3tovDCpE4+lj9bq04mtjiPr44OtjoCQ9xTG+7Z3/EMbdNnwoTx8S2fl7Q5xxT2ucxUnFMZs+vJohjDkN+alIcRVX4lWMnpETiICoUR4WJdH+Vt7pQHFRTK47Kb6MtFN/eWnFQSrk4ir+ZVlR/S8vFcZhh1JabYhsrxnGYZOy+bJatK/dnPCea/Vr+LFkcVY/jqEEic2VxNEccDDH4xtu8//O+m4H/dj7yhFQZ5xg4SsPiUMb5Ro3VmDiUcakhI1b0cw4qEAeROIjGxDHw8mxSQ0Zs2Myhj/ONGquRhxV9nGPgKPn4nMgJKZE4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYNIHETiIBIHkTiIxEEkDiJxEImDSBxE4iASB5E4iMRBJA4icRCJg0gcROIgEgeROIjEQSQOInEQiYPoH+ct+4NuraQbAAAAAElFTkSuQmCC"><style>.bn-map-modal{position:fixed;inset:0;z-index:999;background:rgba(28,20,14,.75);display:flex;align-items:center;justify-content:center;padding:12px}.bn-map-panel{background:white;border-radius:20px;width:min(96vw,720px);max-height:95vh;overflow:auto;padding:16px;box-shadow:0 25px 80px #0005}.bn-location-note{background:#fff7ed;border:1px solid #fed7aa;padding:12px;border-radius:14px}.bn-menu-composition{white-space:pre-line;overflow-wrap:anywhere;max-width:100%}.bn-product-admin-row textarea{width:100%}
 </style><style>
 /* BentarNgopi V3.7 Shift Kas responsive */
@@ -828,6 +842,17 @@ body{overflow-x:clip}
 }
 @media(max-width:380px){.bn-site-header-inner>button:first-child{font-size:.82rem!important}.bn-site-header-inner>div button{font-size:.72rem!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.bn-member-section-nav button{transition:none}}
+</style><style id="bn567Style">
+.bn567{margin:16px 0;border:1px solid #e6d4bd;background:#fffdfa;border-radius:20px;padding:clamp(12px,2vw,22px);color:#432c1e;box-shadow:0 8px 28px #5734190c}
+.bn567-head{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.bn567-head h3{font-size:1.22rem;font-weight:900}.bn567-head p,.bn567-muted{font-size:.85rem;color:#806a55;line-height:1.5}
+.bn567-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}.bn567-kpi{background:#f7f0e7;border-radius:13px;padding:14px;min-width:0}.bn567-kpi small{display:block;color:#785c45;font-size:12px}.bn567-kpi b{font-size:1.18rem;overflow-wrap:anywhere}
+.bn567-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.bn567-btn{border:2px solid #643b25;border-radius:12px;background:#623a25;color:#fff;padding:10px 14px;min-height:44px;font-weight:800;cursor:pointer}.bn567-btn.sub{background:#fffaf5;color:#623a25}.bn567-btn:disabled{opacity:.55;cursor:wait}
+.bn567-panel{border:1px solid #eadfd0;border-radius:15px;background:white;padding:15px;margin-top:14px;min-width:0}.bn567-form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.bn567-form label{font-size:12px;font-weight:800;color:#654a32}.bn567 input,.bn567 select{display:block;width:100%;border:1.5px solid #d9c5af;border-radius:10px;min-height:44px;padding:9px;color:#39271e;background:white;font-size:16px;margin-top:5px}.bn567-scroll{overflow:auto;max-width:100%;overscroll-behavior-x:contain}.bn567 table{width:100%;border-collapse:collapse;min-width:760px;font-size:13px}.bn567 th,.bn567 td{padding:10px;border-bottom:1px solid #eee4d8;text-align:left}.bn567 th{background:#f8f1e9;position:sticky;top:0}.bn567 td.num{text-align:right;white-space:nowrap}.bn567 .warning{color:#a43e25;font-weight:800}.bn567-line{display:grid;grid-template-columns:minmax(0,2fr) 1fr 1fr 1.5fr auto;gap:8px;align-items:end;padding:8px 0;border-bottom:1px solid #eee}.bn567-line .bn567-btn{padding:8px}
+@media(max-width:950px){.bn567-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bn567-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.bn567{padding:12px}.bn567-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bn567-form{grid-template-columns:1fr}.bn567-line{grid-template-columns:1fr 1fr}.bn567-line label:first-child{grid-column:1/-1}.bn567-line label:nth-child(4){grid-column:1/-1}.bn567-line .bn567-btn{grid-column:1/-1}.bn567-buttons .bn567-btn{flex:1 1 130px}}
+</style><style id="bn568-cashier-po-ui">
+.bn-pos-worktabs{display:flex;gap:10px;overflow-x:auto;scrollbar-width:thin;padding:10px 2px}.bn-pos-worktab{white-space:nowrap;min-height:48px;border:2px solid #dcc8b4;border-radius:14px;background:#fff;padding:12px 17px;font-weight:850;color:#5d3b26}.bn-pos-worktab.active{color:white;background:#603c25;border-color:#603c25}.bn568-page{background:#fffdf9;border:1px solid #e9d7c6;border-radius:20px;padding:18px;margin:12px 0}.bn568-pagehead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}.bn568-pagehead h2{font-size:1.25rem;font-weight:900;color:#4b2d1e}.bn568-pagehead p{color:#765e4e;font-size:.85rem}.bn568-paycard{background:#fcf7ef;border:1px solid #e9d5bd;padding:14px;border-radius:16px;margin-top:16px}.bn568-paycard>b{display:block;margin-bottom:5px}.bn568-paychoices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0}.bn568-paychoices label{display:flex;align-items:center;justify-content:center;gap:8px;border:2px solid #d9bea4;background:#fff;padding:10px 7px;border-radius:12px;font-size:.83rem;font-weight:800;cursor:pointer;min-height:47px}.bn568-paychoices label:has(input:checked){border-color:#6d4226;background:#efe2d3}.bn568-paychoices input{accent-color:#6d4226}.bn568-summary{display:grid;gap:7px;margin-top:13px;border-top:1px solid #e1d1c1;padding-top:10px}.bn568-summary span{display:flex;justify-content:space-between;gap:10px;font-size:.86rem}.bn568-summary span:last-child{font-weight:900;font-size:.98rem}.bn568-success{background:#eef9ed;border:1px solid #8ac18e;color:#255b2b;border-radius:14px;padding:15px;margin-top:12px}.bn568-success b{font-size:1.05rem}.bn568-success p{margin-top:5px;font-size:.85rem}.bn568-success small{display:block;overflow-wrap:anywhere;margin-top:5px}.bn568-page .bn38-panel{margin:0;box-shadow:none}.bn568-page .bn40-toolbar{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}@media(max-width:650px){.bn568-page{padding:12px;border-radius:14px}.bn568-paychoices{grid-template-columns:1fr}.bn568-paychoices label{justify-content:flex-start}.bn-pos-worktabs{position:relative;max-width:100%}.bn-pos-worktab{font-size:.79rem;padding:10px 12px}}
 </style></head><body class="bg-stone-50 text-stone-800 min-h-screen"><header class="sticky top-0 z-30 bg-coffee-900 text-white shadow"><div class="bn-site-header-inner max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-3"><button onclick="nav('home')" class="font-black text-xl"><i class="fa-solid fa-mug-hot text-amber-400"></i> Bentar<span class="text-amber-400">Ngopi</span></button><div class="flex items-center gap-2 text-sm"><button onclick="nav('home')" class="px-2 py-2">Menu</button><button id="bnMemberTab" onclick="nav('member')" class="bn-member-tab bg-amber-600 rounded-full px-3 py-2" aria-label="Buka akun Member"><i class="fa-solid fa-user"></i> <span id="bnMemberTabName">Member</span><span id="bnMemberTabBadge" class="bn-member-notif hidden" aria-label="Notifikasi aktivitas">0</span></button><button id="adminReturn" onclick="nav('admin')" class="hidden rounded-full px-3 py-2 bg-stone-700 border border-stone-500"><i class="fa-solid fa-gear"></i> Admin</button></div></div></header><main id="app" class="bn-site-main max-w-5xl mx-auto p-4 pb-20"></main><footer class="text-center text-xs text-stone-400 pb-8">BentarNgopi • Menu, Sampel & Stamp</footer><div id="toast" class="hidden fixed bottom-5 right-4 left-4 sm:left-auto z-50 rounded-xl px-4 py-3 text-white shadow-2xl"></div><script>
 const BASE="https://fqaewybhgsxlkgkvjnjv.supabase.co/rest/v1", KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZxYWV3eWJoZ3N4bGtna3Zqbmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyODc4MzQsImV4cCI6MjEwNjg2MzgzNH0.s4Frl_Mpj77Fc321j7MWykvxaXA7XWkKjWzJKEn-LXE";
 const state={adminSession:null,adminChecked:false,adminTab:sessionStorage.getItem('bnAdminTab')||'settings',view:location.hash.startsWith('#tracking=')?'tracking':location.hash==='#ngopidulu'?'admin':'home',phone:sessionStorage.getItem('bnphone')||'',menu:[],settings:null,member:null,samples:[],purchases:[],rewards:[],camera:null,selectedSample:null,ratings:[0,0,0,0],cart:[],onlineCart:[],lastOrder:null,onlineType:'nonmember',onlineServiceType:'delivery',onlinePaymentMethod:'cash',orderLocation:null,bnMemberNoticeCount:0};
@@ -2434,12 +2459,12 @@ let bnCashierQueueSerial=0;
 function bnNextQueueStatus(status){return ({pending:'confirmed',confirmed:'processing',processing:'completed'})[status]||null}
 function bnQueueAdvanceLabel(next){return ({confirmed:'Konfirmasi',processing:'Mulai Proses',completed:'Tandai Selesai'})[next]||'Lanjut'}
 function bnCashierShowSection(section){
- bnPos.section=section==='queue'?'queue':'sale';
- const sale=document.getElementById('bnPosSalePanel');const queue=document.getElementById('bnCashierQueuePanel');
+ bnPos.section=['queue','po'].includes(section)?section:'sale';
+ const sale=document.getElementById('bnPosSalePanel');const queue=document.getElementById('bnCashierQueuePanel');const poPanel=document.getElementById('bn568PoPage');
  if(sale)sale.classList.toggle('hidden',bnPos.section!=='sale');
- if(queue)queue.classList.toggle('hidden',bnPos.section!=='queue');
+ if(queue)queue.classList.toggle('hidden',bnPos.section!=='queue');if(poPanel)poPanel.classList.toggle('hidden',bnPos.section!=='po');
  document.querySelectorAll('[data-bn-pos-tab]').forEach(el=>{const active=el.dataset.bnPosTab===bnPos.section;el.classList.toggle('active',active);el.setAttribute('aria-pressed',String(active))});
- if(bnPos.section==='queue')bnLoadCashierQueue();
+ if(bnPos.section==='queue')bnLoadCashierQueue();if(bnPos.section==='po')bn38Load();
 }
 function bnCashierQueueFilter(view){
  if(view)bnCashierQueueView=view;
@@ -2491,17 +2516,20 @@ function bnCashierRenderPage(inAdmin){
  const parent=inAdmin?document.getElementById('bnCashierAdminHost'):app;
  if(!parent)return;
  const isCashier=state.adminSession?.role==='kasir';
- parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><p class="bn-pos-muted">PO belum dianggap dibayar. Saat pelanggan membayar, pilih Cash/QRIS di panel Realisasi Pembayaran.</p></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
+ parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V3.8 • PO & PEMBAYARAN</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi langsung di outlet · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><div class="bn39-transaction"><label class="bn-pos-label">Jenis Transaksi</label><div class="bn39-choices"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><div class="bn568-paycard"><b>Pembayaran Awal PO</b><p class="bn-pos-muted">Bisa belum bayar, bayar DP, atau lunas di awal. Jadwal produksi tetap terpisah dari status pembayaran.</p><div class="bn568-paychoices"><label><input type="radio" name="bn568Payment" value="unpaid" checked onchange="bn568PaymentSwitch()"><span>Belum Bayar</span></label><label><input type="radio" name="bn568Payment" value="dp" onchange="bn568PaymentSwitch()"><span>Bayar DP</span></label><label><input type="radio" name="bn568Payment" value="full" onchange="bn568PaymentSwitch()"><span>Lunas di Awal</span></label></div><div id="bn568PaymentFields" hidden><label class="bn-pos-label" id="bn568AmountLabel">Nominal DP (Rp)</label><input id="bn568Amount" type="number" class="field" step="1" min="1" inputmode="numeric" placeholder="Contoh 50000" oninput="bn568Summary()"><label class="bn-pos-label mt-2">Metode pembayaran awal</label><select id="bn568Method" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select></div><div class="bn568-summary" id="bn568Summary"></div></div></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
  bn39Switch();
  const sales=parent.querySelector('.bn-pos-shell');
  if(sales){
   sales.id='bnPosSalePanel';
   const tabs=document.createElement('div');tabs.className='bn-pos-worktabs';
-  tabs.innerHTML='<button type="button" class="bn-pos-worktab" data-bn-pos-tab="sale" onclick="bnCashierShowSection(\'sale\')"><i class="fa-solid fa-cash-register"></i> Transaksi Baru</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="queue" onclick="bnCashierShowSection(\'queue\')"><i class="fa-solid fa-list-check"></i> Proses Pesanan <span class="bn-pos-workcount" id="bnCashierQueueCount"></span></button>';
+  tabs.innerHTML='<button type="button" class="bn-pos-worktab" data-bn-pos-tab="sale" onclick="bnCashierShowSection(\'sale\')"><i class="fa-solid fa-cash-register"></i> Transaksi Baru</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="po" onclick="bnCashierShowSection(\'po\')"><i class="fa-solid fa-calendar-days"></i> Daftar PO & Pembayaran</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="queue" onclick="bnCashierShowSection(\'queue\')"><i class="fa-solid fa-list-check"></i> Proses Pesanan <span class="bn-pos-workcount" id="bnCashierQueueCount"></span></button>';
   parent.insertBefore(tabs,sales);
   const queue=document.createElement('section');queue.id='bnCashierQueuePanel';queue.className='bn-pos-queue-panel hidden';
   queue.innerHTML='<div class="bn-pos-queue-head"><div><h2 class="text-xl font-black">Proses Pesanan</h2><p class="muted">Antrean Online / Web dan Offline / Kasir dalam satu tempat.</p></div><button type="button" class="btn" onclick="bnLoadCashierQueue()"><i class="fa-solid fa-rotate"></i> Refresh</button></div><div id="bnCashierQueueBody"><p class="muted">Pilih Proses Pesanan untuk melihat antrean.</p></div>';
   parent.appendChild(queue);
+  const poPage=document.createElement('section');poPage.id='bn568PoPage';poPage.className='bn568-page hidden';
+  poPage.innerHTML='<div class="bn568-pagehead"><div><h2>Daftar PO & Pelunasan</h2><p>Pesanan untuk nanti, jadwal pengerjaan, DP dan sisa tagihan dalam satu halaman.</p></div><button type="button" class="btn" onclick="bn38Load()">↻ Perbarui Daftar</button></div><div id="bn568PoHost"></div>';
+  parent.appendChild(poPage);
  }
  bnCashierTypeUI();bnCashierProducts();bnCashierCartUI();bnCashierStampUI();bnVoucherPosMount();bnVoucherPosLoad();
  bn37ShiftMount();
@@ -2523,6 +2551,10 @@ function bnCashierTypeUI(){
  el.innerHTML='<div class="bn-pos-member-picker"><label class="bn-pos-label" for="bnPosMemberSearch">Pilih Member Langsung</label><input type="search" id="bnPosMemberSearch" class="field mt-1" autocomplete="off" placeholder="Cari nama atau nomor WhatsApp..." oninput="bnCashierMemberSearch(this.value)"><div id="bnPosMemberChoices" class="bn-pos-member-list" aria-live="polite"><p class="muted">Memuat daftar member...</p></div></div>'+
   '<details class="mt-2 rounded-xl border border-stone-200 p-3"><summary class="text-sm font-semibold cursor-pointer">Pilih / Daftarkan Member lewat WhatsApp</summary><div class="flex gap-2 mt-3 min-w-0"><input id="bnPosPhone" type="tel" class="field min-w-0" placeholder="08xxxxxxxxxx" value="'+esc(bnPos.phone)+'"><button type="button" class="btn shrink-0" id="bnPosMemberFindBtn" onclick="bnCashierFindMember()">Pilih / Daftarkan</button></div></details>'+
   '<p class="muted mt-2 text-xs">Jika nomor belum terdaftar, member dibuat otomatis dengan nama sementara. Pastikan nomor benar sebelum memilih.</p><div id="bnPosMemberResult" class="mt-2 text-sm">'+(bnPos.member?'<div class="rounded-xl bg-green-50 border border-green-200 p-3"><b>'+esc(bnPos.member.name)+'</b><p>'+esc(bnPos.member.phone)+' · '+Number(bnPos.member.stamps||0)+' stamp</p></div>':'<p class="bn-pos-muted">Pilih member dari daftar di atas.</p>')+'</div>';
+ const extra=document.createElement('section');extra.className='bn570-card';
+ extra.innerHTML='<h3>Daftar Member dari Nama Saja</h3><p class="bn-pos-muted">Nomor HP boleh ditambahkan nanti. Stamp dan riwayat tetap tersimpan.</p><div class="bn570-row"><input id="bn570NewName" class="field" maxlength="100" placeholder="Nama member baru"><button type="button" class="btn" onclick="bn570CreateByName()">+ Buat Member</button></div><div id="bn570AttachArea" class="bn570-attach"></div>';
+ el.appendChild(extra);
+ bn570RenderAttach();
  bnCashierMemberSearch('');
 }
 let bnCashierMemberSearchTimer=null;
@@ -2537,9 +2569,9 @@ async function bnCashierLoadMemberChoices(query,serial){
  if(!host||bnPos.type!=='member')return;
  host.innerHTML='<p class="muted">Mencari member...</p>';
  try{
-  const rows=await staffRPC('bn_cashier_list_members',{p_token:state.adminSession.token,p_search:String(query||'').trim(),p_limit:60});
+  const rows=await staffRPC('bn_cashier_search_v570',{p_token:state.adminSession.token,p_search:String(query||'').trim(),p_limit:60});
   if(serial!==bnCashierMemberQuerySerial||bnPos.type!=='member'||!host.isConnected)return;
-  host.innerHTML=Array.isArray(rows)&&rows.length?rows.map(m=>'<button type="button" class="bn-pos-member-choice" onclick="bnCashierChooseMember('+JSON.stringify(m.phone).replaceAll('"','&quot;')+')"><span><span class="bn-pos-name">'+esc(m.name)+'</span><small>'+esc(m.phone)+' · '+Number(m.stamps||0)+' stamp</small></span><i class="fa-solid fa-chevron-right text-amber-700"></i></button>').join(''):'<p class="muted">Member tidak ditemukan.</p>';
+  host.innerHTML=Array.isArray(rows)&&rows.length?rows.map(m=>'<button type="button" class="bn-pos-member-choice" onclick="bnCashierChooseMember('+JSON.stringify(m.phone).replaceAll('"','&quot;')+')"><span><span class="bn-pos-name">'+esc(m.name)+'</span><small>'+esc(m.contact_phone|| (m.temporary?'Nomor HP belum ada':m.phone))+' · '+Number(m.stamps||0)+' stamp</small></span><i class="fa-solid fa-chevron-right text-amber-700"></i></button>').join(''):'<p class="muted">Member tidak ditemukan.</p>';
  }catch(e){if(serial===bnCashierMemberQuerySerial&&host.isConnected)host.innerHTML='<p class="text-red-700 text-sm">'+esc(e.message||'Gagal memuat member')+'</p>'}
 }
 async function bnCashierChooseMember(phone){
@@ -2550,12 +2582,13 @@ async function bnCashierChooseMember(phone){
   const m=await staffRPC('bn_cashier_find_member',{p_token:state.adminSession.token,p_phone:phone});
   if(bnPos.type!=='member'||bnPos.phone!==phone)return;
   bnPos.member=m;
-  if(el)el.innerHTML='<div class="rounded-xl bg-green-50 border border-green-200 p-3"><b>✓ '+esc(m.name)+'</b><p>'+esc(m.phone)+' · '+Number(m.stamps||0)+' stamp</p></div>';
+  if(/^999[0-9]{12}$/.test(String(m.phone||''))){try{const options=await staffRPC('bn_cashier_search_v570',{p_token:state.adminSession.token,p_search:m.phone,p_limit:5});bnPos.member.contact_phone=options.find(x=>x.phone===m.phone)?.contact_phone||null}catch{}}
+  if(el)el.innerHTML='<div class="rounded-xl bg-green-50 border border-green-200 p-3"><b>✓ '+esc(m.name)+'</b><p>'+esc(m.contact_phone|| (m.temporary?'Nomor HP belum ada':m.phone))+' · '+Number(m.stamps||0)+' stamp</p></div>';
   const search=document.getElementById('bnPosMemberSearch');if(search)search.value=m.name;
   const choices=document.getElementById('bnPosMemberChoices');if(choices)choices.innerHTML='';
   const ph=document.getElementById('bnPosPhone');if(ph)ph.value=m.phone;
  }catch(e){if(el)el.textContent=e.message||'Gagal memilih member';toast(e.message||'Gagal memilih member',true)}
- bnCashierCartUI();bnCashierStampUI();
+ bn570RenderAttach();bnCashierCartUI();bnCashierStampUI();
 }
 let bnCashierMemberLookupBusy=false;
 async function bnCashierFindMember(){
@@ -2572,10 +2605,11 @@ async function bnCashierFindMember(){
  if(btn){btn.disabled=true;btn.textContent='Memeriksa...'}
  if(result)result.innerHTML='<p class="muted">Memeriksa nomor WA dan pendaftaran member...</p>';
  try{
-  const m=await staffRPC('bn_cashier_get_or_create_member',{p_token:state.adminSession.token,p_phone:phone});
+  const found=await staffRPC('bn_cashier_lookup_contact_v570',{p_token:state.adminSession.token,p_contact_phone:phone});
+  const m=found?.found?found:await staffRPC('bn_cashier_get_or_create_member',{p_token:state.adminSession.token,p_phone:phone});
   if(bnPos.type!=='member'||bnPos.phone!==phone)return;
   bnPos.member=m;
-  if(result)result.innerHTML='<div class="rounded-xl bg-green-50 border border-green-200 p-3"><b>✓ '+esc(m.name)+'</b><p>'+esc(m.phone)+' · '+Number(m.stamps||0)+' stamp</p>'+(m.created?'<p class="text-xs mt-2 text-green-800">Member baru otomatis terdaftar. Nama bisa diganti di Admin atau halaman Member.</p>':'')+'</div>';
+  if(result)result.innerHTML='<div class="rounded-xl bg-green-50 border border-green-200 p-3"><b>✓ '+esc(m.name)+'</b><p>'+esc(m.contact_phone|| (m.temporary?'Nomor HP belum ada':m.phone))+' · '+Number(m.stamps||0)+' stamp</p>'+(m.created?'<p class="text-xs mt-2 text-green-800">Member baru otomatis terdaftar. Nama bisa diganti di Admin atau halaman Member.</p>':'')+'</div>';
   if(m.created){toast('Nomor berhasil terdaftar sebagai member');}
   const search=document.getElementById('bnPosMemberSearch');if(search)search.value=m.name||phone;
   bnCashierMemberQuerySerial++;
@@ -2585,8 +2619,40 @@ async function bnCashierFindMember(){
  finally{
   bnCashierMemberLookupBusy=false;
   if(btn){btn.disabled=false;btn.textContent='Pilih / Daftarkan'}
-  bnCashierStampUI();bnCashierCartUI();
+  bn570RenderAttach();bnCashierStampUI();bnCashierCartUI();
  }
+}
+function bn570RenderAttach(){
+ const host=document.getElementById('bn570AttachArea');if(!host)return;
+ const m=bnPos.member;
+ if(!m){host.innerHTML='<p class="bn-pos-muted">Pilih member untuk menambahkan nomor HP nanti.</p>';return;}
+ // Nomor utama 999... adalah ID internal. Dilarang dipakai sebagai WhatsApp.
+ if(!/^999[0-9]{12}$/.test(String(m.phone||''))){host.innerHTML='<p class="bn-pos-muted">Member ini sudah mempunyai nomor HP utama.</p>';return;}
+ host.innerHTML='<div class="bn570-selected"><b>'+esc(m.name)+'</b><span>'+esc(m.contact_phone||'Nomor HP belum diisi')+'</span></div><div class="bn570-row"><input type="tel" class="field" id="bn570Contact" placeholder="Isi nomor HP kemudian, contoh 0812..." value="'+esc(m.contact_phone||'')+'"><button type="button" class="btn" onclick="bn570SaveContact()">Simpan HP</button></div>';
+}
+async function bn570CreateByName(){
+ if(bnPos.busy)return;
+ const input=document.getElementById('bn570NewName');const name=(input?.value||'').trim();
+ if(name.length<2)return toast('Nama member minimal 2 karakter',true);
+ if(!confirm('Buat member baru atas nama '+name+' tanpa nomor HP? Pastikan bukan member yang sudah terdaftar.'))return;
+ try{
+  const m=await staffRPC('bn_cashier_create_named_v570',{p_token:state.adminSession.token,p_name:name});
+  bnPos.member=m;bnPos.phone=m.phone;bnPos.requestKey=null;
+  const chosen=document.getElementById('bnPosMemberResult');if(chosen)chosen.innerHTML='<div class="rounded-xl bg-green-50 border border-green-200 p-3"><b>✓ '+esc(m.name)+'</b><p>Member nama saja · 0 stamp · Nomor HP belum diisi</p></div>';
+  const search=document.getElementById('bnPosMemberSearch');if(search)search.value=m.name;
+  const choices=document.getElementById('bnPosMemberChoices');if(choices)choices.innerHTML='';
+  if(input)input.value='';bn570RenderAttach();bnCashierCartUI();bnCashierStampUI();
+  toast('Member dibuat dengan nama saja. Nomor HP dapat diisi nanti.');
+ }catch(e){toast(e.message||'Gagal membuat member',true)}
+}
+async function bn570SaveContact(){
+ if(bnPos.busy||!bnPos.member)return;
+ const input=document.getElementById('bn570Contact');const phone=(input?.value||'').trim();
+ if(!phone)return toast('Masukkan nomor HP',true);
+ try{
+  const m=await staffRPC('bn_cashier_set_contact_v570',{p_token:state.adminSession.token,p_member_phone:bnPos.member.phone,p_contact_phone:phone});
+  bnPos.member={...bnPos.member,...m};bn570RenderAttach();toast('Nomor HP member disimpan.');
+ }catch(e){toast(e.message||'Gagal menyimpan nomor HP',true)}
 }
 function bnCashierProducts(){
  const el=document.getElementById('bnPosProducts');if(!el)return;
@@ -2645,11 +2711,26 @@ function bnCashierStampUI(){
 }
 function bn39Type(){return document.querySelector('input[name="bn39Type"]:checked')?.value||'direct'}
 function bn39DateGuard(){const el=document.getElementById('bn39ProcessDate');if(el&&!el.value){el.value=new Date(Date.now()+7*3600000).toISOString().slice(0,10)}}
+function bn568PaymentMode(){return document.querySelector('input[name="bn568Payment"]:checked')?.value||'unpaid'}
+function bn568PaymentSwitch(){
+ const po=bn39Type()==='po',mode=bn568PaymentMode(),fields=document.getElementById('bn568PaymentFields');
+ if(fields)fields.hidden=!po||mode==='unpaid';
+ const label=document.getElementById('bn568AmountLabel');if(label)label.textContent=mode==='full'?'Nominal akan otomatis sama dengan total tagihan':'Nominal DP (Rp)';
+ const amount=document.getElementById('bn568Amount');if(amount){amount.disabled=mode==='full';if(mode==='full')amount.value=String(Math.round(bnVoucherPosNet()));}
+ bn568Summary();
+}
+function bn568Summary(){
+ const box=document.getElementById('bn568Summary');if(!box)return;
+ const total=Math.max(0,Number(bnVoucherPosNet())||0),mode=bn568PaymentMode();
+ const amount=mode==='unpaid'?0:mode==='full'?total:Math.max(0,Number(document.getElementById('bn568Amount')?.value)||0);
+ box.innerHTML='<span>Total <b>'+money(total)+'</b></span><span>Bayar sekarang <b>'+money(amount)+'</b></span><span>Sisa tagihan <b>'+money(Math.max(0,total-amount))+'</b></span>';
+}
 function bn39Switch(){
- const po=bn39Type()==='po';const direct=document.getElementById('bn39DirectFields'),scheduled=document.getElementById('bn39PoFields'),btn=document.getElementById('bnPosSave');
+ const po=bn39Type()==='po',direct=document.getElementById('bn39DirectFields'),scheduled=document.getElementById('bn39PoFields'),btn=document.getElementById('bnPosSave');
  if(direct)direct.hidden=po;if(scheduled)scheduled.hidden=!po;
- if(btn)btn.textContent=po?'Buat PO (Belum Bayar)':'Simpan Pembayaran Langsung';
+ if(btn)btn.textContent=po?'Simpan Pesanan PO':'Simpan Penjualan Langsung (Lunas)';
  if(po){bn39DateGuard();const t=document.getElementById('bn39ProcessTime');if(t&&!t.value)t.value='10:00'}
+ bn568PaymentSwitch();
 }
 async function bnCashierCheckout(){
  if(bnPos.busy)return;
@@ -2657,27 +2738,29 @@ async function bnCashierCheckout(){
  if(!bnCashierSafe())return toast('Stok atau kemasan perlu diperiksa',true);
  if(bnPos.type==='member'&&!bnPos.member)return toast('Cari dan pilih Member terlebih dahulu',true);
  if(!bnVoucherPosValidate())return;
- const orderType=bn39Type();
- const processDate=document.getElementById('bn39ProcessDate')?.value||'';
- const processTime=document.getElementById('bn39ProcessTime')?.value||'';
+ const orderType=bn39Type(),processDate=document.getElementById('bn39ProcessDate')?.value||'',processTime=document.getElementById('bn39ProcessTime')?.value||'';
  if(orderType==='po'&&(!processDate||!processTime))return toast('Tanggal dan jam proses PO wajib diisi',true);
- const amountDisplay=money(bnVoucherPosNet());
- if(!confirm(orderType==='direct'?'Konfirmasi pembayaran '+amountDisplay+' SUDAH DITERIMA melalui '+(document.getElementById('bnPosPay')?.value||'cash').toUpperCase()+'?': 'Buat PO '+amountDisplay+' untuk diproses '+processDate+' pukul '+processTime+'? Belum ada uang diterima.'))return;
+ const total=Math.max(0,Number(bnVoucherPosNet())||0),mode=orderType==='po'?bn568PaymentMode():'full';
+ const initialPayment=orderType==='direct'?null:(mode==='unpaid'?0:mode==='full'?total:Number(document.getElementById('bn568Amount')?.value));
+ if(orderType==='po'&&mode==='dp'&&(!Number.isFinite(initialPayment)||initialPayment<=0||initialPayment>=total))return toast('DP harus lebih dari 0 dan lebih kecil dari total tagihan',true);
+ if(orderType==='po'&&(!Number.isFinite(initialPayment)||initialPayment<0||initialPayment>total))return toast('Pembayaran PO tidak valid',true);
+ const payment=orderType==='direct'?(document.getElementById('bnPosPay')?.value||'cash'):(document.getElementById('bn568Method')?.value||'cash');
+ const descr=orderType==='direct'?'Penjualan langsung, lunas '+money(total)+' ('+payment.toUpperCase()+')': 'PO untuk '+processDate+' '+processTime+', bayar '+money(initialPayment)+' sekarang, sisa '+money(total-initialPayment);
+ if(!confirm('Konfirmasi '+descr+'? Pastikan uang benar-benar sudah diterima jika ada pembayaran.'))return;
  const btn=document.getElementById('bnPosSave');bnPos.busy=true;if(btn){btn.disabled=true;btn.textContent='Menyimpan...'}
  if(!bnPos.requestKey)bnPos.requestKey=bnPosUUID();
  const items=bnPos.cart.map(x=>({id:x.id,qty:x.qty,package_variant:x.variant,sugar:x.sugar,ice:x.variant==='bottle'?null:x.ice,toppings:x.toppings||[]}));
- const payment=document.getElementById('bnPosPay')?.value||'cash';
  const note=document.getElementById('bnPosNote')?.value.trim()||'';
  try{
-  const r=await staffRPC('bn_transaction_create_v39',{p_order_type:orderType,p_process_date:orderType==='po'?processDate:null,p_process_time:orderType==='po'?processTime:null,p_token:state.adminSession.token,p_customer_type:bnPos.type,p_phone:bnPos.type==='member'?bnPos.member.phone:null,p_items:items,p_award_stamps:bnPos.type==='member'&&bnPos.award,p_payment_method:payment,p_note:note,p_request_key:bnPos.requestKey,p_discount_mode:bnVoucherPos.mode,p_manual_type:bnVoucherPos.manualType,p_manual_value:Number(bnVoucherPos.manualValue||0),p_manual_reason:bnVoucherPos.reason,p_voucher_code:bnVoucherPos.code});
+  const r=await staffRPC('bn_transaction_create_v568',{p_order_type:orderType,p_process_date:orderType==='po'?processDate:null,p_process_time:orderType==='po'?processTime:null,p_initial_payment:initialPayment,p_token:state.adminSession.token,p_customer_type:bnPos.type,p_phone:bnPos.type==='member'?bnPos.member.phone:null,p_items:items,p_award_stamps:bnPos.type==='member'&&bnPos.award,p_payment_method:payment,p_note:note,p_request_key:bnPos.requestKey,p_discount_mode:bnVoucherPos.mode,p_manual_type:bnVoucherPos.manualType,p_manual_value:Number(bnVoucherPos.manualValue||0),p_manual_reason:bnVoucherPos.reason,p_voucher_code:bnVoucherPos.code});
   const receipt=document.getElementById('bnPosReceipt');
-  if(receipt)receipt.innerHTML='<div class="rounded-xl border border-green-200 bg-green-50 p-4"><div class="font-black text-green-800">✓ '+(orderType==='direct'?'Penjualan Langsung':'PO')+' Berhasil</div><div class="text-sm mt-2">Total: <b>'+money(r.total)+'</b> · '+(orderType==='direct'?'Lunas '+payment.toUpperCase():'Belum Bayar · Proses '+esc(processDate)+' '+esc(processTime))+'</div><div class="text-xs text-green-900 mt-1">ID: '+esc(r.purchase_id)+'</div></div>';
-  toast(orderType==='direct'?'Penjualan langsung tersimpan • pembayaran diterima':'PO tersimpan • belum ada pembayaran diterima');bn38Load();if(orderType==='direct')bn37Load();
+  if(receipt)receipt.innerHTML='<div class="bn568-success"><b>✓ '+(orderType==='direct'?'Penjualan Langsung':'Pesanan PO')+' berhasil</b><p>Total: '+money(r.total)+' · Dibayar: '+money(r.paid)+' · Sisa: '+money(r.remaining)+'</p><p>Status: '+esc(r.payment_status||'')+(orderType==='po'?' · Jadwal: '+esc(processDate)+' '+esc(processTime):'')+'</p><small>ID: '+esc(r.purchase_id)+'</small></div>';
+  toast(orderType==='direct'?'Penjualan langsung berhasil dan lunas':'PO tersimpan, status pembayaran tercatat');bn38Load();if(orderType==='direct'||Number(initialPayment)>0)bn37Load();
   bnPos.cart=[];bnPos.member=null;bnPos.phone='';bnPos.award=true;bnPos.requestKey=null;bnVoucherPosReset();
   try{const ids=items.map(x=>x.id);ids.forEach(id=>{const m=state.menu.find(z=>z.id===id);if(m)m.stock_qty=Math.max(0,Number(m.stock_qty)-items.filter(x=>x.id===id).reduce((a,x)=>a+x.qty,0))})}catch{}
   bnCashierProducts();bnCashierCartUI();bnCashierStampUI();bnCashierTypeUI();
- }catch(e){toast(e.message||'Gagal menyimpan. Periksa riwayat sebelum mencoba lagi.',true)}
- finally{bnPos.busy=false;if(btn){btn.textContent=orderType==='direct'?'Simpan Pembayaran Langsung':'Buat PO (Belum Bayar)'}bnCashierCartUI()}
+ }catch(e){toast(e.message||'Gagal menyimpan. Periksa riwayat sebelum mengulangi.',true)}
+ finally{bnPos.busy=false;if(btn)btn.textContent=orderType==='direct'?'Simpan Penjualan Langsung (Lunas)':'Simpan Pesanan PO';bnCashierCartUI();}
 }
 function bnCashierReset(){if(bnPos.busy)return;if(bnPos.cart.length&&!confirm('Kosongkan transaksi saat ini?'))return;bnPos.type='nonmember';bnPos.phone='';bnPos.member=null;bnPos.cart=[];bnPos.award=true;bnPos.search='';bnPos.requestKey=null;bnVoucherPosReset();bnCashierRenderPage(state.adminSession?.role==='admin')}
 
@@ -2864,7 +2947,7 @@ let bn40Start=bn40LocalDay(-7),bn40End=bn40LocalDay(30),bn40Kind='all',bn40Statu
 const bn40FmtDate=d=>{if(!d)return '-';const [date,time]=String(d).split('T');if(!date||!/^\d{4}-\d{2}-\d{2}$/.test(date))return esc(String(d));return esc(date.split('-').reverse().join('/')+(time?' · '+time.slice(0,5):''))};
 const bn40StatusOf=o=>{const due=Math.max(0,Number(o.total||0)-Number(o.paid||0));return due<.005?'paid':Number(o.paid||0)>0?'partial':'unpaid'};
 function bn38Mount(){
- const pos=document.querySelector('.bn-pos-shell');if(!pos)return;
+ const pos=document.getElementById('bn568PoHost')||document.querySelector('.bn-pos-shell');if(!pos)return;
  let panel=document.getElementById('bn38PoPanel');
  if(!panel){panel=document.createElement('section');panel.id='bn38PoPanel';panel.className='bn38-panel';pos.appendChild(panel)}
  panel.innerHTML=`<div class="bn38-head"><div><h2>Monitoring PO & Pembayaran <span class="bn40-badge">V4.1</span></h2><p>Kelola tanggal proses PO, tagihan belum lunas, DP/pelunasan dan realisasi penerimaan Cash/QRIS.</p></div><button class="bn38-btn" type="button" onclick="bn38Load()">↻ Muat Ulang</button></div>
@@ -3484,7 +3567,7 @@ function bn48Render(){const body=document.getElementById('bn48Body'),nav=documen
  if(bn48Tab==='buy'){bn48AddLine()}if(bn48Tab==='purchaseorders'){bn49Load()}
 }
 function bn48AddLine(){const parent=document.getElementById('bn48Lines');if(!parent||!bn48Data)return;
- const row=document.createElement('div');row.className='bn48-rowinput';row.innerHTML='<select class="bn48-ingredient" required>'+bn48Options(bn48Data.ingredients||[],'name','id','Pilih bahan')+'</select><input class="bn48-qty" type="number" min="0.001" step="0.001" placeholder="Qty" required><input class="bn48-cost" type="number" min="0" step="0.0001" placeholder="Rp / unit" required><button type="button" class="bn48-btn secondary" aria-label="Hapus bahan" onclick="this.parentElement.remove()">×</button>';parent.appendChild(row)
+ const row=document.createElement('div');row.className='bn48-rowinput';row.innerHTML='<select class="bn48-ingredient" required onchange="bn569Autofill(this)">'+bn48Options(bn48Data.ingredients||[],'name','id','Pilih bahan')+'</select><input class="bn48-qty" type="number" min="0.001" step="0.001" placeholder="Qty" required><input class="bn48-cost" type="number" min="0" step="0.0001" placeholder="Rp / unit" required><button type="button" class="bn48-btn secondary" aria-label="Hapus bahan" onclick="this.parentElement.remove()">×</button><small class="bn569-price-note">Pilih bahan untuk melihat harga beli terakhir.</small>';parent.appendChild(row);bn569Autofill(row.querySelector('select'))
 }
 function bn48ShowExpected(sel){const ing=(bn48Data?.ingredients||[]).find(i=>i.id===sel.value);sel.form.elements.expected.value=ing?ing.stock_qty:'';sel.form.elements.physical.value=''}
 async function bn48Submit(form,rpc,args,label){const btn=form.querySelector('[type=submit]');if(btn.disabled)return;btn.disabled=true;
@@ -3516,7 +3599,7 @@ async function bn49Load(){
 function bn49AddLine(){
  const parent=document.getElementById('bn49Lines');if(!parent||!bn48Data)return;
  const row=document.createElement('div');row.className='bn48-rowinput bn49Line';
- row.innerHTML='<select class="bn49Ingredient" required>'+bn48Options(bn48Data.ingredients||[],'name','id','Pilih bahan')+'</select><input class="bn49Qty" type="number" min="0.001" step="0.001" placeholder="Qty" required><input class="bn49Cost" type="number" min="0" step="0.0001" placeholder="Rp/unit" required><button type="button" class="bn48-btn secondary" onclick="this.parentElement.remove()" aria-label="Hapus bahan">×</button>';
+ row.innerHTML='<select class="bn49Ingredient" required onchange="bn569Autofill(this)">'+bn48Options(bn48Data.ingredients||[],'name','id','Pilih bahan')+'</select><input class="bn49Qty" type="number" min="0.001" step="0.001" placeholder="Qty" required><input class="bn49Cost" type="number" min="0" step="0.0001" placeholder="Rp/unit" required><button type="button" class="bn48-btn secondary" onclick="this.parentElement.remove()" aria-label="Hapus bahan">×</button><small class="bn569-price-note">Harga beli terakhir muncul otomatis.</small>';
  parent.appendChild(row)
 }
 function bn49Render(){
@@ -3880,4 +3963,98 @@ async function bn53VerifyPrompt(phone){
  catch(err){toast(err.message,true)}
 }
 
+</script><script id="bn567Script">
+// V5.6.7: operational inventory and estimated profitability; existing features are preserved.
+let bn567Data=null,bn567Mode='profit',bn567Busy=false,bn567Lines=[];
+const bn567Rupiah=n=>'Rp'+Math.round(Number(n)||0).toLocaleString('id-ID');
+const bn567Number=n=>Number(n||0).toLocaleString('id-ID',{maximumFractionDigits:3});
+const bn567Esc=x=>bn46Safe(x);
+function bn567Mount(){
+ const host=document.getElementById('bn46Host');if(!host||document.getElementById('bn567Host'))return;
+ const node=document.createElement('section');node.id='bn567Host';node.className='bn567';
+ host.insertBefore(node,host.firstChild);bn567Draw();
+}
+async function bn567Load(){if(bn567Busy||state.adminSession?.role!=='admin')return;
+ bn567Busy=true;bn567Draw();try{bn567Data=await staffRPC('bn_inventory_profit_v567',{p_token:state.adminSession.token});bn567Draw()}
+ catch(e){bn567Data={error:e.message||'Gagal membaca kalkulasi HPP'};bn567Draw()}finally{bn567Busy=false}}
+function bn567SetMode(mode){bn567Mode=mode;bn567Draw()}
+function bn567Draw(){const host=document.getElementById('bn567Host');if(!host)return;
+ const ings=(bn46Data?.ingredients||[]),rs=bn567Data?.recipes||[],complete=rs.filter(r=>Number(r.ingredients_count)>0),low=ings.filter(i=>i.active&&Number(i.stock_qty)<=Number(i.min_qty));
+ let html='<div class="bn567-head"><div><h3>📦 Kontrol Stok, Resep & Profit</h3><p>HPP otomatis, simulasi produksi, dan opname beberapa bahan secara aman.</p></div><button class="bn567-btn sub" type="button" onclick="bn567Load()">↻ Muat Analisis</button></div>';
+ html+='<div class="bn567-grid"><div class="bn567-kpi"><small>Resep terisi</small><b>'+complete.length+'</b></div><div class="bn567-kpi"><small>Stok rendah</small><b>'+low.length+'</b></div><div class="bn567-kpi"><small>Nilai stok estimasi</small><b>'+bn567Rupiah(ings.reduce((a,x)=>a+Number(x.stock_qty)*Number(x.unit_cost),0))+'</b></div><div class="bn567-kpi"><small>Bahan aktif</small><b>'+ings.filter(x=>x.active).length+'</b></div></div>';
+ html+='<div class="bn567-buttons"><button class="bn567-btn '+(bn567Mode==='profit'?'':'sub')+'" onclick="bn567SetMode(\'profit\')">HPP & Margin</button><button class="bn567-btn '+(bn567Mode==='simulation'?'':'sub')+'" onclick="bn567SetMode(\'simulation\')">Simulasi Produksi</button><button class="bn567-btn '+(bn567Mode==='opname'?'':'sub')+'" onclick="bn567SetMode(\'opname\')">Opname Massal</button></div>';
+ if(bn567Data?.error)html+='<p class="warning">'+bn567Esc(bn567Data.error)+' — jalankan SQL V5.6.7.</p>';
+ else if(!bn567Data)html+='<p class="bn567-muted">Tekan Muat Analisis untuk membaca HPP dari Supabase.</p>';
+ if(bn567Mode==='profit'){
+ html+='<div class="bn567-panel"><b>HPP per Produk & Varian</b><p class="bn567-muted">Margin dihitung terhadap harga normal. Harga member dan HPP saat ini juga ditampilkan. Resep kosong tidak dihitung sebagai profit valid.</p><div class="bn567-scroll"><table><thead><tr><th>Minuman</th><th>Varian</th><th>Harga normal</th><th>Harga member</th><th>HPP</th><th>Laba kotor</th><th>Margin</th><th>Bisa dibuat</th></tr></thead><tbody>';
+ html+=rs.map(r=>'<tr><td>'+bn567Esc(r.menu_name)+'</td><td>'+bn567Esc(r.variant)+'</td><td class="num">'+bn567Rupiah(r.price_normal)+'</td><td class="num">'+bn567Rupiah(r.price_member)+'</td><td class="num">'+(Number(r.ingredients_count)?bn567Rupiah(r.hpp):'Belum ada resep')+'</td><td class="num">'+(Number(r.ingredients_count)?bn567Rupiah(r.gross_profit):'—')+'</td><td class="num '+(Number(r.margin_pct)<0?'warning':'')+'">'+(Number(r.ingredients_count)&&r.margin_pct!=null?bn567Esc(r.margin_pct)+'%':'—')+'</td><td class="num">'+(Number(r.ingredients_count)?bn567Number(r.max_producible):'—')+'</td></tr>').join('')||'<tr><td colspan="8">Belum ada data resep.</td></tr>';
+ html+='</tbody></table></div></div>';
+ }else if(bn567Mode==='simulation'){
+ const opts=rs.filter(r=>Number(r.ingredients_count)>0).map(r=>'<option value="'+bn567Esc(r.menu_id)+'|'+bn567Esc(r.variant)+'">'+bn567Esc(r.menu_name)+' · '+bn567Esc(r.variant)+'</option>').join('');
+ html+='<div class="bn567-panel"><h4><b>Simulasi kebutuhan bahan</b></h4><p class="bn567-muted">Simulasi tidak mengurangi stok. Untuk stok berkurang, posting melalui tab Produksi lama dengan nomor referensi unik.</p><div class="bn567-form"><label>Resep<select id="bn567Recipe" onchange="bn567Simulate()">'+opts+'</select></label><label>Jumlah minuman<input id="bn567Qty" type="number" min="1" max="1000" step="1" value="1" oninput="bn567Simulate()"></label></div><div id="bn567SimResult"></div></div>';
+ }else{
+ if(!bn567Lines.length)bn567Lines=[{id:'',expected:0,physical:'',reason:'Hitung fisik awal',key:bnPosUUID()}];
+ html+='<div class="bn567-panel"><b>Posting stock opname beberapa bahan</b><p class="bn567-muted">Satu klik diproses dalam satu transaksi database. Jika stok sistem berubah sejak dihitung, SEMUA perubahan dibatalkan. Setiap bahan hanya boleh satu kali.</p><div id="bn567OpRows"></div><div class="bn567-buttons"><button type="button" class="bn567-btn sub" onclick="bn567AddLine()">+ Tambah Bahan</button><button type="button" class="bn567-btn" id="bn567Submit" onclick="bn567Post()">Posting Semua Opname</button></div></div>';
+ }
+ host.innerHTML=html;
+ if(bn567Mode==='opname')bn567DrawLines();if(bn567Mode==='simulation')bn567Simulate();
+}
+function bn567Simulate(){const container=document.getElementById('bn567SimResult'),key=document.getElementById('bn567Recipe')?.value,qty=Number(document.getElementById('bn567Qty')?.value);if(!container||!key)return;
+ const [menu,variant]=key.split('|'),rows=(bn46Data?.recipes||[]).filter(r=>String(r.menu_id)===menu&&r.variant===variant), ings=bn46Data?.ingredients||[];
+ if(!Number.isInteger(qty)||qty<1||qty>1000){container.textContent='Jumlah produksi harus 1–1000';return}
+ let cost=0,shortage=false;let txt='<div class="bn567-scroll"><table><thead><tr><th>Bahan</th><th>Butuh</th><th>Tersedia</th><th>Estimasi biaya</th><th>Status</th></tr></thead><tbody>';
+ for(const r of rows){const ing=ings.find(i=>String(i.id)===String(r.ingredient_id)),needed=Number(r.quantity)*qty,available=Number(ing?.stock_qty||0),lineCost=Number(r.unit_cost)*needed;cost+=lineCost;if(needed>available)shortage=true;txt+='<tr><td>'+bn567Esc(r.ingredient_name)+'</td><td>'+bn567Number(needed)+' '+bn567Esc(r.unit)+'</td><td>'+bn567Number(available)+'</td><td>'+bn567Rupiah(lineCost)+'</td><td class="'+(needed>available?'warning':'')+'">'+(needed>available?'Kurang':'Cukup')+'</td></tr>'}
+ container.innerHTML=txt+'</tbody></table></div><p><b>Estimasi total HPP: '+bn567Rupiah(cost)+'</b> · '+(shortage?'Stok belum cukup':'Stok mencukupi')+'</p>';
+}
+function bn567AddLine(){if(bn567Lines.length>=100)return toast('Maksimal 100 bahan',true);bn567Lines.push({id:'',expected:0,physical:'',reason:'Hitung fisik awal',key:bnPosUUID()});bn567DrawLines()}
+function bn567RemoveLine(i){bn567Lines.splice(i,1);bn567DrawLines()}
+function bn567Select(i,id){const ing=(bn46Data?.ingredients||[]).find(x=>String(x.id)===String(id));bn567Lines[i].id=id;bn567Lines[i].expected=Number(ing?.stock_qty||0);bn567Lines[i].physical=ing?String(ing.stock_qty):'';bn567Lines[i].key=bnPosUUID();bn567DrawLines()}
+function bn567Change(i,field,value){bn567Lines[i][field]=value;bn567Lines[i].key=bnPosUUID()}
+function bn567DrawLines(){const container=document.getElementById('bn567OpRows');if(!container)return;const ings=(bn46Data?.ingredients||[]).filter(x=>x.active);
+ container.innerHTML=bn567Lines.map((l,i)=>'<div class="bn567-line"><label>Bahan<select onchange="bn567Select('+i+',this.value)"><option value="">Pilih bahan</option>'+ings.map(x=>'<option value="'+bn567Esc(x.id)+'" '+(String(x.id)===String(l.id)?'selected':'')+'>'+bn567Esc(x.name)+' ('+bn567Esc(x.unit)+')</option>').join('')+'</select></label><label>Stok sistem<input value="'+bn567Esc(l.expected)+'" readonly></label><label>Stok fisik<input type="number" min="0" step="0.001" value="'+bn567Esc(l.physical)+'" oninput="bn567Change('+i+',\'physical\',this.value)"></label><label>Alasan<input maxlength="300" minlength="5" value="'+bn567Esc(l.reason)+'" oninput="bn567Change('+i+',\'reason\',this.value)"></label><button type="button" class="bn567-btn sub" onclick="bn567RemoveLine('+i+')">Hapus</button></div>').join('')||'<p class="bn567-muted">Tambahkan bahan untuk mulai opname.</p>';
+}
+async function bn567Post(){if(!bn567Lines.length)return toast('Tambahkan bahan terlebih dahulu',true);const ids=bn567Lines.map(l=>l.id);if(ids.some(id=>!id)||new Set(ids).size!==ids.length)return toast('Pilih bahan tanpa duplikat',true);
+ const lines=bn567Lines.map(l=>({ingredient_id:l.id,expected_qty:l.expected,physical_qty:Number(l.physical),reason:String(l.reason||'').trim(),request_key:l.key}));
+ if(bn567Lines.some((l,i)=>String(l.physical).trim()===''||!Number.isFinite(lines[i].physical_qty)||lines[i].physical_qty<0||Math.round(lines[i].physical_qty*1000)!==lines[i].physical_qty*1000||lines[i].reason.length<5))return toast('Periksa stok fisik dan alasan minimal 5 karakter',true);
+ if(!confirm('Posting '+lines.length+' hasil stock opname? Koreksi stok dicatat permanen.'))return;
+ const btn=document.getElementById('bn567Submit');if(btn)btn.disabled=true;
+ try{await staffRPC('bn_stocktake_bulk_v567',{p_token:state.adminSession.token,p_lines:lines});toast('Semua hasil opname tersimpan');bn567Lines=[];await bn46Load();await bn567Load();}
+ catch(e){toast(e.message||'Opname gagal',true)}finally{if(btn)btn.disabled=false}
+}
+// Hook the existing Inventory loader (without replacing other features).
+const bn567OldRender=bn46Render;
+bn46Render=function(){bn567OldRender();if(document.getElementById('bn46Host')){bn567Mount();if(!bn567Data&&!bn567Busy)bn567Load()}};
+
+// V5.6.8: Ringkasan pembayaran PO mengikuti perubahan keranjang/voucher.
+const bn568OriginalVoucherPreview=bnVoucherPosPreview;
+bnVoucherPosPreview=function(...args){const r=bn568OriginalVoucherPreview.apply(this,args);if(document.getElementById('bn568Summary'))bn568Summary();return r};
+
+// V5.6.9: Harga beli terakhir untuk pembelian supplier dan PO.
+// HPP memakai unit_cost database, diperbarui oleh penerimaan pembelian.
+function bn569Autofill(select){
+ if(!select)return;
+ const row=select.closest('.bn48-rowinput');if(!row)return;
+ const id=select.value;
+ const item=(bn48Data?.ingredients||[]).find(x=>String(x.id)===String(id));
+ const field=row.querySelector('.bn48-cost,.bn49Cost');
+ const note=row.querySelector('.bn569-price-note');
+ if(field){field.value=item?Number(item.unit_cost||0).toFixed(4):'';}
+ if(note){
+  if(!item){note.textContent='Pilih bahan terlebih dahulu.';return}
+  const hasLast=!!item.last_purchase_at;
+  const format=(n)=>Number(n||0).toLocaleString('id-ID',{maximumFractionDigits:4});
+  const base=Number(item.package_quantity||0)*(item.package_unit==='kg'&&item.unit==='g'||item.package_unit==='l'&&item.unit==='ml'?1000:1);
+  const packText=base>0?' · estimasi '+format(base)+' '+String(item.unit||'')+' / kemasan: Rp'+format(Number(item.unit_cost||0)*base):'';
+  note.textContent=(hasLast?'Harga pembelian terakhir':'Harga master sementara')+': Rp'+format(item.unit_cost)+' / '+String(item.unit||'')+packText+' · Harga dapat diganti sesuai nota terbaru.';
+ }
+}
+// Setelah pembelian diposting, muat kembali data master bahan/res ep
+// agar harga terakhir, stok dan HPP langsung sinkron.
+const bn569OriginalSupplierSubmit=bn48Submit;
+bn48Submit=async function(form,rpc,args,label){
+  await bn569OriginalSupplierSubmit(form,rpc,args,label);
+  if(rpc==='bn_purchase_receive_v48'&&!form.querySelector('[type=submit]')?.disabled){
+    try{await bn46Load()}catch(e){}
+  }
+};
 </script></body></html>

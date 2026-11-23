@@ -1126,10 +1126,17 @@ function bnSizeInfo(m){
 function bnSizeRows(base){
  return state.menu.filter(m=>{const v=bnSizeInfo(m);return v.base===base&&v.size>0&&m.allow_bottle===true&&m.active!==false&&bnProductStatus(m)!=='inactive'}).sort((a,b)=>bnSizeInfo(a).size-bnSizeInfo(b).size);
 }
+// Harga varian botol mengikuti konteks transaksi: kasir menggunakan pilihan tipe pelanggan,
+// sedangkan pesanan online menggunakan status login member. Harga final dihitung dari item varian yang sama.
+function bnSizeMemberPrice(product,handler){
+ const isCashier=String(handler||'').startsWith('bnCashier');
+ const member=isCashier?(bnPos.type==='member'):Boolean(state.phone);
+ return member?product.price_member:product.price_normal;
+}
 function bnSizeOptionsHtml(base,selected,handler){
  const sizes=bnSizeRows(base);
  if(!sizes.length)return '';
- return '<label class="block text-xs font-bold mt-3 text-amber-900">Ukuran Botol<select class="field mt-1" onchange="'+handler+'(this.value)">'+sizes.map(m=>'<option value="'+esc(m.id)+'" '+(m.id===selected?'selected':'')+' '+(!bnCanOrder(m)?'disabled':'')+'>'+bnSizeInfo(m).size+' ml · '+money(state.phone?m.price_member:m.price_normal)+(bnCanOrder(m)?'':' (Tidak tersedia)')+'</option>').join('')+'</select></label>';
+ return '<label class="block text-xs font-bold mt-3 text-amber-900">Ukuran Botol<select class="field mt-1" onchange="'+handler+'(this.value)">'+sizes.map(m=>'<option value="'+esc(m.id)+'" '+(m.id===selected?'selected':'')+' '+(!bnCanOrder(m)?'disabled':'')+'>'+bnSizeInfo(m).size+' ml · '+money(bnSizeMemberPrice(m,handler))+(bnCanOrder(m)?'':' (Tidak tersedia)')+'</option>').join('')+'</select></label>';
 }
 function bnSizeSelectOnline(id){addOnlineProduct(id)}
 function bnSizeSelectCashier(id){bnCashierAdd(id)}
@@ -1137,7 +1144,7 @@ function bnSizeSelectCashier(id){bnCashierAdd(id)}
 function bnCartSizeOptions(m,selected,handler){
  const sizes=bnSizeRows(bnSizeInfo(m).base);
  if(!sizes.length||m.allow_bottle!==true)return '';
- return '<label class="block text-sm font-bold text-amber-900 mt-3">Ukuran Botol<select class="field mt-1" aria-label="Pilih ukuran botol" onchange="'+handler+'(this.value)">'+sizes.map(p=>'<option value="'+esc(p.id)+'" '+(String(p.id)===String(selected)?'selected':'')+' '+(!bnCanOrder(p)?'disabled':'')+'>'+bnSizeInfo(p).size+' ml — '+money(state.phone?p.price_member:p.price_normal)+(bnCanOrder(p)?'':' (Tidak tersedia)')+'</option>').join('')+'</select></label>';
+ return '<label class="block text-sm font-bold text-amber-900 mt-3">Ukuran Botol<select class="field mt-1" aria-label="Pilih ukuran botol" onchange="'+handler+'(this.value)">'+sizes.map(p=>'<option value="'+esc(p.id)+'" '+(String(p.id)===String(selected)?'selected':'')+' '+(!bnCanOrder(p)?'disabled':'')+'>'+bnSizeInfo(p).size+' ml — '+money(bnSizeMemberPrice(p,handler))+(bnCanOrder(p)?'':' (Tidak tersedia)')+'</option>').join('')+'</select></label>';
 }
 function bnOnlineCartSize(oldId,newId){
  const line=state.onlineCart.find(x=>String(x.id)===String(oldId));
@@ -1221,7 +1228,7 @@ function menuCards(member=false){
     const sizes=group.filter(m=>bnSizeInfo(m).size>0&&m.allow_bottle===true).sort((a,b)=>bnSizeInfo(a).size-bnSizeInfo(b).size);
     const cup=group.find(m=>m.allow_cup!==false&&bnSizeInfo(m).size===0);
     const bottle250=sizes.find(m=>bnSizeInfo(m).size===250);
-    const action=m=>'<button type="button" class="rounded-xl border border-amber-300 bg-amber-50 p-2 text-sm font-bold text-coffee-900 disabled:opacity-40" '+(!bnCanOrder(m)?'disabled':'onclick="addOnlineProduct('+bnAttrArg(m.id)+')"')+'>'+((bnSizeInfo(m).size||250))+' ml<br><span class="text-xs">'+money(state.phone?m.price_member:m.price_normal)+'</span></button>';
+    const action=m=>'<button type="button" class="rounded-xl border border-amber-300 bg-amber-50 p-2 text-sm font-bold text-coffee-900 disabled:opacity-40" '+(!bnCanOrder(m)?'disabled':'onclick="addOnlineProduct('+bnAttrArg(m.id)+')"')+'>'+((bnSizeInfo(m).size||250))+' ml<br><span class="text-xs">'+money(bnSizeMemberPrice(m,handler))+'</span></button>';
     return '<div class="menu-card"><div class="flex justify-between gap-3 items-start"><div><b class="text-coffee-900 text-[1.02rem]">'+esc(base)+'</b></div><div class="text-4xl opacity-90">'+(cat==='kopi'?'☕':'🥤')+'</div></div>'+(x.description?'<p class="bn-menu-composition mt-3 text-sm leading-relaxed text-stone-600">'+esc(x.description)+'</p>':'')+'<p class="text-xs font-bold text-amber-900 mt-3">Ukuran botol 250 / 500 / 1000 ml dipilih di keranjang</p>'+(sizes.length?'<button type="button" class="btn w-full mt-2" '+(!bottle250||!bnCanOrder(bottle250)?'disabled':'onclick="addOnlineProduct('+bnAttrArg(bottle250.id)+')"')+'>🧴 Botol 250 ml · '+(bottle250?money(state.phone?bottle250.price_member:bottle250.price_normal):'Belum tersedia')+'</button>':'<p class="muted mt-1">Belum ada ukuran botol tersedia.</p>')+(cup?'<button type="button" class="btn w-full mt-3" '+(!bnCanOrder(cup)?'disabled':'onclick="addOnlineProduct('+bnAttrArg(cup.id)+')"')+'>☕ Tambah Cup</button>':'')+(x.stamp_enabled?'<p class="text-xs mt-3 text-green-700 font-semibold">'+icon('stamp')+' Dapat stamp reward</p>':'')+'</div>';
    }).join('')+'</div></section>';
  }).join('');

@@ -1,4 +1,4 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#3e2217"><meta name="bn-app-version" content="item-code-5.8.2"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="BentarNgopi"><title>Bentar, Ngopi Dulu!!</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{coffee:{50:'#fdf8f6',100:'#f2e8e5',200:'#eaddd7',300:'#e0cec7',500:'#a37a6a',600:'#8b5e4c',700:'#694132',800:'#523023',900:'#3e2217'}}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><style>
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#3e2217"><meta name="bn-app-version" content="queue-separation-5.8.6"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="BentarNgopi"><title>Bentar, Ngopi Dulu!!</title><script src="https://cdn.tailwindcss.com"></script><script>tailwind.config={theme:{extend:{colors:{coffee:{50:'#fdf8f6',100:'#f2e8e5',200:'#eaddd7',300:'#e0cec7',500:'#a37a6a',600:'#8b5e4c',700:'#694132',800:'#523023',900:'#3e2217'}}}}}</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script><style>
 :root{--coffee-900:#3b2418;--coffee-800:#523023;--coffee-700:#6f3f24;--amber-500:#f59e0b;--surface:#fffdf9;--muted:#7c6f64;--shadow:0 18px 45px rgba(59,36,24,.08)}
 html{scroll-behavior:smooth}
 body{font-family:system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top,#fff7ed 0,#fdf8f6 32%,#f8fafc 100%);color:#2d1d14}
@@ -1987,7 +1987,7 @@ async function renderAdmin(){
   +'</div></div></div>';
   bnVoucherAdminMount();
   const contentPanel=document.querySelector('[data-admin-panel="samples"]')?.parentElement;
- if(contentPanel){const section=document.createElement('section');section.dataset.adminPanel='orders';section.className='card space-y-3';section.innerHTML='<div class="flex items-center justify-between gap-3"><div><h2 class="text-xl font-bold text-coffee-900">Pesanan Masuk</h2><p class="muted">Pesanan member dan non-member dari katalog online.</p></div><button class="btn" onclick="loadAdminOrders()">Refresh</button></div><div class="soft-panel p-4 mb-3"><h3 class="font-black text-lg">Scan QR Serah Terima</h3><p class="muted mb-3">Scan QR pesanan pelanggan saat barang diserahkan. Admin dapat menyelesaikan pesanan yang sudah berstatus Diproses.</p><div class="flex flex-wrap gap-2"><button class="btn" onclick="bnStartOrderScanner()">Buka Kamera</button><button class="btn !bg-stone-600" onclick="bnStopOrderScanner()">Tutup Kamera</button></div><div id="bnOrderScanner" class="mt-3 max-w-sm"></div><div class="flex flex-col sm:flex-row gap-2 mt-3"><input id="bnOrderScanValue" class="field" placeholder="Tempel link tracking atau ID:token"><button class="btn" onclick="bnConfirmScannedOrder()">Konfirmasi Terima</button></div></div><div id="onlineAdminOrders" class="space-y-3"><p class="muted">Buka tab Pesanan Masuk untuk memuat data.</p></div>';contentPanel.appendChild(section);}
+ if(contentPanel){const section=document.createElement('section');section.dataset.adminPanel='orders';section.className='card space-y-3';section.innerHTML='<div class="flex items-center justify-between gap-3"><div><h2 class="text-xl font-bold text-coffee-900">Pesanan Masuk</h2><p class="muted">Antrean PO Kasir dan Online yang sama dengan Barista. Status produksi dan pembayaran terpisah, tanpa konfirmasi ulang.</p></div><button class="btn" onclick="loadAdminOrders()">Refresh</button></div><div class="soft-panel p-4 mb-3"><h3 class="font-black text-lg">Scan QR Serah Terima</h3><p class="muted mb-3">Scan QR pesanan pelanggan saat barang diserahkan. Serah terima hanya setelah produksi berstatus Siap.</p><div class="flex flex-wrap gap-2"><button class="btn" onclick="bnStartOrderScanner()">Buka Kamera</button><button class="btn !bg-stone-600" onclick="bnStopOrderScanner()">Tutup Kamera</button></div><div id="bnOrderScanner" class="mt-3 max-w-sm"></div><div class="flex flex-col sm:flex-row gap-2 mt-3"><input id="bnOrderScanValue" class="field" placeholder="Tempel link tracking atau ID:token"><button class="btn" onclick="bnConfirmScannedOrder()">Konfirmasi Terima</button></div></div><div id="onlineAdminOrders" class="space-y-3"><p class="muted">Buka tab Pesanan Masuk untuk memuat data.</p></div>';contentPanel.appendChild(section);}
 
  if(contentPanel){const el=document.createElement('section');el.dataset.adminPanel='members';el.className='card space-y-4';el.innerHTML='<div><h2 class="text-xl font-bold text-coffee-900">Manajemen Member</h2><p class="muted">Cari pelanggan, kelola saldo stamp secara manual dengan alasan tercatat, serta lihat riwayat member.</p></div><div class="flex flex-col sm:flex-row gap-2"><input id="memberSearch" class="field flex-1" placeholder="Cari nama atau nomor WhatsApp" oninput="filterMembers()"><button type="button" class="btn" onclick="loadMembers()">Muat Ulang</button></div><div id="memberList" class="space-y-3"><p class="muted">Buka tab ini untuk menampilkan daftar member.</p></div>';el.innerHTML += '<div id="memberDetailPanel" class="hidden space-y-3"></div><div id="bnManualStampHost" class="hidden"></div>';contentPanel.appendChild(el);}
  if(contentPanel){const el=document.createElement('section');el.dataset.adminPanel='users';el.className='card space-y-4';el.innerHTML='<h2 class="text-xl font-bold text-coffee-900">Kelola User</h2><p class="muted">Buat akun Admin atau Kasir. Perubahan selalu diverifikasi oleh database.</p><form class="grid gap-3 md:grid-cols-2" onsubmit="createStaff(event)"><label class="text-sm">Username<input class="field" name="username" placeholder="contoh: kasir01" required pattern="[a-z0-9_]{3,32}"></label><label class="text-sm">PIN (8–12 angka)<input class="field" name="pin" type="password" inputmode="numeric" minlength="8" maxlength="12" required></label><label class="text-sm">Role<select class="field" name="role"><option value="kasir">Kasir</option><option value="admin">Admin</option></select></label><button class="btn self-end">Tambah User</button></form><h3 class="font-bold text-coffee-900">Daftar Pengguna</h3><div id="staffList" class="grid gap-3"><p class="muted">Pilih tab Kelola User untuk memuat data.</p></div>';contentPanel.appendChild(el);}
@@ -2557,26 +2557,15 @@ function bnAdminCashierOrderCard(o){
 async function loadAdminOrders(){
  const el=document.getElementById('onlineAdminOrders');
  if(!el||state.adminSession?.role!=='admin')return;
- const expanded=new Set(Array.from(el.querySelectorAll('details[data-order-detail][open]')).map(x=>x.dataset.orderDetail));
- el.innerHTML='<p class="muted">Memuat pesanan...</p>';
- try{
-  const data=await staffRPC('bn_admin_online_orders',{p_token:state.adminSession.token});
-  const orders=Array.isArray(data)?data:[];
-  let offline=[];
-  try{const result=await staffRPC('bn_staff_orders_queue',{p_token:state.adminSession.token,p_limit:100});offline=(Array.isArray(result)?result:[]).filter(x=>x.order_source==='offline')}catch(err){console.warn('Daftar pesanan kasir tidak tersedia',err)}
-  try{
-   const locs=await staffRPC('bn_admin_order_locations',{p_token:state.adminSession.token});
-   const byId=new Map((Array.isArray(locs)?locs:[]).map(o=>[String(o.id),o]));
-   orders.forEach(o=>Object.assign(o,byId.get(String(o.id))||{}));
-  }catch(err){console.warn('Lokasi pesanan tidak tersedia',err)}
-  if(!el.isConnected)return;
-  const combined=[...orders.map(o=>({...o,order_source:'online'})),...offline.map(o=>({...o,order_source:'offline',status:o.status||'completed',service_type:'pickup',order_no:o.order_no||'Kasir '+String(o.id).slice(0,8)}))].sort((a,b)=>new Date(b.created_at)-new Date(a.created_at));
-  el.innerHTML=combined.length?combined.map(o=>o.order_source==='offline'?bnAdminCashierOrderCard(o):bnAdminOrderCard(o)).join(''):'<p class="muted">Belum ada pesanan.</p>';
-  el.querySelectorAll('details[data-order-detail]').forEach(d=>{if(expanded.has(d.dataset.orderDetail))d.open=true});
-  bnDecorateAndFilterOrders(combined);
- }catch(e){el.innerHTML='<p class="text-red-700">Gagal memuat pesanan. Periksa koneksi dan fungsi Supabase.</p>'}
+ for(const id of ['bnOrderQueueTabs','bnOrderEmpty','bnAdminOrderCount'])document.getElementById(id)?.classList.add('hidden');
+ document.getElementById('bnAdminOrderSearch')?.closest('.bn-admin-list-tools')?.classList.add('hidden');
+ // Both pages use the same database queue and status actions, never the legacy status RPC.
+ if(!document.getElementById('bn41Orders')){
+  el.innerHTML='<div class="flex flex-wrap gap-2"><button type="button" class="btn" onclick="adminTab(\'cashier\');bnCashierShowSection(\'directhistory\')">Riwayat Pembayaran Langsung</button><button type="button" class="btn" onclick="adminTab(\'cashier\');bnCashierShowSection(\'po\')">Pelunasan & Riwayat PO</button></div>';
+ }
+ bn41Mount();await bn41Load();
 }
-async function setAdminOrderStatus(id,status){if(!confirm('Ubah status pesanan menjadi '+status+'?'))return;try{await staffRPC('bn_admin_order_status',{p_token:state.adminSession.token,p_id:id,p_status:status});toast('Status pesanan diperbarui');loadAdminOrders()}catch(e){toast('Tidak dapat memperbarui status',true)}}
+async function setAdminOrderStatus(id,status){if(status!=='cancelled')return toast('Gunakan status pada antrean Barista terpadu.',true);if(!confirm('Ubah status pesanan menjadi '+status+'?'))return;try{await staffRPC('bn_admin_order_status',{p_token:state.adminSession.token,p_id:id,p_status:status});toast('Status pesanan diperbarui');loadAdminOrders()}catch(e){toast('Tidak dapat memperbarui status',true)}}
 let bnOrderScanner=null;
 async function bnStopOrderScanner(){if(bnOrderScanner){try{await bnOrderScanner.stop()}catch(e){}try{await bnOrderScanner.clear()}catch(e){}bnOrderScanner=null}}
 async function bnStartOrderScanner(){
@@ -2587,6 +2576,7 @@ async function bnStartOrderScanner(){
 async function bnConfirmScannedOrder(){
  const parsed=bnOrderRefFromText(document.getElementById('bnOrderScanValue')?.value||'');
  if(!parsed)return toast('QR/link pemesanan tidak valid',true);
+ await bn41Load();const qrRow=bn587QueueValid&&bn41Rows.find(r=>r.source==='online'&&String(r.id)===String(parsed.id));if(!qrRow||qrRow.status!=='ready')return toast('Pesanan belum terverifikasi Siap di antrean. Periksa filter tanggal/sumber dan status Barista.',true);
  if(!confirm('Konfirmasi pesanan sudah diterima pelanggan? Status pesanan akan menjadi Selesai.'))return;
  try{await staffRPC('bn_admin_confirm_order_receipt',{p_token:state.adminSession.token,p_order_id:parsed.id,p_access_token:parsed.secret});toast('Serah terima berhasil, pesanan selesai');document.getElementById('bnOrderScanValue').value='';loadAdminOrders()}catch(e){toast(e.message||'Tidak dapat konfirmasi serah terima',true)}
 }
@@ -2628,8 +2618,12 @@ let bnCashierQueueBusy=false;
 let bnCashierQueueSerial=0;
 function bnNextQueueStatus(status){return ({pending:'confirmed',confirmed:'processing',processing:'completed'})[status]||null}
 function bnQueueAdvanceLabel(next){return ({confirmed:'Konfirmasi',processing:'Mulai Proses',completed:'Tandai Selesai'})[next]||'Lanjut'}
+let bn586DraftKind='direct';
 function bnCashierShowSection(section){
- bnPos.section=['direct','createpo','queue','po','production'].includes(section)?section:'direct';
+ if(bnPos.busy)return;
+ if(['direct','createpo'].includes(section)){if(bnPos.cart.length&&bn586DraftKind!==section){toast('Selesaikan atau kosongkan keranjang '+(bn586DraftKind==='direct'?'Pembayaran Langsung':'PO')+' sebelum membuat transaksi jenis lain.',true);return;}bn586DraftKind=section;}
+
+ bnPos.section=['direct','createpo','queue','po','production','directhistory'].includes(section)?section:'direct';
  const type=section==='createpo'?'po':'direct';
  if(section==='direct'||section==='createpo'){
   const choice=document.querySelector('input[name="bn39Type"][value="'+type+'"]');
@@ -2640,10 +2634,11 @@ function bnCashierShowSection(section){
  if(queue)queue.classList.toggle('hidden',bnPos.section!=='queue');if(poPanel)poPanel.classList.toggle('hidden',bnPos.section!=='po');const production=document.getElementById('bn584Page');if(production)production.classList.toggle('hidden',bnPos.section!=='production');
  document.querySelectorAll('[data-bn-pos-tab]').forEach(el=>{const active=el.dataset.bnPosTab===bnPos.section;el.classList.toggle('active',active);el.setAttribute('aria-pressed',String(active))});
  const guide=document.getElementById('bn573Guide');if(guide)guide.innerHTML=({'direct':'<b>1.</b> Pilih pelanggan & minuman → <b>2.</b> Terima Cash/QRIS → <b>3.</b> Simpan transaksi.','createpo':'<b>1.</b> Pilih pelanggan & minuman → <b>2.</b> Tentukan jadwal PO → <b>3.</b> Simpan tanpa pembayaran awal.','queue':'<b>Barista:</b> Menunggu → Diproses → Siap → Selesai. Untuk PO kasir, setelah selesai langsung menuju pembayaran.','po':'<b>Pelunasan PO:</b> Pilih PO berstatus Selesai → metode Cash/QRIS → konfirmasi uang diterima.','production':'<b>Rekap Produksi:</b> Pilih tanggal proses → lihat menu, jumlah pcs dan pembeli → ekspor CSV.'})[bnPos.section]||'';
- if(bnPos.section==='production'&&!bn584Loaded)bn584Load();if(bnPos.section==='queue'){bn41Mount();bn41Load();}if(bnPos.section==='po'){if(!document.getElementById('bn38Content'))bn38Mount();else bn38Load();}
+ const dh=document.getElementById('bn586DirectHistory');if(dh)dh.classList.toggle('hidden',bnPos.section!=='directhistory');if(bnPos.section==='directhistory')bn586DirectLoad();if(bnPos.section==='production'&&!bn584Loaded)bn584Load();if(bnPos.section==='queue'){bn41Mount();bn41Load();}if(bnPos.section==='po'){if(!document.getElementById('bn38Content'))bn38Mount();else bn38Load();}
 }
 async function bn573OpenPoPayment(id){
- bn40Kind='po';bn40Status='all';bn40Search=String(id||'').trim().toLowerCase();bn572PoTab='all';
+ if(state.adminSession?.role==='admin'&&state.adminTab!=='cashier'&&document.querySelector('[data-admin-panel="cashier"]'))adminTab('cashier');
+ bn40Kind='po';bn40Status='all';bn40Search=String(id||'').trim().toLowerCase();bn572PoTab='unpaid';
  const matchingQueue=(bn41Rows||[]).find(r=>String(r.id||r.purchase_id||'').toLowerCase()===bn40Search);
  const schedule=String(matchingQueue?.schedule_at||matchingQueue?.process_at||'').slice(0,10);
  if(/^\d{4}-\d{2}-\d{2}$/.test(schedule)&&(schedule<bn40Start||schedule>bn40End)){
@@ -2732,13 +2727,13 @@ function bnCashierRenderPage(inAdmin){
  const parent=inAdmin?document.getElementById('bnCashierAdminHost'):app;
  if(!parent)return;
  const isCashier=state.adminSession?.role==='kasir';
- parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V5.8.4 • OPERASIONAL</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi kasir dan antrean produksi · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><div class="bn39-transaction"><label class="bn-pos-label" style="display:none">Jenis Transaksi</label><div class="bn39-choices" style="display:none"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><div class="bn568-paycard"><b>Pembayaran Awal PO</b><p class="bn-pos-muted">Bisa belum bayar, bayar DP, atau lunas di awal. Jadwal produksi tetap terpisah dari status pembayaran.</p><div class="bn568-paychoices"><label><input type="radio" name="bn568Payment" value="unpaid" checked onchange="bn568PaymentSwitch()"><span>Belum Bayar</span></label><label><input type="radio" name="bn568Payment" value="dp" onchange="bn568PaymentSwitch()"><span>Bayar DP</span></label><label><input type="radio" name="bn568Payment" value="full" onchange="bn568PaymentSwitch()"><span>Lunas di Awal</span></label></div><div id="bn568PaymentFields" hidden><label class="bn-pos-label" id="bn568AmountLabel">Nominal DP (Rp)</label><input id="bn568Amount" type="number" class="field" step="1" min="1" inputmode="numeric" placeholder="Contoh 50000" oninput="bn568Summary()"><div class="bn571-method-wrap"><div class="bn571-method-title">Metode pembayaran awal <span class="bn571-required">* wajib pilih</span></div><div class="bn571-method-grid" role="radiogroup" aria-label="Metode pembayaran awal PO"><label class="bn571-method"><input type="radio" name="bn571InitialMethod" value="cash" onchange="bn568Summary()"><span><i class="fa-solid fa-money-bill-wave"></i> Cash <small>Uang tunai diterima</small></span></label><label class="bn571-method"><input type="radio" name="bn571InitialMethod" value="qris" onchange="bn568Summary()"><span><i class="fa-solid fa-qrcode"></i> QRIS <small>Transfer QRIS dikonfirmasi</small></span></label></div><p class="bn571-hint">Pilih metode sesuai uang yang benar-benar sudah masuk.</p></div></div><div class="bn568-summary" id="bn568Summary"></div></div></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
+ parent.innerHTML='<div class="bn-pos-shell fade"><div class="bn-pos-head flex flex-wrap items-center justify-between gap-3"><div><p class="text-amber-200 text-xs font-bold tracking-widest">BENTARNGOPI / PETUGAS</p><h1 class="text-2xl font-black">Kasir POS <span class="bn-pos-version">V5.8.6 • OPERASIONAL</span></h1><p class="text-sm text-amber-100 mt-1">Transaksi kasir dan antrean produksi · '+esc(state.adminSession?.username||'Petugas')+'</p></div><div class="flex gap-2">'+(isCashier?'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="logoutAdmin()">Keluar</button>':'')+'<button type="button" class="rounded-xl bg-white/15 border border-white/20 px-3 py-2 text-sm font-bold" onclick="bnCashierReset()">Transaksi Baru</button></div></div><div class="bn-pos-grid"><section class="bn-pos-pane"><h2 class="bn-pos-heading">1. Pelanggan</h2><div class="bn-pos-type"><button type="button" data-bnpos-type="nonmember" onclick="bnCashierType(\'nonmember\')">Non-member</button><button type="button" data-bnpos-type="member" onclick="bnCashierType(\'member\')">Member</button></div><div id="bnPosMemberHost"></div><div class="mt-5"><h2 class="bn-pos-heading">2. Pilih Produk</h2><input id="bnPosSearch" type="search" class="field mb-3" placeholder="Cari nama minuman..." oninput="bnPos.search=this.value;bnCashierProducts()" value="'+esc(bnPos.search)+'"><div class="bn-pos-menu" id="bnPosProducts"></div></div></section><section class="bn-pos-pane" id="bnPosCartPane"><h2 class="bn-pos-heading">3. Atur Minuman & Transaksi</h2><div class="bn-pos-guide" id="bnPosGuide">☕ Pilih produk di kiri/atas. Setelah ditambahkan, atur <b>Cup/Botol, Sugar, Ice, dan Topping</b> di sini.</div><div id="bnPosCart"></div><div id="bnPosStampHost" class="mt-4"></div><div class="bn39-transaction"><label class="bn-pos-label" style="display:none">Jenis Transaksi</label><div class="bn39-choices" style="display:none"><label><input type="radio" name="bn39Type" value="direct" onchange="bn39Switch()" checked><span><b>Pembayaran Langsung</b><small>Langsung lunas, masuk penerimaan</small></span></label><label><input type="radio" name="bn39Type" value="po" onchange="bn39Switch()"><span><b>Pre-Order (PO)</b><small>Jadwalkan proses, bayar kemudian</small></span></label></div><div id="bn39DirectFields"><label class="bn-pos-label mt-3">Pembayaran Diterima Sekarang</label><select id="bnPosPay" class="field"><option value="cash">Cash</option><option value="qris">QRIS</option></select><p class="bn-pos-muted">Pilih hanya jika uang sudah benar-benar diterima.</p></div><div id="bn39PoFields" hidden><label class="bn-pos-label mt-3">Tanggal Proses PO <b>*</b></label><input id="bn39ProcessDate" type="date" class="field" onchange="bn39DateGuard()"><label class="bn-pos-label mt-3">Jam Proses PO <b>*</b></label><input id="bn39ProcessTime" type="time" class="field"><div class="bn568-paycard"><b>Pembayaran Awal PO</b><p class="bn-pos-muted">Bisa belum bayar, bayar DP, atau lunas di awal. Jadwal produksi tetap terpisah dari status pembayaran.</p><div class="bn568-paychoices"><label><input type="radio" name="bn568Payment" value="unpaid" checked onchange="bn568PaymentSwitch()"><span>Belum Bayar</span></label><label><input type="radio" name="bn568Payment" value="dp" onchange="bn568PaymentSwitch()"><span>Bayar DP</span></label><label><input type="radio" name="bn568Payment" value="full" onchange="bn568PaymentSwitch()"><span>Lunas di Awal</span></label></div><div id="bn568PaymentFields" hidden><label class="bn-pos-label" id="bn568AmountLabel">Nominal DP (Rp)</label><input id="bn568Amount" type="number" class="field" step="1" min="1" inputmode="numeric" placeholder="Contoh 50000" oninput="bn568Summary()"><div class="bn571-method-wrap"><div class="bn571-method-title">Metode pembayaran awal <span class="bn571-required">* wajib pilih</span></div><div class="bn571-method-grid" role="radiogroup" aria-label="Metode pembayaran awal PO"><label class="bn571-method"><input type="radio" name="bn571InitialMethod" value="cash" onchange="bn568Summary()"><span><i class="fa-solid fa-money-bill-wave"></i> Cash <small>Uang tunai diterima</small></span></label><label class="bn571-method"><input type="radio" name="bn571InitialMethod" value="qris" onchange="bn568Summary()"><span><i class="fa-solid fa-qrcode"></i> QRIS <small>Transfer QRIS dikonfirmasi</small></span></label></div><p class="bn571-hint">Pilih metode sesuai uang yang benar-benar sudah masuk.</p></div></div><div class="bn568-summary" id="bn568Summary"></div></div></div></div><label class="bn-pos-label mt-4">Catatan Kasir (opsional)</label><textarea id="bnPosNote" class="field" rows="2" maxlength="250" placeholder="Keterangan struk atau transaksi"></textarea><div id="bnPosDiscountHost" class="bn-voucher-pos mt-4"></div><div class="bn-pos-footer"><div class="flex items-center justify-between mb-3 gap-2"><span class="font-bold">Total Tagihan</span><strong id="bnPosTotal" class="text-xl text-amber-900">Rp0</strong></div><button id="bnPosSave" type="button" class="btn w-full" onclick="bnCashierCheckout()">Simpan Pembayaran Langsung</button><p class="bn-pos-muted mt-2">Harga otomatis mengikuti Member/Non-member. Stok dihitung oleh database saat transaksi disimpan.</p></div><div id="bnPosReceipt" class="mt-4"></div></section></div></div>';
  bn39Switch();
  const sales=parent.querySelector('.bn-pos-shell');
  if(sales){
   sales.id='bnPosSalePanel';
   const tabs=document.createElement('div');tabs.className='bn-pos-worktabs';
-  tabs.innerHTML='<button type="button" class="bn-pos-worktab" data-bn-pos-tab="direct" onclick="bnCashierShowSection(\'direct\')"><i class="fa-solid fa-cash-register"></i> Bayar Langsung</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="createpo" onclick="bnCashierShowSection(\'createpo\')"><i class="fa-solid fa-calendar-plus"></i> Buat PO</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="queue" onclick="bnCashierShowSection(\'queue\')"><i class="fa-solid fa-mug-hot"></i> Barista / Proses <span class="bn-pos-workcount" id="bnCashierQueueCount"></span></button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="po" onclick="bnCashierShowSection(\'po\')"><i class="fa-solid fa-wallet"></i> PO & Pelunasan</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="production" onclick="bnCashierShowSection(\'production\')"><i class="fa-solid fa-list-check"></i> Rekap Produksi PO</button>';
+  tabs.innerHTML='<button type="button" class="bn-pos-worktab" data-bn-pos-tab="direct" onclick="bnCashierShowSection(\'direct\')"><i class="fa-solid fa-cash-register"></i> Bayar Langsung</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="createpo" onclick="bnCashierShowSection(\'createpo\')"><i class="fa-solid fa-calendar-plus"></i> Buat PO</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="queue" onclick="bnCashierShowSection(\'queue\')"><i class="fa-solid fa-mug-hot"></i> Barista / Proses <span class="bn-pos-workcount" id="bnCashierQueueCount"></span></button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="po" onclick="bnCashierShowSection(\'po\')"><i class="fa-solid fa-wallet"></i> PO & Pelunasan</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="production" onclick="bnCashierShowSection(\'production\')"><i class="fa-solid fa-list-check"></i> Rekap Produksi PO</button><button type="button" class="bn-pos-worktab" data-bn-pos-tab="directhistory" onclick="bnCashierShowSection(\'directhistory\')"><i class="fa-solid fa-receipt"></i> Riwayat Langsung</button>';
   parent.insertBefore(tabs,sales);
   const guide=document.createElement('div');guide.id='bn573Guide';guide.className='bn573-guide';parent.insertBefore(guide,sales);
   const queue=document.createElement('section');queue.id='bnCashierQueuePanel';queue.className='bn-pos-queue-panel hidden';
@@ -2747,7 +2742,7 @@ function bnCashierRenderPage(inAdmin){
    const integrated=document.createElement('div');integrated.id='bn573BaristaIntegrated';integrated.className='mt-4';queue.appendChild(integrated);
   const poPage=document.createElement('section');poPage.id='bn568PoPage';poPage.className='bn568-page hidden';
   poPage.innerHTML='<div class="bn568-pagehead"><div><h2>Daftar PO & Pelunasan</h2><p>Pantau jadwal dan tahap pengerjaan PO. Bayar Cash/QRIS setelah proses selesai.</p></div><button type="button" class="btn" onclick="bn38Load()">↻ Perbarui Daftar</button></div><div id="bn568PoHost"></div>';
-  parent.appendChild(poPage);
+  parent.appendChild(poPage);const dh=document.createElement('section');dh.id='bn586DirectHistory';dh.className='bn568-page hidden';dh.innerHTML='<div class="bn568-pagehead"><h2>Riwayat Pembayaran Langsung</h2></div><div class="bn40-toolbar"><label>Dari tanggal<input class="field" type="date" id="bn586From" value="'+bn40LocalDay(-7)+'"></label><label>Sampai tanggal<input class="field" type="date" id="bn586To" value="'+bn40LocalDay(0)+'"></label><button type="button" class="btn" onclick="bn586DirectLoad()">Tampilkan</button></div><div id="bn586DirectRows"></div>';parent.appendChild(dh);
   const rec=document.createElement('section');rec.id='bn584Page';rec.className='bn584-page hidden';parent.appendChild(rec);bn584Mount();
  }
  bnCashierTypeUI();bnCashierProducts();bnCashierCartUI();bnCashierStampUI();bnVoucherPosMount();bnVoucherPosLoad();
@@ -3191,7 +3186,7 @@ function bn575BuyerHtml(o){
 let bn575Resolving=false;
 async function bn575ResolveNames(rows){
  if(bn575Resolving||!state.adminSession?.token)return;
- const phones=[...new Set(rows.filter(o=>bn575IsMember(o)&&!bn575Buyer(o).name).map(bn575MemberPhone).filter(Boolean))].filter(p=>!bn575MemberNames.has(p)).slice(0,40);
+ const phones=[...new Set(rows.filter(o=>bn575IsMember(o)&&!bn588HistoryIdentity(o).name).map(bn575MemberPhone).filter(Boolean))].filter(p=>!bn575MemberNames.has(p)).slice(0,40);
  if(!phones.length)return;
  bn575Resolving=true;
  try{
@@ -3227,10 +3222,7 @@ function bn577BuyerFor(o){
  const id=bn577Key(o.purchase_id||o.id);
  return bn577BuyerIndex.get(id)||bn577BuyerIndex.get(id.slice(0,8))||null;
 }
-function bn577BuyerHtml(o){
- const found=bn577BuyerFor(o);
- return bn575BuyerHtml(found?{...o,...found,member_name:found.customer_name}:o);
-}
+function bn577BuyerHtml(o){return bn588HistoryBuyer(o);}
 async function bn577LoadBuyerNames(){
  if(!state.adminSession?.token)return;
  if(!bn577BuyerQueuePromise||Date.now()-bn577BuyerQueueAt>30000){
@@ -3282,7 +3274,7 @@ async function bn582FetchWorkflow(orders){
 
 const bn38Money=v=>money(Number(v||0));
 const bn40LocalDay=(offset=0)=>{const d=new Date(Date.now()+offset*86400000),parts=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Jakarta',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d);const val=k=>parts.find(p=>p.type===k)?.value||'';return val('year')+'-'+val('month')+'-'+val('day')};
-let bn40Start=bn40LocalDay(-60),bn40End=bn40LocalDay(29),bn40Kind='all',bn40Status='all',bn40Search='';
+let bn40Start=bn40LocalDay(-60),bn40End=bn40LocalDay(29),bn40Kind='po',bn40Status='all',bn40Search='';
 const bn40FmtDate=d=>{if(!d)return '-';const [date,time]=String(d).split('T');if(!date||!/^\d{4}-\d{2}-\d{2}$/.test(date))return esc(String(d));return esc(date.split('-').reverse().join('/')+(time?' · '+time.slice(0,5):''))};
 const bn40StatusOf=o=>{const due=Math.max(0,Number(o.total||0)-Number(o.paid||0));return due<.005?'paid':Number(o.paid||0)>0?'partial':'unpaid'};
 function bn38Mount(){
@@ -3290,9 +3282,9 @@ function bn38Mount(){
  let panel=document.getElementById('bn38PoPanel');
  if(!panel){panel=document.createElement('section');panel.id='bn38PoPanel';panel.className='bn38-panel';pos.appendChild(panel)}
  panel.innerHTML=`<div class="bn38-head"><div><h2>Monitoring PO & Pembayaran <span class="bn40-badge">V4.1</span></h2><p>Kelola tanggal proses PO, tagihan belum lunas, DP/pelunasan dan realisasi penerimaan Cash/QRIS.</p></div><button class="bn38-btn" type="button" onclick="bn38Load()">↻ Muat Ulang</button></div>
- <div class="bn40-toolbar"><label class="bn40-field">Dari tanggal<input type="date" id="bn40From" value="${bn40Start}"></label><label class="bn40-field">Sampai tanggal<input type="date" id="bn40To" value="${bn40End}"></label><label class="bn40-field">Jenis Transaksi<select id="bn40Kind"><option value="all">Semua</option><option value="po">Pre-Order (PO)</option><option value="direct">Langsung</option></select></label><label class="bn40-field">Status Bayar<select id="bn40Status"><option value="all">Semua Status</option><option value="unpaid">Belum Bayar</option><option value="partial">DP / Belum Lunas</option><option value="paid">Lunas</option></select></label><label class="bn40-field bn40-wide">Cari nomor transaksi<input id="bn40Search" placeholder="Cari ID transaksi..." autocomplete="off"></label><div class="bn40-field bn40-wide" style="justify-content:end"><button class="bn38-btn" type="button" onclick="bn40Apply()">Terapkan Filter</button></div></div>
- <p class="bn40-status-note">Tab <b>Semua PO</b> menampilkan semua jenis/status <b>di rentang tanggal yang dipilih</b> (default 90 hari). Filter tanggal memakai <b>jadwal proses untuk PO</b> dan <b>tanggal dibuat untuk transaksi langsung</b>. Penerimaan Cash/QRIS di bawah dihitung terpisah berdasarkan <b>tanggal pembayaran diterima</b>.</p><div id="bn38Content" class="bn38-content">Memuat...</div>`;
- document.getElementById('bn40Kind').value=bn40Kind;document.getElementById('bn40Status').value=bn40Status;document.getElementById('bn40Search').value=bn40Search;
+ <div class="bn40-toolbar"><label class="bn40-field">Dari tanggal<input type="date" id="bn40From" value="${bn40Start}"></label><label class="bn40-field">Sampai tanggal<input type="date" id="bn40To" value="${bn40End}"></label><label class="bn40-field">Jenis Transaksi<select id="bn40Kind"><option value="po">Pre-Order (PO)</option></select></label><label class="bn40-field">Status Bayar<select id="bn40Status"><option value="all">Semua Status</option><option value="unpaid">Belum Bayar</option><option value="partial">DP / Belum Lunas</option><option value="paid">Lunas</option></select></label><label class="bn40-field bn40-wide">Cari nomor transaksi<input id="bn40Search" placeholder="Cari ID transaksi..." autocomplete="off"></label><div class="bn40-field bn40-wide" style="justify-content:end"><button class="bn38-btn" type="button" onclick="bn40Apply()">Terapkan Filter</button></div></div>
+ <p class="bn40-status-note">Pelunasan hanya menampilkan PO berstatus Selesai dari Barista. PO yang masih menunggu, diproses, atau siap tetap berada di antrean Barista. Riwayat PO lunas tersedia pada tab terpisah. Ringkasan penerimaan mengikuti periode dari server.</p><div id="bn38Content" class="bn38-content">Memuat...</div>`;
+ document.getElementById('bn40Kind').value=bn40Kind;document.getElementById('bn40Status').value='all';document.getElementById('bn40Status').closest('label').style.display='none';document.getElementById('bn40Search').value=bn40Search;
  bn38Load();
 }
 function bn40Apply(){
@@ -3325,13 +3317,13 @@ async function bn38Load(){
    if(alt.errors.length)bn583SourceInfo+=' Beberapa rentang antrean gagal dimuat: '+alt.errors.join('; ')+'.';
   }else if(monitorError)bn583SourceInfo='Monitoring pembayaran gagal: '+monitorError;
   await bn582FetchWorkflow(bn38Orders);
-  bn38Render();bn575ResolveNames(bn38Orders);bn577LoadBuyerNames();
+  bn38Render();bn588ResolveHistory(bn38Orders).then(()=>{if(document.getElementById('bn38Content'))bn38Render()});
  }catch(e){box.innerHTML='<div class="bn38-alert">Gagal memuat daftar PO: '+esc(e.message||'')+'. Periksa koneksi dan fungsi Supabase.</div>'}
  finally{bn38Loading=false}
 }
 let bn40Truncated=false;
-function bn40Filtered(){return bn38Orders.filter(o=>(bn40Status==='all'||bn40StatusOf(o)===bn40Status)&&(!bn40Search||String(o.purchase_id||'').toLowerCase().includes(bn40Search)))}
-let bn572PoTab='all';
+function bn40Filtered(){return bn38Orders.filter(o=>o.order_type==='po'&&(bn40Status==='all'||bn40StatusOf(o)===bn40Status)&&(!bn40Search||String(o.purchase_id||'').toLowerCase().includes(bn40Search)))}
+let bn572PoTab='unpaid';
 function bn572PoStatus(o){
  const id=String(o?.purchase_id||'').toLowerCase();
  // Backend workflow authoritative. Jangan ambil status dari antrean aktif yang mungkin menyembunyikan PO Selesai.
@@ -3339,8 +3331,8 @@ function bn572PoStatus(o){
  return 'unknown'; // Gagal verifikasi = tidak boleh mencatat pelunasan.
 }
 function bn572PoSetTab(v){bn572PoTab=v;bn38Render()}
-function bn572PoTabs(rows){const opts=[['all','Semua PO'],['waiting','Menunggu'],['processing','Diproses'],['ready','Siap'],['completed','Selesai'],['unpaid','Belum Lunas']];return '<div class="bn572-tabs" aria-label="Tahap PO">'+opts.map(([k,l])=>'<button type="button" class="bn572-tab '+(bn572PoTab===k?'active':'')+'" onclick="bn572PoSetTab(\''+k+'\')">'+l+'</button>').join('')+'</div>'}
-function bn572PoKeep(o){if(bn572PoTab==='all')return true;if(bn572PoTab==='unpaid')return bn40StatusOf(o)!=='paid';return bn572PoStatus(o)===bn572PoTab}
+function bn572PoTabs(rows){const opts=[['unpaid','Siap Dilunasi'],['paid','Riwayat PO Lunas']];return '<div class="bn572-tabs" aria-label="Tahap PO">'+opts.map(([k,l])=>'<button type="button" class="bn572-tab '+(bn572PoTab===k?'active':'')+'" onclick="bn572PoSetTab(\''+k+'\')">'+l+'</button>').join('')+'</div>'}
+function bn572PoKeep(o){return o.order_type==='po'&&bn572PoStatus(o)==='completed'&&(bn572PoTab==='paid'?bn40StatusOf(o)==='paid':bn40StatusOf(o)!=='paid')}
 function bn38Render(){
  const box=document.getElementById('bn38Content');if(!box)return;
  const allRows=bn40Filtered(),rows=allRows.filter(bn572PoKeep),pending=rows.filter(o=>bn40StatusOf(o)!=='paid'),settled=rows.filter(o=>bn40StatusOf(o)==='paid');
@@ -3394,13 +3386,13 @@ function bn40DownloadCsv(data,name){
  const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),5000);
 }
 function bn40ExportOrders(){
- const rows=bn40Filtered();if(!rows.length)return toast('Tidak ada transaksi untuk diekspor',true);
+ const rows=bn40Filtered().filter(bn572PoKeep);if(!rows.length)return toast('Tidak ada transaksi untuk diekspor',true);
  const data=[['ID Transaksi','Jenis','Dibuat','Tanggal Proses PO','Total Tagihan','Sudah Diterima','Sisa Tagihan','Status Bayar','Jenis Pelanggan']];
  rows.forEach(o=>data.push([o.purchase_id,o.order_type||'po',o.created_at,o.process_at||'',o.total,o.paid,Math.max(0,Number(o.total)-Number(o.paid)),bn40StatusOf(o),o.customer_type]));
  bn40DownloadCsv(data,'BentarNgopi-Rekap-Tagihan-V40.csv');
 }
 function bn40ExportPayments(){
- const rows=bn40Filtered(),data=[['ID Transaksi','Jenis','Tanggal Proses PO','Tanggal Uang Diterima','Metode','Nominal Diterima','Referensi','Petugas']];
+ const rows=bn40Filtered().filter(bn572PoKeep),data=[['ID Transaksi','Jenis','Tanggal Proses PO','Tanggal Uang Diterima','Metode','Nominal Diterima','Referensi','Petugas']];
  rows.forEach(o=>(o.payments||[]).forEach(p=>data.push([o.purchase_id,o.order_type||'po',o.process_at||'',p.received_at,p.method,p.amount,p.reference||'',p.recorded_by])));
  if(data.length===1)return toast('Tidak ada riwayat pembayaran untuk diekspor',true);
  bn40DownloadCsv(data,'BentarNgopi-Detail-Pembayaran-V40.csv');
@@ -3410,12 +3402,12 @@ function bn38Export(){bn40ExportOrders()}
 
 /* BentarNgopi V4.1 — Antrean Barista, status proses terpisah dari pembayaran */
 let bn41Rows=[],bn41Busy=false,bn41Truncated=false;
-let bn41From=bn40LocalDay(-23),bn41To=bn40LocalDay(7),bn41Status='active';
+let bn41From=bn40LocalDay(-23),bn41To=bn40LocalDay(7),bn41Status='all';
 const bn41Label={waiting:'Menunggu',processing:'Diproses',ready:'Siap Diambil',completed:'Selesai',cancelled:'Dibatalkan'};
 const bn41Next={waiting:'processing',processing:'ready',ready:'completed'};
 function bn41Mount(){
  if(!state.adminSession?.token)return;
- const targets=[{host:document.getElementById('bn573BaristaIntegrated')||document.querySelector('.bn-pos-shell'),id:'bn41Pos'},{host:document.getElementById('bn36DashboardHost'),id:'bn41Admin'}];
+ const targets=[{host:document.getElementById('bn573BaristaIntegrated')||document.querySelector('.bn-pos-shell'),id:'bn41Pos'},{host:document.getElementById('bn36DashboardHost'),id:'bn41Admin'},{host:document.getElementById('onlineAdminOrders'),id:'bn41Orders'}];
  for(const x of targets){if(!x.host||document.getElementById(x.id))continue;const wrap=document.createElement('section');wrap.id=x.id;wrap.className='bn41-wrap';x.host.appendChild(wrap);
  wrap.innerHTML='<div class="bn41-head"><div><h2>☕ Antrean Barista <small style="font-size:.68rem;color:#916f4e">V4.1</small></h2><p>Jadwal PO · Status proses terpisah dari pembayaran</p></div><button class="bn41-btn secondary" type="button" onclick="bn41Load()">↻ Muat Ulang</button></div><div class="bn41-filters"><label>Dari tanggal<input type="date" class="bn41-from" value="'+bn41From+'"></label><label>Sampai tanggal<input type="date" class="bn41-to" value="'+bn41To+'"></label><label>Status<select class="bn41-filter"><option value="active">Aktif (belum selesai)</option><option value="all">Semua</option><option value="waiting">Menunggu</option><option value="processing">Diproses</option><option value="ready">Siap Diambil</option><option value="completed">Selesai</option></select></label><label>Aksi<button class="bn41-btn" type="button" onclick="bn41Apply(this)">Terapkan</button></label></div><div class="bn41-content"><div class="bn41-empty">Memuat antrean...</div></div>';
  wrap.querySelector('.bn41-filter').value=bn41Status;}
@@ -3432,7 +3424,7 @@ async function bn41Load(){if(bn41Busy||!state.adminSession?.token)return;bn41Bus
  catch(e){for(const box of document.querySelectorAll('.bn41-content'))box.innerHTML='<div class="bn41-warning">Gagal memuat antrean: '+esc(e.message||'')+'. Pastikan SQL V4.1 sudah terpasang.</div>'}
  finally{bn41Busy=false}}
 function bn41Render(){const rows=bn41Rows.filter(r=>bn41Status!=='active'||!['completed','cancelled'].includes(r.status));
- const counts={waiting:0,processing:0,ready:0,completed:0};for(const r of rows)if(counts[r.status]!==undefined)counts[r.status]++;
+ const counts={waiting:0,processing:0,ready:0,completed:0};for(const r of bn41Rows)if(counts[r.status]!==undefined)counts[r.status]++;
  let html='<div class="bn41-summary">'+Object.entries(counts).map(([s,n])=>'<div class="bn41-stat"><small>'+bn41Label[s]+'</small><strong>'+n+'</strong></div>').join('')+'</div>';
  if(bn41Truncated)html+='<div class="bn41-warning">Lebih dari 300 PO cocok. Persempit tanggal agar antrean dan ekspor lengkap.</div>';
  html+='<p class="bn41-muted">Status pengerjaan tidak menandakan pembayaran lunas. Waktu adalah jadwal proses PO (WIB). Urutan tidak dapat dilewati.</p>';
@@ -3457,33 +3449,52 @@ function bn41Export(){const rows=bn41Rows.filter(r=>bn41Status!=='active'||!['co
 let bn42Source='all';
 bn41Mount=function(){
  if(!state.adminSession?.token)return;
- const targets=[{host:document.getElementById('bn573BaristaIntegrated')||document.querySelector('.bn-pos-shell'),id:'bn41Pos'},{host:document.getElementById('bn36DashboardHost'),id:'bn41Admin'}];
+ const targets=[{host:document.getElementById('bn573BaristaIntegrated')||document.querySelector('.bn-pos-shell'),id:'bn41Pos'},{host:document.getElementById('bn36DashboardHost'),id:'bn41Admin'},{host:document.getElementById('onlineAdminOrders'),id:'bn41Orders'}];
  let added=false;
  for(const x of targets){if(!x.host||document.getElementById(x.id))continue;
   const wrap=document.createElement('section');wrap.id=x.id;wrap.className='bn41-wrap bn42-wrap';x.host.appendChild(wrap);added=true;
   wrap.innerHTML='<div class="bn41-head"><div><h2>☕ Antrean Barista Terpadu <small>V4.3</small></h2><p>PO Kasir + Online · Tab status dan nama pembeli · Pembayaran PO setelah selesai</p></div><button class="bn41-btn secondary" type="button" onclick="bn41Load()">↻ Muat Ulang</button></div><div class="bn41-filters"><label>Dari tanggal<input type="date" class="bn41-from" value="'+bn41From+'"></label><label>Sampai tanggal<input type="date" class="bn41-to" value="'+bn41To+'"></label><label>Sumber<select class="bn42-source"><option value="all">Semua pesanan</option><option value="po">PO Kasir</option><option value="online">Online / Web</option></select></label><label>Status<select class="bn41-filter"><option value="active">Aktif (belum selesai)</option><option value="all">Semua</option><option value="waiting">Menunggu</option><option value="processing">Diproses</option><option value="ready">Siap Diambil</option><option value="completed">Selesai</option><option value="cancelled">Dibatalkan</option></select></label><label>Aksi<button class="bn41-btn" type="button" onclick="bn41Apply(this)">Terapkan</button></label></div><div class="bn41-content"><div class="bn41-empty">Memuat antrean...</div></div>';
-  wrap.querySelector('.bn41-filter').value=bn41Status;wrap.querySelector('.bn42-source').value=bn42Source;
+  wrap.querySelector('.bn41-filter').value='all';wrap.querySelector('.bn41-filter').closest('label').style.display='none';wrap.querySelector('.bn42-source').value=bn42Source;
  }
  if(added)bn41Load();
 };
 bn41Apply=function(btn){const wrap=btn.closest('.bn41-wrap'),f=wrap.querySelector('.bn41-from').value,t=wrap.querySelector('.bn41-to').value;
  if(!f||!t||f>t||Math.round((Date.parse(t)-Date.parse(f))/86400000)>30)return toast('Rentang antrean maksimal 31 hari',true);
- bn41From=f;bn41To=t;bn41Status=wrap.querySelector('.bn41-filter').value;bn42Source=wrap.querySelector('.bn42-source').value;
+ bn41From=f;bn41To=t;bn41Status='all';bn42Source=wrap.querySelector('.bn42-source').value;
  document.querySelectorAll('.bn41-wrap').forEach(w=>{w.querySelector('.bn41-from').value=f;w.querySelector('.bn41-to').value=t;w.querySelector('.bn41-filter').value=bn41Status;w.querySelector('.bn42-source').value=bn42Source});bn41Load();
 };
-bn41Load=async function(){if(bn41Busy||!state.adminSession?.token)return;bn41Busy=true;
+let bn587QueuePromise=null,bn587QueueValid=false,bn587OrderMeta=new Map();
+bn41Load=function(){
+ if(!state.adminSession?.token)return Promise.resolve();
+ if(bn587QueuePromise)return bn587QueuePromise;
+ const token=state.adminSession.token;
+ const params={p_token:token,p_from:bn41From,p_to:bn41To,p_status:'all',p_source:bn42Source};
+ bn41Busy=true;bn587QueueValid=false;
  for(const box of document.querySelectorAll('.bn41-content'))box.innerHTML='<div class="bn41-empty">Memuat antrean terpadu...</div>';
- try{const r=await staffRPC('bn_barista_queue_v42',{p_token:state.adminSession.token,p_from:bn41From,p_to:bn41To,p_status:bn41Status==='active'?'all':bn41Status,p_source:bn42Source});
-  bn41Rows=Array.isArray(r?.orders)?r.orders:[];bn41Truncated=!!r?.truncated;bn41Render();bn575ResolveNames(bn41Rows);bn577LoadBuyerNames();
- }catch(e){for(const box of document.querySelectorAll('.bn41-content'))box.innerHTML='<div class="bn41-warning">Gagal memuat antrean terpadu: '+esc(e.message||'')+'. Jalankan SQL V4.2 terlebih dahulu.</div>'}
- finally{bn41Busy=false}
+ bn587QueuePromise=(async()=>{
+  try{
+   const r=await staffRPC('bn_barista_queue_v42',params);
+   if(state.adminSession?.token!==token)return;
+   if(!Array.isArray(r?.orders))throw new Error('Format antrean tidak valid');
+   bn41Rows=r.orders;bn41Truncated=!!r.truncated;bn587QueueValid=true;
+   bn587OrderMeta=new Map();
+   // The old online endpoint is used only for delivery details, never for workflow or payment status.
+   if(state.adminSession?.role==='admin'&&document.getElementById('bn41Orders')){
+    try{const details=await staffRPC('bn_admin_online_orders',{p_token:token});for(const o of Array.isArray(details)?details:[])bn587OrderMeta.set(String(o.id),o);}catch(e){console.warn('Detail online tidak tersedia',e)}
+    try{const locs=await staffRPC('bn_admin_order_locations',{p_token:token});for(const o of Array.isArray(locs)?locs:[]){const k=String(o.id);if(bn587OrderMeta.has(k))Object.assign(bn587OrderMeta.get(k),o);}}catch(e){console.warn('Lokasi online tidak tersedia',e)}
+   }
+   if(state.adminSession?.token!==token)return;
+   bn41Render();bn575ResolveNames(bn41Rows);bn577LoadBuyerNames();
+  }catch(e){bn41Rows=[];bn587QueueValid=false;for(const box of document.querySelectorAll('.bn41-content'))box.innerHTML='<div class="bn41-warning">Gagal memuat antrean terpadu: '+esc(e.message||'')+'</div>'}
+ })().finally(()=>{bn41Busy=false;bn587QueuePromise=null; if(state.adminSession?.token===token&&(params.p_from!==bn41From||params.p_to!==bn41To||params.p_source!==bn42Source))bn41Load();});
+ return bn587QueuePromise;
 };
 let bn572BaristaTab='active';
 function bn572BaristaSetTab(v){bn572BaristaTab=v;bn41Render()}
-function bn572BaristaTabs(){return '<div class="bn572-tabs" aria-label="Tab pesanan barista">'+[['active','Pesanan Masuk'],['waiting','Menunggu'],['processing','Diproses'],['ready','Siap'],['completed','Selesai'],['all','Semua']].map(([k,l])=>'<button type="button" class="bn572-tab '+(bn572BaristaTab===k?'active':'')+'" onclick="bn572BaristaSetTab(\''+k+'\')">'+l+'</button>').join('')+'</div>'}
-function bn572BaristaVisible(r){const s=r.status||'waiting';return bn572BaristaTab==='all'||(bn572BaristaTab==='active'?!['completed','cancelled'].includes(s):s===bn572BaristaTab)}
-bn41Render=function(){const rows=bn41Rows.filter(r=>(bn41Status!=='active'||!['completed','cancelled'].includes(r.status))&&bn572BaristaVisible(r));
- const counts={waiting:0,processing:0,ready:0,completed:0};for(const r of rows)if(counts[r.status]!==undefined)counts[r.status]++;
+function bn572BaristaTabs(){return '<div class="bn572-tabs" aria-label="Tab pesanan barista">'+[['active','Pesanan Masuk'],['processing','Sedang Diproses'],['ready','Siap'],['completed','Selesai'],['cancelled','Dibatalkan'],['all','Semua']].map(([k,l])=>'<button type="button" class="bn572-tab '+(bn572BaristaTab===k?'active':'')+'" onclick="bn572BaristaSetTab(\''+k+'\')">'+l+'</button>').join('')+'</div>'}
+function bn572BaristaVisible(r){const s=r.status||'waiting';return bn572BaristaTab==='all'||(bn572BaristaTab==='active'?s==='waiting':s===bn572BaristaTab)}
+bn41Render=function(){if(!bn587QueueValid)return;const rows=bn41Rows.filter(bn572BaristaVisible);
+ const counts={waiting:0,processing:0,ready:0,completed:0};for(const r of bn41Rows)if(counts[r.status]!==undefined)counts[r.status]++;
  let html='<div class="bn41-summary">'+Object.entries(counts).map(([s,n])=>'<div class="bn41-stat"><small>'+bn41Label[s]+'</small><strong>'+n+'</strong></div>').join('')+'</div>';
  if(bn41Truncated)html+='<div class="bn41-warning">Lebih dari 300 pesanan cocok. Persempit tanggal agar daftar dan ekspor lengkap.</div>';
  html+='<p class="bn41-muted">Urutan kerja: Menunggu → Diproses → Siap Diambil → Selesai. Status proses bukan bukti pembayaran lunas. Untuk pesanan Online, jadwal berasal dari tanggal/jam proses pesanan (jika tidak tersedia, tanggal pesanan).</p>';
@@ -3491,7 +3502,20 @@ bn41Render=function(){const rows=bn41Rows.filter(r=>(bn41Status!=='active'||!['c
  html+=bn580SettingHtml();
  html+=bn572BaristaTabs();
  html+='<div class="bn41-list">'+(rows.length?rows.map(bn41Card).join(''):'<div class="bn41-empty">Tidak ada pesanan sesuai filter.</div>')+'</div>';
- for(const box of document.querySelectorAll('.bn41-content'))box.innerHTML=html;
+ for(const box of document.querySelectorAll('.bn41-content')){
+  box.innerHTML=html;
+  if(box.closest('#bn41Orders')){
+   const cards=box.querySelectorAll('.bn41-list > article');
+   rows.forEach((r,i)=>{const o=r.source==='online'&&bn587OrderMeta.get(String(r.id));if(!o||!cards[i])return;
+    const temp=document.createElement('div');temp.innerHTML=bnAdminOrderCard({...o,status:r.status});
+    const details=temp.querySelector('details[data-order-detail]');if(details)cards[i].appendChild(details);
+    if(['waiting','processing'].includes(r.status)){
+     const cancel=document.createElement('button');cancel.type='button';cancel.className='bn41-btn secondary';cancel.textContent='Batalkan pesanan online';cancel.onclick=()=>setAdminOrderStatus(String(r.id),'cancelled');cards[i].appendChild(cancel);
+    }
+   });
+  }
+ }
+
 };
 bn41Card=function(r){const s=r.status||'waiting',next=bn41Next[s],source=r.source==='online'?'online':'po';
  const due=Math.max(0,Number(r.total||0)-Number(r.paid||0));
@@ -3504,10 +3528,10 @@ bn41Card=function(r){const s=r.status||'waiting',next=bn41Next[s],source=r.sourc
 };
 bn41Advance=async function(ev,id,next,version,source){ev.preventDefault();const f=ev.currentTarget,btn=f.querySelector('button');if(!btn||btn.disabled)return;
  if(!confirm('Ubah status '+(source==='online'?'Online':'PO Kasir')+' menjadi '+(bn41Label[next]||next)+'?'))return;btn.disabled=true;
- try{if(next==='ready'){if(state.adminSession?.role!=='admin')throw new Error('Posting stok dan status Siap Diambil hanya melalui Admin agar resep dan HPP benar.');await bn47Ready(id,source,version,f.elements.note.value.trim()||null);}else{await staffRPC('bn_barista_update_v42',{p_token:state.adminSession.token,p_source:source,p_id:id,p_new_status:next,p_expected_version:version,p_note:f.elements.note.value.trim()||null});}toast('Status berhasil diperbarui');await bn41Load();if(source==='po'&&next==='completed'){await bn573OpenPoPayment(id);}}
+ try{if(next==='ready'){if(state.adminSession?.role!=='admin')throw new Error('Posting stok dan status Siap Diambil hanya melalui Admin agar resep dan HPP benar.');await bn47Ready(id,source,version,f.elements.note.value.trim()||null);}else{await staffRPC('bn_barista_update_v42',{p_token:state.adminSession.token,p_source:source,p_id:id,p_new_status:next,p_expected_version:version,p_note:f.elements.note.value.trim()||null});}toast('Status berhasil diperbarui');await bn41Load();if(source==='po'&&next==='completed'){const updated=bn41Rows.find(r=>r.source==='po'&&String(r.id)===String(id));if(updated&&Number(updated.total||0)-Number(updated.paid||0)>.005)await bn573OpenPoPayment(id);}}
  catch(e){toast(e.message||'Gagal memperbarui status',true);await bn41Load()}finally{btn.disabled=false}
 };
-bn41Export=function(){const rows=bn41Rows.filter(r=>bn41Status!=='active'||!['completed','cancelled'].includes(r.status));if(!rows.length)return toast('Tidak ada antrean untuk ekspor',true);
+bn41Export=function(){const rows=bn41Rows.filter(bn572BaristaVisible);if(!rows.length)return toast('Tidak ada antrean untuk ekspor',true);
  const data=[['Sumber','Nomor Transaksi','ID','Jadwal Proses WIB','Status','Total Pesanan','Diterima PO','Sisa PO','Produk (JSON)','Petugas Terakhir','Catatan']];
  rows.forEach(r=>data.push([r.source,r.order_no,r.id,r.schedule_at,r.status,r.total,r.source==='po'?r.paid:'',r.source==='po'?Math.max(0,Number(r.total||0)-Number(r.paid||0)):'',JSON.stringify(r.items||[]),r.updated_by||'',r.note||'']));
  bn40DownloadCsv(data,'BentarNgopi-Antrean-Terpadu-V42.csv');
@@ -4537,5 +4561,44 @@ function bn584Mount(){const host=document.getElementById('bn584Page');if(!host)r
  host.innerHTML='<div class="bn584-head"><div><h2><i class="fa-solid fa-clipboard-list"></i> Rekap Produksi PO Harian</h2><div class="bn584-sub">Total menu yang harus disiapkan per tanggal proses, beserta rincian jumlah setiap pembeli. Hanya PO Kasir, tidak termasuk transaksi langsung atau pesanan dibatalkan.</div></div></div><div class="bn584-tools"><label>Dari tanggal<input type="date" id="bn584From" value="'+bn584From+'"></label><label>Sampai tanggal<input type="date" id="bn584To" value="'+bn584To+'"></label><button type="button" onclick="bn584Load()">↻ Tampilkan Rekap</button><button type="button" onclick="bn584Csv()">↓ Ekspor Excel (CSV)</button><button type="button" onclick="window.print()">Cetak</button></div><div class="bn584-sub" style="margin-bottom:14px">Nama menu dan varian mengikuti data pesanan. Rekap menghitung seluruh PO terjadwal, termasuk yang sudah Selesai/Lunas; tidak menggandakan ID PO dan tidak mengurangi stok.</div><div id="bn584Content"><div class="bn584-blank">Klik Tampilkan Rekap untuk memuat kebutuhan produksi.</div></div>';
 }
 
+
+async function bn586DirectLoad(){const host=document.getElementById('bn586DirectRows');if(!host||!state.adminSession?.token)return;const f=document.getElementById('bn586From').value,t=document.getElementById('bn586To').value;if(!f||!t||f>t||Math.round((Date.parse(t)-Date.parse(f))/86400000)>89)return toast('Rentang maksimal 90 hari',true);const key=f+'|'+t;host.dataset.query=key;host.innerHTML='<p class="muted">Memuat transaksi langsung...</p>';try{const r=await staffRPC('bn_po_monitor_v40',{p_token:state.adminSession.token,p_from:f,p_to:t,p_order_type:'direct',p_limit:300});if(!host.isConnected||host.dataset.query!==key)return;const rows=(Array.isArray(r?.orders)?r.orders:[]).filter(o=>o.order_type==='direct');await bn588ResolveHistory(rows);if(!host.isConnected||host.dataset.query!==key)return;host.innerHTML=(r?.truncated?'<p class="muted">Hasil dibatasi 300 transaksi. Persempit periode.</p>':'')+'<p class="muted">'+rows.length+' transaksi langsung · tidak termasuk PO.</p>'+rows.map(o=>'<article class="bn38-row"><strong>Langsung '+esc(String(o.purchase_id||'').slice(0,8))+'</strong><p>'+esc(bn40FmtDate(o.created_at))+' WIB · '+esc(o.customer_type||'Kasir')+'</p>'+bn588HistoryBuyer(o)+'<div class="bn38-amounts"><span>Total <b>'+bn38Money(o.total)+'</b></span><span>Diterima <b>'+bn38Money(o.paid)+'</b></span></div></article>').join('')+(rows.length?'':'<p class="muted">Tidak ada transaksi langsung.</p>');}catch(e){if(host.dataset.query===key)host.innerHTML='<p class="text-red-700">Gagal memuat riwayat: '+esc(e.message||'')+'</p>';}}
+
+
+/* V5.8.8: nama member riwayat, identitas transaksi penuh. */
+function bn588HistoryIdentity(o){
+ const m=bn577BuyerIndex.get(bn577Key(o.purchase_id||o.id));
+ const phone=bn575MemberPhone(o)||bn575MemberPhone(m||{});
+ const member=bn575IsMember(o)||bn575IsMember(m||{});
+ const names=[o.member_name,o.customer?.name,o.member?.name,o.customer_name,o.buyer_name,m?.customer_name,o.name];
+ const name=names.map(x=>String(x||'').trim()).find(x=>x&&!/^(member|non[-_ ]?member|general|guest|kasir|umum|pelanggan umum|nama belum tersedia)$/i.test(x)&&x!==phone&&!/^\+?\d+$/.test(x))||'';
+ return {member,phone,name:name||(member?bn575MemberNames.get(phone)||'':'')};
+}
+async function bn588ResolveHistory(rows){
+ try{await bn577LoadBuyerNames()}catch(e){}
+ const phones=[...new Set(rows.map(bn588HistoryIdentity).filter(x=>x.member&&!x.name&&x.phone).map(x=>x.phone))];
+ let cursor=0;await Promise.all(Array.from({length:Math.min(5,phones.length)},async()=>{while(cursor<phones.length){const phone=phones[cursor++];try{const m=await staffRPC('bn_cashier_find_member',{p_token:state.adminSession.token,p_phone:phone});if(m?.name)bn575MemberNames.set(phone,String(m.name).trim())}catch(e){}}}));
+}
+function bn588HistoryBuyer(o){const b=bn588HistoryIdentity(o);return '<div class="bn575-person"><span class="bn575-type '+(b.member?'member':'general')+'">'+(b.member?'MEMBER':'PEMBELI')+'</span><b>'+esc(b.name||(b.member?'Nama member belum tersedia':'Pelanggan umum'))+'</b></div>';}
+
+/* V5.8.7: one workflow for Kasir, Barista and Pesanan Masuk. */
+let bn587RefreshTimer=null;
+function bn587VisibleQueue(){return [...document.querySelectorAll('.bn41-wrap')].some(x=>x.getClientRects().length>0)}
+function bn587Refresh(){
+ if(!state.adminSession?.token||document.hidden)return;
+ if(bn587VisibleQueue())bn41Load();
+ if(document.getElementById('bn38Content')?.getClientRects().length)bn38Load();
+}
+const bn587RPC=staffRPC;
+staffRPC=async function(name,data){
+ const result=await bn587RPC(name,data);
+ if(['bn_barista_update_v42','bn_production_ready_v47','bn_po_record_payment_v38','bn_transaction_create_v568','bn_admin_order_status','bn_admin_confirm_order_receipt','bn_admin_set_order_schedule','bn_po_cancel_v43','bn_online_confirm_receipt_v44','bn_adjustment_review_v44'].includes(name)){
+  clearTimeout(bn587RefreshTimer);bn587RefreshTimer=setTimeout(()=>{if(bn587QueuePromise)bn587QueuePromise.finally(bn587Refresh);else bn587Refresh()},400);
+ }
+ return result;
+};
+window.addEventListener('focus',bn587Refresh);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)bn587Refresh()});
+setInterval(()=>{if(document.hidden||!state.adminSession?.token)return;const a=document.activeElement;if(a&&['INPUT','SELECT','TEXTAREA','BUTTON'].includes(a.tagName))return;if(bn587VisibleQueue()&&!document.querySelector('.bn41-wrap details[open]'))bn41Load();},20000);
 </script>
 </body></html>
